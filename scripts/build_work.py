@@ -8,7 +8,7 @@ public coverage; don't add claims that aren't in either.
 import html, os, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "16"  # bump with ?v= in index.html when CSS/JS change
+V = "17"  # bump with ?v= in index.html when CSS/JS change
 
 PROJECTS = [
     dict(slug="superfile-trackhouse-nascar", client="SuperFile × Trackhouse Racing", title="Daytona 500",
@@ -116,7 +116,7 @@ def page(p, nxt):
 <body class="case-page">
 <header class="bar solid" id="bar">
   <a class="mark" href="/">Taylor Powers</a>
-  <nav aria-label="Main"><a href="/#work">Work</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav>
+  <nav aria-label="Main"><a href="/#work">Work</a><a href="/#intro">About</a><a href="/#contact">Contact</a></nav>
 </header>
 <main>
   <section class="case-hero{" light-hero" if p.get("hero_light") else ""}">

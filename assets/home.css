@@ -153,7 +153,7 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
 @media (max-width: 809px) {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .info { position: static; padding: 24px 16px 0; }
-  .work { position: static; padding: 0 16px 24px; display: flex; flex-direction: column; }
+  .work { position: static; padding: 0 16px 24px; display: flex; flex-direction: column; align-items: stretch; }
   .col { display: contents; } /* phones: one column, original order */
   .card-meta h3 { font-size: 17px; }
   .card-meta span { font-size: 13px; }
@@ -161,6 +161,21 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
   .footer-mobile { display: flex !important; margin: 0 16px 24px; }
 }
 .footer-mobile { display: none !important; }
+
+/* Video loops: silent clips that fade in over the photo while playing */
+.clip {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0; transition: opacity .4s ease; pointer-events: none;
+}
+.card.playing .clip { opacity: 1; }
+
+/* Mouse and trackpad: the photos stay clean and each title fades in on hover */
+@media (hover: hover) and (pointer: fine) {
+  .card::after, .card-meta { opacity: 0; transition: opacity .35s ease, transform .35s ease; }
+  .card-meta { transform: translateY(6px); }
+  .card:hover::after, .card:focus-visible::after,
+  .card:hover .card-meta, .card:focus-visible .card-meta { opacity: 1; transform: none; }
+}
 .footer-mobile .to-top { transform: none; }
 
 @media (max-width: 809px) {

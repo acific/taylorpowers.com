@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **Premium pass:** card titles appear on hover (mouse only); 2× photos for large and high-density screens; silent clips on FLEX × LAFC, SKIL and EGO Z6; seven cards open their case pages. Case-page menu: About now goes to the top of the home page and Contact to its Reach out section. Fixed a bug from the two-column change where cards collapsed to zero height on phones. Stamp 17.
 - **Two-column project cards:** the right side shows the thirteen cards in two height-balanced columns; both columns are pinned so the shorter one stops at its end. Phones keep one column in the original order. Stamp 16.
 - **Home page redesign:** `index.html` now matches the owner's Framer design (willing-iris-827866.framer.app): two columns, Switzer, a logo strip, services, experience, contact and thirteen project cards linking to outside coverage. Its styles and script are `assets/home.css` and `assets/home.js`; its images and self-hosted fonts are in `assets/home/`. Contact is taylorraepowers@icloud.com, as in the design. Fixed from the Framer version: the mailto (it pointed at a template address), the Trackhouse NASCAR link and "Brand Lanches".
 - **Security:** the CSP's `font-src` adds `'self'` for the self-hosted Switzer, in `index.html` and the case-page template. Case pages rebuilt. Stamp 15.
