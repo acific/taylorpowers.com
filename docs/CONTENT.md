@@ -70,6 +70,7 @@ The bio, services, experience entries, email address and the project cards (name
 - **SuperFile brand:** superfile.com (waitlist, tagline), si.com (sovereign file control). The brand film (Vimeo 1014838410) was uploaded Oct 1, 2024, before Taylor's tenure, and is labelled 2024.
 - **UFC & WWE:** ufc.com release (quotes, FREEDOM 250, UFC 329, WWE), mmapayout.com (weigh-ins). UFC 329: mmafighting.com weigh-in results (Jul 10, 2026; McGregor makes weight, SuperFile on the scale), Fox/OutKick, SI, Bleacher Report and Hola (Sophie Cunningham with the SuperFile round-1 card before Pimblett vs. Saint Denis; Dana White booked her about eight minutes before). Images: ufc.com hero graphic; Getty weigh-in photo via mmafighting.com; the UFC 329 poster via a Mavrix (Arizona) watch-party post; round-card photos via Fox and Hola.
 - **Digital Domain film:** "DD Company Web Banner", the studio's showreel loop on digitaldomain.com (Vimeo 410410685), re-encoded silent at 720p. Its other homepage video (Vimeo 957937763) is domain-locked, so it isn't used.
+- **SuperFile's own media (owner-supplied, 2026-11-20)** from the company's OneDrive `01_MEDIA`: race photos from Daytona, Martinsville, Texas and the Watkins Glen win (`assets/img/nascar-*`), Chicagoland photos of the Lefty Out There car (`lefty-*`, including the artist at work), the MotoGP unveil graphic (MotoGP card), and the films in `assets/video/`: the 30-second anthem, Daytona 500, New Hampshire and Chicagoland highlights, UFC FREEDOM 250 and UFC 329. Silent 12-second loops cut from four of them are in `assets/clips/` for heroes and home cards. Owned by SuperFile; shown with the owner's permission.
 - **Wylie Co. card:** the Dune (2021) theatrical poster (TMDB), padded square on a blurred copy of itself.
 - **SuperFile × LAFC:** lafc.com Force for Good (Golden Boot Club, $50,000), LAFC on X (first look, Apr 4 2026). Images: lafc.com kit page and newsletter, the LAFC X post.
 - **FLEX × LAFC:** lafc.com (announcement, Heart of Gold, 5 Years Strong, Smokescreen), mlssoccer.com, legendsglobal.com. Images: lafc.com.
@@ -97,12 +98,10 @@ The footer and the home page's first card say "Chicago / Los Angeles / Las Vegas
 |---|---|---|
 | `assets/video/reel.mp4` | The owner's showreel (`~/Downloads/file-2.mp4`) | About 10 s in there's a shot that looks like *Dazed and Confused*; the owner was told to check the rights |
 | `assets/clips/*` | Cut from the reel | |
-| `assets/img/daytona-race.jpg` | Press photo, speedcafe.com | Agency-owned |
 | `assets/img/motogp-superfile.jpg` | Press photo, crash.net (Gold and Goose) | Agency-owned |
 | `assets/img/ufc-wwe.jpg` | UFC press graphic, ufc.com | |
 | `assets/img/art-car.jpg` | Livery render, speedwaydigest.com | |
 | `assets/img/flex-lafc-welcome.jpg` | Campaign key art, realmempire.com (the owner's company) | |
-| `assets/img/vm-1014838410.jpg` | Vimeo thumbnail of the SuperFile film | |
 | `assets/img/taylor-portrait.jpg` | Realm's team photo (`REALM_taylor_bw.jpg`, 800×800, the largest that exists online) | |
 | `assets/logos/*.svg` | Wikimedia Commons (NASCAR, Marvel Studios, Lionsgate, SKIL, LAFC, ABC, Legendary, Netflix), Simple Icons (UFC, WWE, Fox), the brands' sites (FLEX, EGO) | Trademarks shown to name clients |
 

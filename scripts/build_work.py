@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "37"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "38"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -29,7 +29,7 @@ PROJECTS = [
     dict(slug="superfile-trackhouse-nascar", name="SuperFile × Trackhouse Racing NASCAR", type="Brand Management",
          client="SuperFile × Trackhouse Racing", title="Daytona 500",
          year="2026", role="VP of Brand, SuperFile", disciplines=["Sponsorship", "Livery", "Race-weekend activation", "VIP hospitality"],
-         card=W + "trackhouse-nascar.jpg", hero_img=I + "daytona-race.jpg",
+         card=W + "trackhouse-nascar.jpg", hero_clip="/assets/clips/nascar-daytona.mp4", hero_img=I + "nascar-daytona-speed.jpg",
          lead="SuperFile’s first NASCAR partnership arrived on the sport’s biggest stage: Shane van Gisbergen’s black-and-neon #97 Chevrolet at the 2026 Daytona 500.",
          body=["On February 6, 2026, Trackhouse Racing announced SuperFile as the sponsor of Shane van Gisbergen’s No. 97 Chevrolet for the 68th Daytona 500. It was the Chicago company’s first step into NASCAR, introducing a brand built on what it calls sovereign file control: content that stays “trackable, unhackable, takebackable.”",
                "“There is no better place than Daytona to introduce SuperFile to NASCAR for the first time,” van Gisbergen said. Trackhouse owner Justin Marks added that SuperFile “has a very unique position in the tech space.”"],
@@ -37,19 +37,23 @@ PROJECTS = [
          sections=[
              dict(h="Daytona.", p=["The black and neon-yellow No. 97 started 13th in the Daytona 500 and led laps 101 to 103 before it was caught in the late Stage 2 crash. After repairs it finished 30th, one lap down.",
                                    "The race set the look for SuperFile’s season: a dark car with the SuperFile mark across the hood."],
-                  img=[I + "nascar-daytona-announce.jpg", I + "artcar-render.jpg"]),
+                  img=[I + "nascar-daytona-pit-road.jpg", I + "nascar-daytona-grandstand.jpg"]),
              dict(h="A season of liveries.", p=["The deal grew into a multi-year, multi-race partnership, and the No. 97 changed its look through the year: a Mr. Brainwash art car for Las Vegas in March, a “SuperFile Salutes” digital-camo military tribute for the Coca-Cola 600 on Memorial Day weekend, and a Chicago-inspired livery by the artist Lefty Out There at Chicagoland in July.",
-                                                "SuperFile was also announced as primary sponsor of Connor Zilisch’s No. 88 for New Hampshire in August, and several of the cars became official Lionel die-casts."]),
+                                                "SuperFile was also announced as primary sponsor of Connor Zilisch’s No. 88 for New Hampshire in August, and several of the cars became official Lionel die-casts."],
+                  img=[I + "nascar-martinsville.jpg", I + "nascar-texas-pit.jpg", I + "nascar-svg-daytona.jpg", I + "nascar-svg-texas.jpg"],
+                  film=dict(video="/assets/video/nascar-new-hampshire.mp4", poster="/assets/video/nascar-new-hampshire.jpg", title="SuperFile at New Hampshire", label="Watch New Hampshire")),
              dict(h="Watkins Glen.", p=["On May 10, van Gisbergen won at Watkins Glen from pole, leading 74 of 100 laps and finishing more than seven seconds clear for his seventh Cup Series victory.",
-                                        "“Yeah, this SuperFile Chevy was great,” he said afterwards."]),
+                                        "“Yeah, this SuperFile Chevy was great,” he said afterwards."],
+                  img=[I + "nascar-wg-burnout.jpg", I + "nascar-wg-smoke.jpg", I + "nascar-wg-victory-lane.jpg", I + "nascar-wg-champagne.jpg"]),
          ],
          figures=[("74 / 100", "Laps led from pole, Watkins Glen"), ("7th", "Cup Series win for van Gisbergen")],
+         film=dict(video="/assets/video/nascar-daytona-500.mp4", poster="/assets/video/nascar-daytona-500.jpg", title="SuperFile × Trackhouse Racing at the Daytona 500"),
          link=("Watkins Glen win", "https://www.motorsport.com/nascar-cup/news/Shane-van-gisbergen-wins-nascar-watkins-glen/10819836/"),
          gallery=[]),
     dict(slug="superfile-brand-launch", name="SuperFile Brand Launch", type="Brand Management",
          client="SuperFile", title="Brand launch",
          year="2025 — 2026", role="VP of Brand, SuperFile", disciplines=["Brand development", "Integrated marketing", "Content", "Social"],
-         card=W + "superfile-brand-launch.jpg", hero_img=I + "vm-1014838410.jpg", hero_vimeo="1014838410",
+         card=W + "superfile-brand-launch.jpg", hero_clip="/assets/clips/superfile-anthem.mp4", hero_img="/assets/video/superfile-anthem.jpg",
          lead="Taking a new kind of security company to market, from its first brand system to some of the biggest stages in sport.",
          body=["SuperFile is a Chicago technology company building what it calls sovereign file control: letting enterprises, governments and creators secure, authenticate, track and revoke access to their content even after it has been shared or downloaded. Its line is “Trust. Control. Simplicity.”",
                "Led by founder and CEO Shane Valdez, the company opened an early-access waitlist where people reserve their own @name while the product is in development, and took the brand straight into sport."],
@@ -59,10 +63,11 @@ PROJECTS = [
              dict(h="From zero to the world stage.", p=["In 2026 the brand debuted at the Daytona 500, became title sponsor of a MotoGP team, went inside the Octagon at UFC FREEDOM 250 at the White House, signed on for WWE’s Premium Live Events and went onto the front of LAFC’s training kit.",
                                                         "Each partnership carried the same black and neon-yellow identity, from a race car’s hood to a fighter’s glove."],
                   img=[I + "ufc-glove.jpg", I + "motogp-medal.jpg"]),
-             dict(h="The film.", p=["SuperFile’s brand film, released by Valdez in October 2024, set out the idea before the product: “SuperFile isn’t just a tool — it’s a vision. It’s for creators.”"]),
+             dict(h="The anthem.", p=["The 30-second anthem film put the launch identity on screen in the brand’s black and neon yellow.",
+                                    "It built on the brand film Valdez released in October 2024, which set out the idea before the product: “SuperFile isn’t just a tool — it’s a vision. It’s for creators.”"]),
          ],
          figures=[("$20M+", "Production budgets managed"), ("150K+", "Instagram followers in 8 months"), ("25+", "Person department built")],
-         film=dict(vimeo="1014838410", title="SuperFile brand film (2024)"),
+         film=dict(video="/assets/video/superfile-anthem.mp4", poster="/assets/video/superfile-anthem.jpg", title="SuperFile anthem"),
          link=("SuperFile", "https://superfile.com"), gallery=[]),
     dict(slug="wylie-co", name="Wylie Co.", type="VFX Coordinator",
          client="Wylie Co.", title="Visual effects for film and television",
@@ -101,19 +106,21 @@ PROJECTS = [
     dict(slug="superfile-ufc-wwe", name="SuperFile × UFC", type="Brand Management",
          client="SuperFile × UFC & WWE", title="Fight night, worldwide",
          year="2026", role="VP of Brand, SuperFile", disciplines=["Global partnership", "Live events", "Broadcast integration"],
-         card=W + "superfile-ufc-wwe.jpg", hero_img=I + "ufc329-weigh-in.jpg",
+         card=W + "superfile-ufc-wwe.jpg", hero_clip="/assets/clips/ufc-freedom-250.mp4", hero_img="/assets/clips/ufc-freedom-250.jpg",
          lead="A global partnership with TKO that made SuperFile the first Official Secure File Sharing Partner of both UFC and WWE.",
          body=["TKO and SuperFile announced the partnership on June 9, 2026, creating a new sponsorship category across both properties.",
                "“SuperFile is redefining how organizations protect, control, and share their digital content,” said Robby Miller of TKO. “When you build a company, there are certain moments you never forget,” said Shane Valdez. “This will be one of them.”"],
          role_text=["Taylor developed and managed the partnership across sponsorship rights, partner assets, brand integration and activation."],
          sections=[
              dict(h="The White House.", p=["Five days later SuperFile was an Official Partner of UFC FREEDOM 250 on the White House grounds, with its branding inside the Octagon and broadcast integrations reaching an estimated one billion households in 210 countries and territories.",
-                                           "SuperFile presented the night’s Super Replay of its most memorable moments, a “Keys to Victory” feature on each fighter’s strategy, and the one-hour UFC FREEDOM 250 SuperFile Post-Show. Its mark also stood in front of the scale at the weigh-ins."]),
+                                           "SuperFile presented the night’s Super Replay of its most memorable moments, a “Keys to Victory” feature on each fighter’s strategy, and the one-hour UFC FREEDOM 250 SuperFile Post-Show. Its mark also stood in front of the scale at the weigh-ins."],
+                  film=dict(video="/assets/video/ufc-freedom-250.mp4", poster="/assets/video/ufc-freedom-250.jpg", title="SuperFile at UFC FREEDOM 250", label="Watch FREEDOM 250")),
              dict(h="UFC 329.", p=["SuperFile was then presenting partner of UFC 329, McGregor vs. Holloway 2, at T-Mobile Arena in Las Vegas on July 11, the headline event of International Fight Week, with activation across UFC’s numbered events and Fight Nights.",
                                   "Its mark ran across the fight poster and the weigh-in stage, and sat on the scale itself the day before, when Conor McGregor made weight for his first fight since 2021."],
-                  img=[I + "ufc329-poster.jpg", I + "ufc329-round-card.jpg"]),
+                  img=[I + "ufc329-poster.jpg", I + "ufc329-weigh-in.jpg"],
+                  film=dict(video="/assets/video/ufc-329.mp4", poster="/assets/video/ufc-329.jpg", title="SuperFile at UFC 329", label="Watch UFC 329")),
              dict(h="Round one.", p=["The round cards carried SuperFile too. For the co-main event, Paddy Pimblett against Benoît Saint Denis, Indiana Fever guard Sophie Cunningham walked the Octagon as a surprise ring-card holder with the SuperFile “1”. Dana White said he booked her about eight minutes before she went out, and the moment ran across Fox, Sports Illustrated and Bleacher Report."],
-                  img=[I + "ufc329-round-card-cage.jpg"]),
+                  img=[I + "ufc329-round-card-cage.jpg", I + "ufc329-round-card.jpg"]),
              dict(h="WWE.", p=["In WWE, the deal brings side-ring-mat placements, presenting-partner designations and custom social and digital content across Premium Live Events including WrestleMania, Money in the Bank, Survivor Series and the Royal Rumble."]),
          ],
          figures=[("1B", "Households, UFC FREEDOM 250"), ("210", "Countries and territories")],
@@ -122,17 +129,19 @@ PROJECTS = [
     dict(slug="superfile-lefty-out-there", name="SuperFile × Lefty Out There Artist Collaborations", type="Brand Management",
          client="SuperFile × Lefty Out There", title="Artist collaborations",
          year="2026", role="VP of Brand, SuperFile", disciplines=["Artist collaboration", "Livery", "Merchandise"],
-         card=W + "lefty-out-there.jpg",
+         card=W + "lefty-out-there.jpg", hero_clip="/assets/clips/lefty-chicagoland.mp4", hero_img=W + "lefty-out-there@2x.jpg",
          lead="SuperFile handed Shane van Gisbergen’s #97 to Chicago artist Lefty Out There for NASCAR’s return to Chicagoland.",
          body=["Trackhouse revealed the one-of-a-kind scheme on July 2, 2026: a Chicago-inspired SuperFile livery designed in part by Francesco Campanella, the Chicago-based visual artist who works as Lefty Out There.",
                "Black and white abstract shapes with neon-yellow accents wrapped the car, with SuperFile on the door and Lefty Out There behind the number."],
          role_text=["Part of SuperFile’s run of artist cars inside its Trackhouse Racing partnership, which Taylor led as VP of Brand."],
          sections=[
              dict(h="Chicagoland.", p=["The car ran in the eero 400 at Chicagoland Speedway, NASCAR’s first Cup race there since 2019, on an oval van Gisbergen had never raced. “It looks really challenging, really bumpy,” he said beforehand. He started 30th and finished 25th."],
-                  img=[I + "lefty-chicagoland-render.jpg"]),
-             dict(h="The artist.", p=["It was Lefty Out There’s second major motorsport project, after a virtual F1 livery with Max Verstappen. The car was also released as Lionel 1:24 and 1:64 die-casts and a T-shirt."]),
+                  img=[I + "lefty-race.jpg", I + "lefty-pit.jpg"]),
+             dict(h="The artist.", p=["It was Lefty Out There’s second major motorsport project, after a virtual F1 livery with Max Verstappen. The car was also released as Lionel 1:24 and 1:64 die-casts and a T-shirt."],
+                  img=[I + "lefty-artist.jpg", I + "lefty-door.jpg"]),
          ],
-         figures=[], link=("The Chicagoland livery", "https://speedcafe.com/nascar-news-2026-cup-series-chicagoland-shane-van-gisbergen-livery-lefty-out-there-details/"), gallery=[]),
+         figures=[], film=dict(video="/assets/video/nascar-chicagoland.mp4", poster="/assets/video/nascar-chicagoland.jpg", title="SuperFile × Lefty Out There at Chicagoland"),
+         link=("The Chicagoland livery", "https://speedcafe.com/nascar-news-2026-cup-series-chicagoland-shane-van-gisbergen-livery-lefty-out-there-details/"), gallery=[]),
     dict(slug="superfile-lafc", name="SuperFile × LAFC", type="Brand Management",
          client="SuperFile × LAFC", title="The SuperFile training kit",
          year="2026", role="VP of Brand, SuperFile", disciplines=["Sports partnership", "Training kit", "Brand integration", "Content"],
@@ -485,6 +494,11 @@ def about():
     <div class="ab-exp-head"><h2>Brands, studios, and my experience.</h2><p>{e(a["summary"])}</p></div>
     <ul class="jobs">{jobs}</ul>
   </section>
+  <section class="wrap ab-numbers">
+    <div><h2>In numbers.</h2><p>Highlights from campaigns, partnerships and productions across film, consumer brands and sport.</p></div>
+    <dl class="big-figures">{numbers}</dl>
+  </section>
+  <section class="wrap logos" aria-label="Brands and studios">{logos}</section>
   <div class="dark">
     <section class="deck" aria-roledescription="carousel" aria-label="Services">
       <div class="deck-pin">
@@ -494,11 +508,6 @@ def about():
       </div>
     </section>
   </div>
-  <section class="wrap ab-numbers">
-    <div><h2>In numbers.</h2><p>Highlights from campaigns, partnerships and productions across film, consumer brands and sport.</p></div>
-    <dl class="big-figures">{numbers}</dl>
-  </section>
-  <section class="wrap logos" aria-label="Brands and studios">{logos}</section>
 </main>
 {FOOT}
 <script src="/assets/about.js?v={V}" defer></script>
@@ -516,10 +525,11 @@ def page(p, more):
                  f'allow="autoplay; fullscreen; picture-in-picture" title="{e(p["client"])}" aria-hidden="true" tabindex="-1"></iframe>')
     body = "".join(f"<p>{e(t)}</p>" for t in p["body"])
     media = ""
+    def film_btn(f, poster):
+        return (f'<button type="button" class="full film" {film_attrs(f)} data-title="{e(f["title"])}">'
+                f'<img src="{f.get("poster", poster)}" alt="" loading="lazy"><span class="play"><span class="play-dot" aria-hidden="true"></span>{e(f.get("label", "Watch the film"))}</span></button>')
     if p.get("film"):
-        poster = p["card"].rsplit(".", 1)[0] + "@2x.jpg" if p["card"].startswith(W) else p["hero_img"]
-        media += (f'<button type="button" class="full film" {film_attrs(p["film"])} data-title="{e(p["film"]["title"])}">'
-                  f'<img src="{poster}" alt="" loading="lazy"><span class="play"><span class="play-dot" aria-hidden="true"></span>Watch the film</span></button>')
+        media += film_btn(p["film"], p["card"].rsplit(".", 1)[0] + "@2x.jpg" if p["card"].startswith(W) else p["hero_img"])
     photos = [g for g in p["gallery"] if g != p["hero_img"]]
     if len(photos) == 1:
         g = photos[0]
@@ -536,6 +546,7 @@ def page(p, more):
         return '<section class="media wrap"><div class="pair">' + "".join(f'<figure class="{"light" if "art-car" in g else ""}"><img src="{g}" alt="" loading="lazy"></figure>' for g in imgs) + "</div></section>"
     sections = "".join(
         f'<section class="row wrap"><h2>{e(sec["h"])}</h2><div class="row-text">{"".join(f"<p>{e(t)}</p>" for t in sec["p"])}</div></section>' + pics(sec.get("img", []))
+        + (f'<section class="media wrap">{film_btn(sec["film"], p["hero_img"])}</section>' if sec.get("film") else "")
         for sec in p.get("sections", []))
     results = ""
     if p["figures"] or p.get("link"):
