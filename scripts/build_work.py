@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "33"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "34"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -235,7 +235,7 @@ PROJECTS = [
     dict(slug="digital-domain", name="Digital Domain", type="VFX Coordinator",
          client="Digital Domain", title="Digital Human Group",
          year="2020 — 2021", role="VFX Coordinator, Digital Domain", disciplines=["VFX production", "Digital humans", "Machine learning"],
-         card=W + "digital-domain.jpg", hero_img=I + "dd-digidoug-eye.jpg",
+         card=W + "digital-domain.jpg", hero_clip="/assets/clips/digital-domain.mp4", hero_img="/assets/clips/digital-domain.jpg",
          lead="Visual effects coordination for Digital Domain’s Digital Human Group, the team behind some of the most convincing digital people on screen.",
          body=["Digital Domain’s Digital Human Group pioneers digital and virtual humans for every medium, building on the studio’s work on Thanos in Avengers: Infinity War and The Curious Case of Benjamin Button.",
                "Its tools include Masquerade facial capture, the Charlatan face-replacement system, machine-learning clothing and real-time digital-human rendering, used across film, live events, games and mobile."],
@@ -390,7 +390,9 @@ def home():
     items = [ME] + PROJECTS
     slides = "".join(
         f'<a class="slide" href="{p.get("href") or "/work/" + p["slug"] + "/"}" data-i="{i}" aria-label="{e(p["name"])}">'
-        f'<img src="{p["card"]}"{img2x(p["card"])} sizes="320px" alt="" {"loading=\"lazy\" " if i > 3 and i < len(items) - 3 else ""}draggable="false"></a>'
+        f'<img src="{p["card"]}"{img2x(p["card"])} sizes="320px" alt="" {"loading=\"lazy\" " if i > 3 and i < len(items) - 3 else ""}draggable="false">'
+        + (f'<video class="slide-video" muted loop playsinline preload="none" data-src="{p["hero_clip"]}" aria-hidden="true"></video>' if p.get("hero_clip") else "")
+        + '</a>'
         for i, p in enumerate(items))
     info = "".join(
         f'<div class="info" data-i="{i}"{"" if i == 0 else " hidden"}><div class="info-left"><h1>{e(p["name"])}</h1><p>{e(p["lead"])}</p><span class="info-year">{e(p["year"])}</span></div>'

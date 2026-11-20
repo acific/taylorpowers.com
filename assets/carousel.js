@@ -32,7 +32,24 @@
       s.setAttribute('aria-hidden', a === 0 ? 'false' : 'true');
     });
     infos.forEach((el, i) => { el.hidden = i !== current; });
+    films();
   };
+
+  // Cards with a film: only the centre card loads and plays it (muted, looping); the rest pause.
+  // Skipped when the visitor prefers reduced motion.
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  const films = () => slides.forEach((s, i) => {
+    const v = s.querySelector('.slide-video');
+    if (!v) return;
+    if (i === current && !still.matches && !document.hidden) {
+      if (!v.src) { v.src = v.dataset.src; v.addEventListener('playing', () => v.classList.add('is-playing')); }
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+      v.classList.remove('is-playing');
+    }
+  });
+  document.addEventListener('visibilitychange', films);
 
   const go = (i) => { current = (i + n) % n; layout(); };
 

@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **Home cards play their film** when centred (FLEX × LAFC, EGO, SKIL, Digital Domain): the card's `hero_clip` loads only when the card reaches the centre, plays muted and pauses when it leaves; off for reduced motion. **Digital Domain:** the studio's own showreel banner from digitaldomain.com as the case-page hero and card film. Stamp 34.
 - **Home:** an endless logo strip (the About logos) in the space between the arrows and the nav, hidden on desktop windows under 760 px tall and still for reduced motion. **Wylie Co.:** the card is now the Dune (2021) poster. **SuperFile × UFC** (renamed from UFC & WWE): UFC 329 weigh-in hero and card, the fight poster, and Sophie Cunningham's SuperFile round card. **FLEX × LAFC** links to LAFC's 2022 kit page. Stamp 33.
 - **About:** removed the full-width portrait (it stays as the home page's first card). Stamp 32.
 - **All fourteen case studies expanded** from a second research pass (sources in docs/CONTENT.md): story sections with their own photos, Taylor's role, results and figures. New official images for UFC, MotoGP, FLEX, EGO, Wylie Co. and Digital Domain. **Every card graded** to one cinematic look by `scripts/grade_cards.sh` from originals in `sources/cards/`. Stamp 31.
