@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "34"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "35"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -443,11 +443,16 @@ def about():
     jobs = "".join(
         f'<li class="job"><span class="plus" aria-hidden="true">+</span><div class="job-main"><h3>{e(t)}</h3><p>{e(d)}</p></div>'
         f'<span class="job-co">{e(c)}</span><span class="job-yr">[{e(y)}]</span></li>' for t, c, y, d in a["jobs"])
+    n = len(a["services"])
     panels = "".join(
-        f'<section class="svc"><div class="svc-card"><img src="{img}" alt="" loading="lazy"><div class="svc-shade"></div>'
-        f'<div class="svc-copy"><div><h3><span class="num">{i:02d}.</span> {e(name)}</h3><ul>{"".join(f"<li>{e(x)}</li>" for x in items)}</ul></div>'
-        f'<div class="svc-work"><p>Selected work</p><ul>{"".join(f"<li><a href='/work/{w}/'>{e(by_slug[w]['name'])}</a></li>" for w in work)}</ul></div></div></div></section>'
+        f'<article class="deck-slide{" is-on" if i == 1 else ""}" data-i="{i - 1}" aria-roledescription="slide" aria-label="{i} of {n}: {e(name)}">'
+        f'<img src="{img}" alt="" loading="lazy"><div class="deck-shade"></div>'
+        f'<div class="deck-copy"><p class="deck-top"><span>Services</span><span>{i:02d} / {n:02d}</span></p>'
+        f'<h3><span class="num">{i:02d}.</span> {e(name)}</h3>'
+        f'<div class="deck-foot"><ul class="deck-list">{"".join(f"<li>{e(x)}</li>" for x in items)}</ul>'
+        f'<div class="deck-work"><p>Selected work</p><ul>{"".join(f"<li><a href='/work/{w}/'>{e(by_slug[w]['name'])}</a></li>" for w in work)}</ul></div></div></div></article>'
         for i, ((name, items), work, img) in enumerate(zip(a["services"], a["service_work"], a["img_services"]), 1))
+    bars = "".join(f'<button type="button" class="deck-seg{" is-on" if i == 0 else ""}" aria-label="Slide {i + 1}"></button>' for i in range(n))
     numbers = "".join(f'<div><dt>{e(n)}</dt><dd>{e(l)}</dd></div>' for n, l in a["numbers"])
     logos = "".join(f'<img class="h{h}" src="/assets/home/logos/{n}.{"svg" if n == "skil" else "png"}" alt="{e(alt)}">' for n, alt, h in LOGOS)
     return (head("About · Taylor Powers", a["statement"], "/about/", "/assets/og.jpg")
@@ -467,7 +472,13 @@ def about():
     <ul class="jobs">{jobs}</ul>
   </section>
   <div class="dark">
-    <div class="svcs"><div class="svcs-pin"><div class="svcs-track">{panels}</div></div></div>
+    <section class="deck" aria-roledescription="carousel" aria-label="Services">
+      <div class="deck-pin">
+        <div class="deck-stage">{panels}</div>
+        <div class="deck-bar"><div class="deck-segs">{bars}</div><span class="deck-count" aria-live="polite">01 / {n:02d}</span>
+          <div class="deck-arrows"><button type="button" class="arrow deck-prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 8L9.5 12L13.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="arrow deck-next" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 8L14.5 12L10.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
+      </div>
+    </section>
   </div>
   <section class="wrap ab-numbers">
     <div><h2>In numbers.</h2><p>Highlights from campaigns, partnerships and productions across film, consumer brands and sport.</p></div>

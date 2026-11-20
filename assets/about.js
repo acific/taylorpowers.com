@@ -10,26 +10,48 @@
   io.observe(st);
 })();
 
-// Desktop services: while the band scrolls past, slide the row of panels sideways so the last one
-// ends at the right edge. The section is made tall enough to hold the sideways distance.
+// Services deck: one slide at a time. From 810px the band pins and the page scroll steps through the
+// slides (the section is one screen tall per slide); the arrows and the progress segments scroll to a slide.
+// Smaller screens show the slides stacked, with no pinning.
 (() => {
-  const wrap = document.querySelector('.svcs'), track = document.querySelector('.svcs-track');
-  if (!wrap || !track) return;
-  const wide = matchMedia('(min-width: 1200px)');
-  let dist = 0;
+  const deck = document.querySelector('.deck');
+  if (!deck) return;
+  const slides = [...deck.querySelectorAll('.deck-slide')];
+  const segs = [...deck.querySelectorAll('.deck-seg')];
+  const count = deck.querySelector('.deck-count');
+  const prev = deck.querySelector('.deck-prev'), next = deck.querySelector('.deck-next');
+  const n = slides.length;
+  const wide = matchMedia('(min-width: 810px)');
+  let current = -1;
+  const step = () => innerHeight * 0.9;
+  const show = (i) => {
+    if (i === current) return;
+    current = i;
+    slides.forEach((s, k) => { s.classList.toggle('is-on', k === i); s.inert = wide.matches && k !== i; });
+    segs.forEach((s, k) => s.classList.toggle('is-on', k <= i));
+    if (count) count.textContent = `${String(i + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`;
+    if (prev) prev.disabled = i === 0;
+    if (next) next.disabled = i === n - 1;
+  };
   const size = () => {
-    if (!wide.matches) { wrap.style.height = ''; track.style.transform = ''; return; }
-    dist = Math.max(0, track.scrollWidth - innerWidth);
-    wrap.style.height = `${innerHeight + dist}px`;
-    move();
+    deck.style.height = wide.matches ? `${innerHeight + (n - 1) * step()}px` : '';
+    if (!wide.matches) slides.forEach((s) => { s.inert = false; });
+    current = -1; move();
   };
   const move = () => {
     if (!wide.matches) return;
-    const top = wrap.getBoundingClientRect().top;
-    const p = Math.min(1, Math.max(0, -top / Math.max(1, dist)));
-    track.style.transform = `translate3d(${-p * dist}px, 0, 0)`;
+    const p = -deck.getBoundingClientRect().top / step();
+    show(Math.min(n - 1, Math.max(0, Math.round(p))));
   };
+  const go = (i) => {
+    i = Math.min(n - 1, Math.max(0, i));
+    const top = deck.getBoundingClientRect().top + scrollY + i * step();
+    scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  };
+  prev?.addEventListener('click', () => go(current - 1));
+  next?.addEventListener('click', () => go(current + 1));
+  segs.forEach((s, k) => s.addEventListener('click', () => go(k)));
   addEventListener('scroll', () => requestAnimationFrame(move), { passive: true });
   addEventListener('resize', size); wide.addEventListener('change', size);
-  addEventListener('load', size); size();
+  size();
 })();

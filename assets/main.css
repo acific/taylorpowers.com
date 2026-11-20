@@ -357,21 +357,48 @@ body.page .nav { position: absolute; }
 .job-co { color: var(--ink); }
 .job-yr { text-align: right; font-variant-numeric: tabular-nums; }
 
-/* Service panels: one per screen, each sticks while the next slides over it */
-.svcs { margin-top: 0; padding: 40px 0; }
-.svc { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 640px; display: grid; place-items: center; padding: 0 var(--pad); }
-.svc-card { position: relative; width: min(743px, 100%); aspect-ratio: 743 / 614; max-height: 80vh; overflow: hidden; background: #111; }
-.svc-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.svc-shade { position: absolute; inset: 0; background: rgba(0,0,0,.55); }
-.svc-copy { position: absolute; left: 32px; right: 32px; top: 50%; transform: translateY(-50%); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
-.svc h3 { font-family: var(--sans); font-size: 28px; font-weight: 500; letter-spacing: -0.04em; line-height: 1.1; }
-.svc h3 .num { font-family: var(--serif); font-size: 16px; letter-spacing: 0; margin-right: 4px; }
-.svc ul { margin-top: 18px; display: grid; gap: 3px; color: rgba(255,255,255,.9); }
-.svc-work { padding-top: 52px; color: rgba(255,255,255,.72); }
-.svc-work p { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: rgba(255,255,255,.5); }
-.svc-work ul { margin-top: 10px; }
-.svc-work a { border-bottom: 1px solid rgba(255,255,255,.3); transition: border-color .3s var(--ease), color .3s var(--ease); }
-.svc-work a:hover { color: #fff; border-color: #fff; }
+/* Services as a deck: one framed 16:9 slide at a time on the black band, with a progress bar,
+   a counter and arrows. From 810px the band pins while the page scrolls through the slides (about.js). */
+.deck { position: relative; padding: 80px var(--pad); }
+.deck-pin { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+.deck-stage { position: relative; width: 100%; display: grid; gap: 16px; }
+.deck-slide { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #111; }
+.deck-slide > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.deck-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55) 45%, rgba(0,0,0,.8)); }
+.deck-copy { position: absolute; inset: 0; padding: 24px; display: flex; flex-direction: column; }
+.deck-top { display: flex; justify-content: space-between; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.6); font-variant-numeric: tabular-nums; }
+.deck-slide h3 { margin-top: auto; font-family: var(--sans); font-size: 32px; font-weight: 500; letter-spacing: -0.04em; line-height: 1.05; }
+.deck-slide h3 .num { font-family: var(--serif); font-size: 16px; letter-spacing: 0; margin-right: 6px; vertical-align: .9em; }
+.deck-foot { margin-top: 20px; display: grid; gap: 20px; }
+.deck-list { display: grid; gap: 3px; color: rgba(255,255,255,.9); }
+.deck-work p { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.5); }
+.deck-work ul { margin-top: 10px; display: grid; gap: 3px; color: rgba(255,255,255,.75); }
+.deck-work a { border-bottom: 1px solid rgba(255,255,255,.3); transition: border-color .3s var(--ease), color .3s var(--ease); }
+.deck-work a:hover { color: #fff; border-color: #fff; }
+.deck-bar { display: none; }
+@media (min-width: 810px) {
+  .deck { padding: 0; }
+  .deck-pin { position: sticky; top: 0; height: 100vh; height: 100svh; padding: 0 var(--pad); }
+  .deck-stage { display: block; width: min(1280px, 100%, calc((100svh - 150px) * 16 / 9)); aspect-ratio: 16 / 9; }
+  .deck-slide { position: absolute; inset: 0; aspect-ratio: auto; opacity: 0; visibility: hidden; transition: opacity .7s var(--ease), visibility 0s .7s; }
+  .deck-slide > img { transform: scale(1.04); transition: transform 1.4s var(--ease); }
+  .deck-slide.is-on { opacity: 1; visibility: visible; transition: opacity .7s var(--ease); }
+  .deck-slide.is-on > img { transform: none; }
+  .deck-copy { padding: clamp(28px, 4vw, 56px); }
+  .deck-slide h3 { font-size: clamp(40px, 4.4vw, 64px); }
+  .deck-slide h3 .num { font-size: 18px; }
+  .deck-foot { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; gap: 40px; margin-top: 28px; }
+  .deck-work { justify-self: end; min-width: 0; max-width: 420px; }
+  .deck-bar { display: flex; align-items: center; gap: 24px; width: min(1280px, 100%, calc((100svh - 150px) * 16 / 9)); }
+  .deck-segs { flex: 1; display: flex; gap: 6px; }
+  .deck-seg { flex: 1; height: 2px; background: rgba(255,255,255,.2); transition: background .5s var(--ease); padding: 8px 0; background-clip: content-box; }
+  .deck-seg.is-on { background-color: #fff; }
+  .deck-count { font-size: 12px; letter-spacing: .06em; color: rgba(255,255,255,.6); font-variant-numeric: tabular-nums; }
+  .deck-arrows { display: flex; gap: 12px; }
+  .deck-arrows .arrow { background: rgba(255,255,255,.15); }
+  .deck-arrows .arrow:hover { background: rgba(255,255,255,.3); }
+  .deck-arrows .arrow:disabled { opacity: .35; cursor: default; }
+}
 
 .ab-numbers { margin-top: 140px; display: grid; grid-template-columns: minmax(0, 600fr) minmax(0, 329fr); gap: var(--gap); align-items: end; }
 .ab-numbers h2 { font-size: 40px; line-height: 1.2; }
@@ -399,9 +426,6 @@ body.page .nav { position: absolute; }
   .job { grid-template-columns: 18px minmax(0, 1fr) auto; }
   .job-co { grid-column: 2; grid-row: 2; margin-top: 10px; color: var(--grey); }
   .job-yr { grid-column: 3; grid-row: 1; }
-  .svc-card { aspect-ratio: 3 / 4; }
-  .svc-copy { grid-template-columns: minmax(0, 1fr); left: 20px; right: 20px; }
-  .svc-work { padding-top: 0; }
   .ab-numbers { grid-template-columns: minmax(0, 1fr); margin-top: 96px; }
   .big-figures dt { font-size: 52px; }
   .logos { justify-content: flex-start; gap: 24px 32px; margin-top: 80px; }
@@ -418,15 +442,6 @@ body.page .nav { position: absolute; }
   .ab-exp-head { margin-left: calc(50% + var(--gap) / 2); max-width: 665px; }
   .ab-exp-head h2, .ab-numbers h2 { font-size: 48px; line-height: 1.1; }
   .job { grid-template-columns: 22px minmax(0, 643fr) minmax(0, 454fr) minmax(0, 210fr); }
-  /* Services: a row of full-height squares that slides sideways while the page scrolls (about.js) */
-  .svcs { padding: 0; }
-  .svcs-pin { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
-  .svcs-track { display: flex; padding: 0 var(--pad); will-change: transform; }
-  .svc { position: static; height: auto; min-height: 0; padding: 0; display: block; flex: none; }
-  .svc-card { width: min(100vh, 900px); max-height: none; aspect-ratio: 1 / 1; }
-  .svc-copy { left: 70px; right: 40px; grid-template-columns: minmax(0, 462fr) minmax(0, 328fr); gap: 0; }
-  .svc h3 { font-size: 32px; }
-  .svc-work { padding-top: 0; color: #aeaeae; }
   .ab-numbers h2 { max-width: 800px; }
   .big-figures dt { font-size: 64px; }
   .ab-close { gap: 14px; }
