@@ -8,7 +8,7 @@ public coverage; don't add claims that aren't in either.
 import html, os, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "19"  # bump with ?v= in index.html when CSS/JS change
+V = "20"  # bump with ?v= in index.html when CSS/JS change
 
 PROJECTS = [
     dict(slug="superfile-trackhouse-nascar", client="SuperFile × Trackhouse Racing", title="Daytona 500",

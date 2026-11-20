@@ -11,7 +11,7 @@ For Taylor and Shane: what the site does and how to change it.
 On a computer, two columns; on a phone, one.
 
 1. Left: Taylor's photo, name and bio, **Let's connect** (LinkedIn), a moving strip of client logos, **Services** (five areas), **Experience** (five roles) and **Reach out** (email).
-2. Right: thirteen project cards in two columns. On a computer the titles appear when you hover; FLEX × LAFC, SKIL and EGO also play a short clip. On a phone the titles are always shown and those clips play as the card reaches the middle of the screen. Seven cards open the project's own page; the others open press coverage or the film in a new tab.
+2. Right: thirteen project cards in two columns. On a computer the titles appear when you hover; FLEX × LAFC, SKIL and EGO also play a short clip. On a phone the titles are always shown and those clips play as the card reaches the middle of the screen. Eight cards open the project's own page; the others open press coverage or the film in a new tab.
 
 **Project pages (work/…)**
 

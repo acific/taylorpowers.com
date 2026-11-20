@@ -16,12 +16,20 @@ Two columns (`.layout`), stacked into one below 810 px:
    - **Services.** Five numbered areas with their sub-services.
    - **Experience.** Five roles (title, company, years, one line).
    - **Reach out.** The mailto link, the copyright and a back-to-top button.
-2. **Project cards** (`section.work`, sticky like the left column). Two columns (`.col`) of thirteen cards, split in page order so the two columns end at about the same height (by image aspect ratio). Each card has an order class `.o1`–`.o13`; below 810 px the columns dissolve (`display: contents`) and the order classes put the cards back in their original sequence. The cards (`.card`) with an image from `assets/home/work/`, a title and a role. Seven open their case page under `work/` (NASCAR, FLEX × LAFC, UFC & WWE, MotoGP, EGO Z6 → `work/ego/`, SKIL, Mr. Brainwash → `work/superfile-art-car/`); the rest link to outside coverage, and Lefty Out There has no link.
+2. **Project cards** (`section.work`, sticky like the left column). Two columns (`.col`) of thirteen cards, split in page order so the two columns end at about the same height (by image aspect ratio). Each card has an order class `.o1`–`.o14`; below 810 px the columns dissolve (`display: contents`) and the order classes put the cards back in their original sequence. The cards (`.card`) with an image from `assets/home/work/`, a title and a role. Fourteen cards; eight open their case page under `work/` (NASCAR, SuperFile Brand Launch, FLEX × LAFC, UFC & WWE, MotoGP, EGO Z6 → `work/ego/`, SKIL, Mr. Brainwash → `work/superfile-art-car/`); the rest link to outside coverage, and Lefty Out There has no link.
    - **Titles on hover:** with a mouse or trackpad (`hover: hover` and `pointer: fine`), each card's title and its dark gradient fade in on hover or keyboard focus. On touch screens they're always shown.
    - **Sharper photos:** each image has a `srcset` with the 1024 px file and an `@2x.jpg` (up to 2048 px, re-saved as JPEG quality 80 from the Framer originals), so only large or high-density screens download the bigger one.
    - **Clips:** FLEX × LAFC (`flex-falcon`), SKIL (`skil`) and EGO Z6 (`ego`) carry `data-clip` and a `<video class="clip">`. `home.js` sets the source on first use; with a mouse it plays on hover and pauses on leave, on touch it plays while the card is in the middle 30% of the screen and pauses otherwise. Skipped under reduced motion.
 
 Motion shares one easing (`--ease`). The page fades in on load, and pages crossfade when moving between the home page and a case page (`@view-transition`, in browsers that support it). Card photos fade in once loaded (`.js .card img:not(.loaded)`; `home.js` adds `js` and `loaded`), and zoom 2% on hover. The bio's first sentence is in ink (`.bio b`); experience years sit in their own right-aligned column with tabular figures. Every `.reveal` element fades up once as it enters the screen (an IntersectionObserver in `home.js`; `opacity` and `transform` only).
+
+## `404.html` (page not found)
+
+GitHub Pages serves it for any missing address, so every path in it is root-absolute. It uses `assets/case.css` (the `.not-found` block), has `noindex`, and links home and to the work.
+
+## Search profile
+
+`index.html` has a schema.org `Person` block (`application/ld+json`: name, title, the bio's first sentence, photo, LinkedIn, email) and a canonical URL. Keep it in step with the visible text.
 
 ## `scripts/build_work.py` (case pages)
 
