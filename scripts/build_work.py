@@ -44,7 +44,7 @@ PROJECTS = [
                   film=dict(video="/assets/video/nascar-new-hampshire.mp4", poster="/assets/video/nascar-new-hampshire.jpg", title="SuperFile at New Hampshire", label="Watch New Hampshire")),
              dict(h="Watkins Glen.", p=["On May 10, van Gisbergen won at Watkins Glen from pole, leading 74 of 100 laps and finishing more than seven seconds clear for his seventh Cup Series victory.",
                                         "“Yeah, this SuperFile Chevy was great,” he said afterwards."],
-                  img=[I + "nascar-wg-burnout.jpg", I + "nascar-wg-smoke.jpg", I + "nascar-wg-victory-lane.jpg", I + "nascar-wg-champagne.jpg"]),
+                  img=[I + "nascar-wg-burnout.jpg", I + "nascar-wg-smoke.jpg", I + "nascar-wg-victory-lane.jpg", I + "nascar-wg-champagne.jpg", I + "nascar-wg-trophy-group.jpg", I + "nascar-wg-trophy.jpg"]),
          ],
          figures=[("74 / 100", "Laps led from pole, Watkins Glen"), ("7th", "Cup Series win for van Gisbergen")],
          film=dict(video="/assets/video/nascar-daytona-500.mp4", poster="/assets/video/nascar-daytona-500.jpg", title="SuperFile × Trackhouse Racing at the Daytona 500"),
