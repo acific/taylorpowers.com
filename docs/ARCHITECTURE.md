@@ -9,7 +9,7 @@ Visitor ──► Cloudflare DNS (taylorpowers.com, DNS only)
               │  A @ → 185.199.108–111.153     CNAME www → acific.github.io
               ▼
         GitHub Pages (repo acific/taylorpowers.com, branch main, folder /)
-              │  index.html, work/*/index.html, assets/*
+              │  index.html, work/, about/, 404.html, assets/*
               ├──► Google Fonts (Baskervville, case pages); Switzer self-hosted in assets/home/fonts
               ├──► Vimeo player (HD background heroes, films in the lightbox)
               └──► YouTube (nocookie) player (films in the lightbox)
@@ -22,11 +22,13 @@ Mail ──► MX route1-3.mx.cloudflare.net ──► Cloudflare Email Routing
 
 | Component | Where | What it does |
 |---|---|---|
-| Home page | `index.html` | The owner's Framer design: intro, logo strip, services, experience and contact on the left; project cards linking to outside coverage on the right |
-| Case-study pages | `work/<slug>/index.html` | One per project. **Generated** by `scripts/build_work.py`; never edit by hand |
-| Generator | `scripts/build_work.py` | Holds the `PROJECTS` data and the page template; writes the eight case pages |
-| Styles | `assets/home.css`, `assets/case.css` | `home.css` styles the home page; `case.css` the case pages, in the same light Switzer look |
-| Behavior | `assets/site.js`, `assets/home.js` | `site.js` runs on the case pages; `home.js` (fade-ins, left-column pinning) on the home page; each part checks that its elements exist |
+| Home | `index.html` | The project carousel (generated) |
+| Work | `work/index.html` | All fourteen projects in two columns (generated) |
+| About | `about/index.html` | Statement, portrait, experience, logos, services, numbers (generated) |
+| Case studies | `work/<slug>/index.html` | One per project (generated) |
+| Generator | `scripts/build_work.py` | `PROJECTS`, `ABOUT` and every template; writes all the pages above |
+| Styles | `assets/main.css` | Every page, including `404.html` |
+| Behavior | `assets/carousel.js`, `assets/site.js` | The home carousel; case-page video, Vimeo heroes and the lightbox. Each part checks that its elements exist |
 | Media | `assets/video/`, `assets/clips/`, `assets/img/`, `assets/logos/`, `assets/home/` | Showreel, clips, stills and logos used by the case pages; the home page's avatar, logo strip, card images and Switzer fonts |
 | Share card and icons | `assets/og.jpg`, `assets/favicon.svg`, `assets/apple-touch-icon.png` | Link previews (1200×630: Taylor's photo, name and role beside three project photos, in the light design), the tab icon (black rounded tile, white "TP") and the phone home-screen icon (Taylor's photo, 180 px) |
 | Domain | `CNAME` | Tells GitHub Pages to serve taylorpowers.com |

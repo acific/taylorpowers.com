@@ -2,7 +2,7 @@
 
 > Last verified against the code: 2026-11-20 (commit 68010d3 + the Framer home page)
 
-The professional site for **Taylor Powers**, brand and creative production executive (Chicago). The home page follows the owner's Framer design (2026-11-20): a two-column portfolio with the intro, a logo strip, services, experience and contact on the left and thirteen project cards on the right. The eight case-study pages from the earlier site are still generated and served under `work/`.
+The professional site for **Taylor Powers**, brand and creative production executive (Chicago). Laid out like a Framer portfolio template the owner chose (2026-11-20): a home-page carousel of fourteen projects, a Work grid, an About page, and a case study for every project. Every page is generated from one list in `scripts/build_work.py`.
 
 **Live:** https://taylorpowers.com · **Contact:** taylor@taylorpowers.com, which forwards to Taylor's Gmail · **Where we left off:** [docs/STATUS.md](docs/STATUS.md)
 
@@ -18,16 +18,17 @@ node scripts/docs-check.mjs          # check the docs against the code
 git push origin main   # as acific
 ```
 
-After changing `assets/case.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py`. See [docs/OPERATIONS.md](docs/OPERATIONS.md).
+After changing `assets/main.css`, `assets/site.js` or `assets/carousel.js`, bump `V` in `scripts/build_work.py` (and `?v=` in `404.html`), then rebuild. See [docs/OPERATIONS.md](docs/OPERATIONS.md).
 
 ## Map
 
 | Path | What |
 |---|---|
-| `index.html` | Home (Framer design): intro, logo strip, services, experience, contact, project cards |
-| `assets/home.css`, `assets/home.js`, `assets/home/` | The home page's styles, script, Switzer font files and images |
-| `work/<slug>/index.html` | Case pages, **generated** by `scripts/build_work.py`; edit `PROJECTS`, not the HTML |
-| `assets/case.css`, `assets/site.js` | The case pages' styles and behavior |
+| `scripts/build_work.py` | The generator and all the content: `PROJECTS` (fourteen projects) and `ABOUT` |
+| `index.html`, `work/index.html`, `about/index.html`, `work/<slug>/index.html` | **Generated**: home carousel, Work grid, About, case studies. Edit the generator, not the HTML |
+| `404.html` | Page not found (hand-edited) |
+| `assets/main.css`, `assets/carousel.js`, `assets/site.js` | All styles; the home carousel; case-page video and lightbox |
+| `assets/home/` | Card images (1024 px and `@2x`), logos, Switzer fonts, avatar |
 | `assets/video/`, `assets/clips/` | The showreel, and silent loops cut from it |
 | `assets/img/`, `assets/logos/` | Stills, the portrait, partner logos |
 | `assets/og.jpg`, `assets/favicon.svg`, `assets/apple-touch-icon.png` | The share card, the tab icon and the home-screen icon |

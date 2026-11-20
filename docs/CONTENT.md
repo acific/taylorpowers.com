@@ -6,7 +6,7 @@ Where every fact, number and asset on the site comes from. **Never add a claim t
 
 ## The home page: the owner's Framer design
 
-Since 2026-11-20 the home page's words, images and links come from the owner's own Framer site (willing-iris-827866.framer.app, built by the owner): the bio, the five services, the five experience entries, the email address and the thirteen project cards. The images were taken from that site into `assets/home/`. Where it differs from the resume below (for example, it lists Digital Domain for 2017–2020, where the resume has Wylie Co.), the home page follows the Framer design until the owner says otherwise.
+The bio, services, experience entries, email address and the project cards (names, types, images) come from the owner's own Framer site (willing-iris-827866.framer.app). The images are in `assets/home/`. For the 2017–2020 role the site follows the resume (Wylie Co.), not the Framer site (Digital Domain), so About and the Wylie Co. case study agree.
 
 ## Source of truth: Taylor's resume (v9)
 
@@ -42,6 +42,26 @@ Since 2026-11-20 the home page's words, images and links come from the owner's o
 | SuperFile becomes title partner, "SuperFile Trackhouse MotoGP Team" | Team pages on motogp.com |
 | TKO partnership: SuperFile is the first Official Secure File Sharing Partner of UFC and WWE (June 2026) | ufc.com |
 | FLEX became LAFC's front-of-jersey sponsor (2021) | lafc.com, realmempire.com |
+
+## Case-study sources (checked 2026-11-20)
+
+| Project | Facts used | Source |
+|---|---|---|
+| NASCAR | Announced Feb 6, 2026; black and neon #97 at the Daytona 500; multi-year, multi-race | speedcafe.com (Daytona livery), speedsport.com |
+| Wylie Co. | Dune (2021): previs, postvis, final VFX; ~950 VFX shots, ~450 postvis, ~450 "Eyes of Ibad" shots | blog.borisfx.com (Mar 2022) |
+| FLEX × LAFC | Official Jersey Sponsor announced Mar 26, 2021; multi-year; all jerseys; Official Power Tool Partner, Golden Boot Club; content, media, signage, retail promotion; 24V line launch | lafc.com news release; lafc.com 2022 kit page |
+| UFC & WWE | Announced Jun 9, 2026; first Official Secure File Sharing Partner; UFC FREEDOM 250 (White House, Jun 14): est. 1B households, 210 countries and territories; Super Replay, Keys to Victory, Post-Show; UFC 329 presenting partner; WWE Premium Live Events | ufc.com |
+| Lefty Out There | Francesco Campanella's livery for the #97 at the 2026 Chicagoland eero 400; his second motorsport project after an F1 virtual livery with Max Verstappen | speedcafe.com (Jul 2026) |
+| SuperFile × LAFC | Golden Boot Club partner and front-of-training-kit sponsor (2026); $50,000 to the LAFC Foundation | lafc.com (kit page; Force for Good, April 2026) |
+| MotoGP | Title sponsor from Jun 5, 2026, the last team without one; "long-term strategic commitment"; from the Hungarian GP at Balaton Park; riders Fernández and Ogura | crash.net; motogp.com |
+| EGO Z6 | ZT4204L, 42" zero-turn, four 56V batteries, up to 2 acres a charge; film "Power without limits – the world's first platform compatible rider" | egopowerplus.com; EGO POWER+ on YouTube |
+| SKIL | Film "SKIL / Don't be a Gas Zombie" on SKIL Tools' YouTube channel | YouTube |
+| Art car | Unveiled Mar 10, 2026; Mr. Brainwash (Thierry Guetta); "SuperBrainHouse"; Las Vegas debut Mar 15; quote "The car looks epic" | speedcafe.com; speedsport.com |
+| FLEX launch | 24V Stacked Lithium, Therma-Tech+; claims 200% more power, 300% longer life, ~20-minute charging | flexpowertools.com |
+| Digital Domain | Digital Human Group / Lab: technicians, programmers, artists; Masquerade, Charlatan, real-time rendering; film, live events, gaming, mobile | digitaldomain.com |
+| EGO Labs 2.0 | Card name from the owner's Framer site. Its video is an EGO POWER+ mower product video (LM2206SP); no public source for an "EGO Labs" program | YouTube |
+
+Not found in any public source (they come from the resume): 20,000+ assets, 200+ launches, 60B+ impressions, 150K+ Instagram, 25+ person department, $20M+ budgets.
 
 ## Assets and their sources
 

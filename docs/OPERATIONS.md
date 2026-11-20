@@ -39,8 +39,8 @@ gh api repos/acific/taylorpowers.com/pages/builds/latest --jq .status   # "built
 
 - **Push as acific.** The repo moved from ShaneRealm to acific on 2026-11-20 because nobody could sign in to ShaneRealm any more (it was made with Google/Apple sign-in). `git push origin main` with acific active. The old ShaneRealm/taylorpowers.com repo is out of date and no longer serves the domain.
 - Commits use your own git identity, with no AI attribution lines.
-- **Cache busting.** After changing `assets/case.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py` (keep them equal; both are 22; `404.html` uses the same stamp), then rebuild.
-- **Checking it's live:** `curl -s "https://taylorpowers.com/?nc=$RANDOM" | grep -o 'home.css?v=[0-9]*'`.
+- **Cache busting.** After changing `assets/main.css`, `assets/carousel.js` or `assets/site.js`, bump `V` in `scripts/build_work.py` (now 23) and `?v=` in `404.html` to match, then rebuild.
+- **Checking it's live:** `curl -s "https://taylorpowers.com/?nc=$RANDOM" | grep -o 'main.css?v=[0-9]*'`.
 
 ## Previewing locally
 
@@ -63,4 +63,4 @@ The preview config `taylorpowers` in `~/Strange/.claude/launch.json` runs `pytho
 
 ## Security gaps
 
-GitHub Pages can't set response headers, so the Content-Security-Policy and referrer policy are `<meta>` tags in every page (`index.html` and the template in `scripts/build_work.py`). HSTS, `X-Frame-Options`/`frame-ancestors`, `nosniff` and the permissions policy can only be response headers: they need the site behind Cloudflare's proxy (with a response-header rule) or another host. The domain has no DMARC or CAA record and no DNSSEC. See [../SECURITY.md](../SECURITY.md).
+GitHub Pages can't set response headers, so the Content-Security-Policy and referrer policy are `<meta>` tags in every page (`CSP` in `scripts/build_work.py`, and `404.html`). HSTS, `X-Frame-Options`/`frame-ancestors`, `nosniff` and the permissions policy can only be response headers: they need the site behind Cloudflare's proxy (with a response-header rule) or another host. The domain has no DMARC or CAA record and no DNSSEC. See [../SECURITY.md](../SECURITY.md).
