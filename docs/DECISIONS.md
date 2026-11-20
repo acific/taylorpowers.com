@@ -23,6 +23,7 @@ Why the site looks and works the way it does. The site was redesigned many times
 | (2026-11-20) | **Whole site after the template**: carousel home, Work grid, About; every project gets a case study expanded from public sources | "Redo the front page like the example, and have every page open a case study and expand each one" |
 | (2026-11-20) | **Editorial case pages** after a Framer portfolio template the owner liked (full-screen hero, black intro band, Results, More to explore, contact footer), first in Switzer, then (v22) matched to the template as closely as possible on the owner's request: grey page, Baskervville serif headings, square images, its section order and footer. Built with the current content; more photos and story to come | "Make the sub pages exactly like the example" |
 | (2026-11-20) | **No "More to explore"** on case pages | "Remove the more to explore on all the pages... it's distracting" |
+| (2026-11-20) | **Wins page instead of the Work grid**: NASCAR Watkins Glen (Taylor in victory lane), MotoGP Assen and Silverstone, LAFC MLS Cup 2022 | "Lets remove the works page… maybe wins??? lafc championship, Nascar wins, motogp wins… show the photos of taylor winning" |
 | (2026-11-20) | **The owner's own Framer design** rebuilt as the home page: two columns, light, Switzer, logo strip, services, experience, project cards | The owner designed it and asked for the site to match |
 | 790662b | Accent changed from volt yellow to neon blue | Kept until 2026-11-20 (the light redesign has no accent color) |
 

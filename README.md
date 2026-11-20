@@ -25,7 +25,7 @@ After changing `assets/main.css`, `assets/site.js` or `assets/carousel.js`, bump
 | Path | What |
 |---|---|
 | `scripts/build_work.py` | The generator and all the content: `PROJECTS` (fourteen projects) and `ABOUT` |
-| `index.html`, `work/index.html`, `about/index.html`, `work/<slug>/index.html` | **Generated**: home carousel, Work grid, About, case studies. Edit the generator, not the HTML |
+| `index.html`, `wins/index.html`, `about/index.html`, `work/<slug>/index.html`, `work/index.html` | **Generated**: home carousel, Wins, About, case studies, and a redirect from the old Work page. Edit the generator, not the HTML |
 | `404.html` | Page not found (hand-edited) |
 | `assets/main.css`, `assets/carousel.js`, `assets/about.js`, `assets/site.js` | All styles; the home carousel; the About statement; case-page video and lightbox |
 | `assets/about/` | The About page's images (AI-generated, see docs/CONTENT.md) |

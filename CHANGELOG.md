@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **Works page replaced by Wins** (`/wins/`, owner's idea): Watkins Glen victory lane (with Taylor, identified by the owner), the MotoGP one-two at Assen and Silverstone win, and LAFC's 2022 MLS Cup with FLEX on the shirt. Menu, footer, deck, case-page back link and 404 now point to Wins or Home; `/work/` forwards to `/wins/`. Stamp 40.
 - **NASCAR:** added the two Watkins Glen trophy photos (owner's request) to the Watkins Glen section.
 - **SKIL:** the hero and home-card loop is now the full "Don't Be a #GasZombie" spot (YouTube 8U5-WrfmTlE, silent 720p), replacing a clip from an older SKIL spot.
 - **Case pages:** removed "More to explore" (owner: distracting); pages end after Results. Stamp 39.

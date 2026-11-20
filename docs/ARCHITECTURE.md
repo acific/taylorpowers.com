@@ -23,7 +23,7 @@ Mail ──► MX route1-3.mx.cloudflare.net ──► Cloudflare Email Routing
 | Component | Where | What it does |
 |---|---|---|
 | Home | `index.html` | The project carousel (generated) |
-| Work | `work/index.html` | All fourteen projects in two columns (generated) |
+| Wins | `wins/index.html` | Three wins from `WINS`, each a lead photo, the story and a photo pair (generated); `work/index.html` is a generated redirect to it |
 | About | `about/index.html` | Statement, portrait, experience, logos, services, numbers (generated) |
 | Case studies | `work/<slug>/index.html` | One per project (generated) |
 | Generator | `scripts/build_work.py` | `PROJECTS`, `ABOUT` and every template; writes all the pages above |

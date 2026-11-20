@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "39"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "40"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -347,7 +347,7 @@ def head(title, desc, url, image, extra=""):
 def nav(cls="", current=""):
     def a(href, label, key):
         return f'<a href="{href}"{" aria-current=\"page\"" if key == current else ""}>{label}</a>'
-    return (f'<header class="nav {cls}"><nav class="nav-mid">{a("/", "Home", "home")}{a("/about/", "About", "about")}{a("/work/", "Works", "work")}</nav>'
+    return (f'<header class="nav {cls}"><nav class="nav-mid">{a("/", "Home", "home")}{a("/about/", "About", "about")}{a("/wins/", "Wins", "wins")}</nav>'
             f'<a class="nav-end" href="mailto:{EMAIL}">Contact ↗</a></header>')
 
 FOOT = f"""<footer class="foot">
@@ -361,7 +361,7 @@ FOOT = f"""<footer class="foot">
         <p class="place">Chicago / Los Angeles / Las Vegas</p>
         <ul class="foot-links">
           <li><a href="{LINKEDIN}" target="_blank" rel="noopener"><span>LinkedIn</span><span aria-hidden="true">↗</span></a></li>
-          <li><a href="/work/"><span>All work</span><span aria-hidden="true">↗</span></a></li>
+          <li><a href="/wins/"><span>Wins</span><span aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
     </div>
@@ -427,21 +427,54 @@ def home():
 """)
 
 # ---------- Work: all projects ----------
-def work_index():
-    cards = "".join(
-        f'<a class="w-card{" tall" if i % 2 else ""}" href="/work/{p["slug"]}/"><span class="w-img"><img src="{p["card"]}"{img2x(p["card"])} sizes="(max-width: 809px) 100vw, 45vw" alt="" loading="lazy"></span>'
-        f'<span class="w-name">{e(p["name"])}</span><span class="w-sub">{e(p["type"])} · {e(p["year"])}</span></a>' for i, p in enumerate(PROJECTS))
-    return (head("Work · Taylor Powers", "Selected work by Taylor Powers: brand launches, sports partnerships, campaigns and visual effects.", "/work/", "/assets/og.jpg")
-            + f"""<body class="page">
-{nav("ink", "work")}
-<main class="wrap">
-  <h1 class="page-title">Selected <span>work</span></h1>
-  <div class="w-grid">{cards}</div>
+WINS = [
+    dict(slug="superfile-trackhouse-nascar", kicker="NASCAR Cup Series · May 10, 2026", title="Victory lane at Watkins Glen.",
+         p=["Shane van Gisbergen won Go Bowling at The Glen from pole in the SuperFile Chevrolet, leading 74 of 100 laps and finishing more than seven seconds clear for his seventh Cup Series win.",
+            "Taylor, who ran the SuperFile partnership, was in victory lane with the team."],
+         lead=I + "wins-wg-taylor-champagne.jpg", caption="Taylor (left) in victory lane at Watkins Glen.",
+         pair=[I + "nascar-wg-trophy-group.jpg", I + "nascar-wg-burnout.jpg"]),
+    dict(slug="superfile-trackhouse-motogp", kicker="MotoGP · June and August 2026", title="One-two at Assen. A win at Silverstone.",
+         p=["At the Dutch TT the SuperFile Aprilias finished first and second in both the Sprint and the Grand Prix: Raúl Fernández won the Sprint, and Ai Ogura took his first MotoGP win, the first for a Japanese rider in the premier class since 2004.",
+            "In August Fernández led from lights to flag at Silverstone for his second MotoGP win."],
+         lead=I + "motogp-assen-1-2.jpg", caption="", pair=[I + "motogp-silverstone.jpg", I + "motogp-medal.jpg"]),
+    dict(slug="flex-lafc", kicker="MLS Cup · November 5, 2022", title="Champions, with FLEX on the front.",
+         p=["LAFC won its first MLS Cup in FLEX’s second season on the front of the shirt, beating the Philadelphia Union 3–0 on penalties after a 3–3 draw. Gareth Bale’s header in the 128th minute, the latest goal in MLS history, forced the shootout.",
+            "With the Supporters’ Shield already won, it completed LAFC’s first double."],
+         lead=I + "wins-lafc-mls-cup.jpg", caption="", pair=[I + "wins-lafc-bale.jpg", I + "wins-lafc-vela.jpg"]),
+]
+
+def wins():
+    by_slug = {p["slug"]: p for p in PROJECTS}
+    blocks = ""
+    for n, w in enumerate(WINS):
+        cap = f'<figcaption>{e(w["caption"])}</figcaption>' if w["caption"] else ""
+        text = "".join(f"<p>{e(t)}</p>" for t in w["p"])
+        pair = "".join(f'<figure><img src="{g}" alt="" loading="lazy"></figure>' for g in w["pair"])
+        blocks += (f'<article class="win wrap"><figure class="win-lead"><img src="{w["lead"]}" alt="" loading="{"eager" if n == 0 else "lazy"}">{cap}</figure>'
+                   f'<div class="win-row"><div><p class="win-kicker">{e(w["kicker"])}</p><h2>{e(w["title"])}</h2></div>'
+                   f'<div class="row-text">{text}<a class="text-link" href="/work/{w["slug"]}/">{e(by_slug[w["slug"]]["name"])} →</a></div></div>'
+                   f'<div class="pair">{pair}</div></article>')
+    return (head("Wins · Taylor Powers", "Championships and race wins from the partnerships Taylor Powers built and ran: NASCAR, MotoGP and MLS Cup.", "/wins/", I + "wins-wg-taylor-champagne.jpg")
+            + f"""<body class="page wins">
+{nav("ink", "wins")}
+<main>
+  <section class="wrap wins-head"><h1 class="page-title">Wins<span>.</span></h1>
+    <p>Trophies, podiums and victory lanes from the partnerships Taylor built and ran.</p></section>
+  {blocks}
 </main>
 {FOOT}
 </body>
 </html>
 """)
+
+def work_redirect():
+    return f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Wins · Taylor Powers</title>
+<meta http-equiv="Content-Security-Policy" content="{CSP}">
+<meta name="robots" content="noindex"><link rel="canonical" href="https://taylorpowers.com/wins/">
+<meta http-equiv="refresh" content="0; url=/wins/"></head>
+<body><p><a href="/wins/">Wins</a></p></body></html>
+"""
 
 # ---------- About ----------
 def about():
@@ -474,7 +507,7 @@ def about():
     panels += slide(n, "close", "Contact", a["img_services"][-1],
         '<div class="deck-cover-main"><p class="deck-kicker">Thank you</p><h3 class="deck-title">Let’s build<br>what’s next.</h3></div>'
         f'<div class="deck-foot"><p class="deck-lede">Brand, marketing and partnership leadership across film, consumer brands and sport.</p>'
-        f'<p class="deck-contact"><a href="mailto:{EMAIL}">Email ↗</a><a href="{LINKEDIN}" rel="noopener" target="_blank">LinkedIn ↗</a><a href="/work/">All work →</a></p></div>')
+        f'<p class="deck-contact"><a href="mailto:{EMAIL}">Email ↗</a><a href="{LINKEDIN}" rel="noopener" target="_blank">LinkedIn ↗</a><a href="/wins/">Wins →</a></p></div>')
     bars = "".join(f'<button type="button" class="deck-seg{" is-on" if i == 0 else ""}" aria-label="Slide {i + 1}"></button>' for i in range(n))
     numbers = "".join(f'<div><dt>{e(n)}</dt><dd>{e(l)}</dd></div>' for n, l in a["numbers"])
     logos = "".join(f'<img class="h{h}" src="/assets/home/logos/{n}.{"svg" if n == "skil" else "png"}" alt="{e(alt)}">' for n, alt, h in LOGOS)
@@ -561,7 +594,7 @@ def page(p):
   <section class="hero{" light-hero" if light else ""}">
     <div class="hero-frame">{hero}</div>
     <div class="hero-shade" aria-hidden="true"></div>
-    <a class="all-works" href="/work/">← All Works</a>
+    <a class="all-works" href="/">← Home</a>
     <div class="hero-copy">
       <h1>{e(p["name"])}</h1>
       <p>{e(p["lead"])}</p>
@@ -596,7 +629,8 @@ def write(rel, text):
 
 if __name__ == "__main__":
     write("index.html", home())
-    write("work/index.html", work_index())
+    write("wins/index.html", wins())
+    write("work/index.html", work_redirect())
     write("about/index.html", about())
     for p in PROJECTS:
         write(f"work/{p['slug']}/index.html", page(p))

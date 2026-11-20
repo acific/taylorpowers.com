@@ -6,7 +6,7 @@ The contract for coding agents working on taylorpowers.com.
 
 ## Map
 
-- Every page except `404.html` is **generated** by `scripts/build_work.py` from `PROJECTS` and `ABOUT`: `index.html` (carousel), `work/index.html` (grid), `about/index.html` and `work/<slug>/index.html` (one case study per project). Change the data or templates there, run `python3 scripts/build_work.py`, and never hand-edit the generated HTML.
+- Every page except `404.html` is **generated** by `scripts/build_work.py` from `PROJECTS` and `ABOUT`: `index.html` (carousel), `wins/index.html` (Wins, from `WINS`), `work/index.html` (redirect to Wins), `about/index.html` and `work/<slug>/index.html` (one case study per project). Change the data or templates there, run `python3 scripts/build_work.py`, and never hand-edit the generated HTML.
 - `assets/main.css` styles every page; `assets/carousel.js` runs the home carousel; `assets/about.js` the About statement; `assets/site.js` runs on case pages (hero video, Vimeo heroes, lightbox). Every part of the scripts must guard for missing elements.
 - Docs: [README.md](README.md) and [docs/README.md](docs/README.md); start with [docs/STATUS.md](docs/STATUS.md).
 
