@@ -63,6 +63,10 @@ The bio, services, experience entries, email address and the project cards (name
 
 Not found in any public source (they come from the resume): 20,000+ assets, 200+ launches, 60B+ impressions, 150K+ Instagram, 25+ person department, $20M+ budgets.
 
+## Location
+
+The footer and the home page's first card say "Chicago / Los Angeles / Las Vegas", the owner's wording (2026-11-20); the resume gives Chicago.
+
 ## AI-generated images (About page)
 
 `assets/about/` holds nine images generated on 2026-11-20 in the owner's ChatGPT at the owner's request, styled after the reference template: four of Taylor made from `assets/img/taylor-portrait.jpg` as the likeness (`portrait`, `work`, `closing-1`, `closing-2`), plus `portrait-green.jpg`, a portrait the owner generated and supplied and five backdrops with no people (`service-1`…`service-5`). They are illustrations, not photos of real events; don't present them as such. The originals are in the owner's ChatGPT chat "Generate Portrait".

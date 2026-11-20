@@ -28,6 +28,7 @@
       s.style.zIndex = String(10 - a);
       s.style.pointerEvents = far ? 'none' : '';
       s.tabIndex = a === 0 ? 0 : -1;
+      s.classList.toggle('is-center', a === 0);
       s.setAttribute('aria-hidden', a === 0 ? 'false' : 'true');
     });
     infos.forEach((el, i) => { el.hidden = i !== current; });

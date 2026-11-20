@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "29"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "30"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -164,8 +164,9 @@ for p in PROJECTS:  # the case-page hero defaults to the card image at 2x
     p.setdefault("figures", []); p.setdefault("gallery", [])
 
 ABOUT = dict(
-    statement="I’m Taylor Powers, a brand and marketing executive with 8+ years of experience spanning Hollywood productions, global consumer brands, and high-profile partnerships in sports and entertainment.",
-    paras=["My background includes leading brand development, strategic partnerships, multidisciplinary teams, and large-scale marketing and creative production initiatives."],
+    statement="I’m Taylor Powers, a brand and marketing executive across film, global consumer brands, and sports and entertainment.",
+    paras=["Over 8+ years I’ve worked across Hollywood productions, global consumer brands, and high-profile partnerships in sports and entertainment.",
+           "My background includes leading brand development, strategic partnerships, multidisciplinary teams, and large-scale marketing and creative production initiatives."],
     jobs=[("Vice President of Brand", "SuperFile", "2025-2026", "Built and launched the brand, leading strategy, integrated marketing, creative production, and high-profile partnerships. Managed a multidisciplinary team of professionals."),
           ("Managing Director", "Realm Agency", "2024-2025", "Led agency operations, client strategy, and creative production, overseeing multimillion-dollar budgets, cross-functional teams, and integrated campaigns for global brands."),
           ("Account Leadership", "Realm Agency", "2021-2024", "Advanced from Account Executive to Senior Account Director, managing major accounts, brand launches, marketing campaigns, and creative production for all agency clients."),
@@ -241,7 +242,7 @@ FOOT = f"""<footer class="foot">
         <p class="foot-line">Let’s work together to bring your ideas to life.</p>
       </div>
       <div class="foot-right">
-        <p class="place">Based in Chicago</p>
+        <p class="place">Chicago / Los Angeles / Las Vegas</p>
         <ul class="foot-links">
           <li><a href="{LINKEDIN}" target="_blank" rel="noopener"><span>LinkedIn</span><span aria-hidden="true">↗</span></a></li>
           <li><a href="/work/"><span>All work</span><span aria-hidden="true">↗</span></a></li>
@@ -275,7 +276,7 @@ def img2x(src):
 # ---------- Home: the carousel ----------
 # The first carousel card is Taylor herself and opens About
 ME = dict(slug=None, href="/about/", name="Taylor Powers", type="Brand & Marketing Executive",
-          lead=ABOUT_STATEMENT_SHORT, year="Based in Chicago", card=W + "taylor-powers.jpg")
+          lead=ABOUT_STATEMENT_SHORT, year="Chicago / Los Angeles / Las Vegas", card=W + "taylor-powers.jpg")
 
 def home():
     items = [ME] + PROJECTS
@@ -347,12 +348,12 @@ def about():
     </div>
   </section>
   <section class="wrap ab-wide"><figure><img src="{a["img_wide"]}" alt="Taylor Powers" loading="lazy"></figure></section>
+  <section class="wrap ab-exp">
+    <div class="ab-exp-head"><h2>Brands, studios, and my experience.</h2><p>{e(a["summary"])}</p></div>
+    <ul class="jobs">{jobs}</ul>
+  </section>
   <div class="dark">
-    <section class="wrap ab-exp">
-      <div class="ab-exp-head"><h2>Brands, studios, and my experience.</h2><p>{e(a["summary"])}</p></div>
-      <ul class="jobs">{jobs}</ul>
-    </section>
-    <div class="svcs">{panels}</div>
+    <div class="svcs"><div class="svcs-pin"><div class="svcs-track">{panels}</div></div></div>
   </div>
   <section class="wrap ab-numbers">
     <div><h2>In numbers.</h2><p>Highlights from campaigns, partnerships and productions across film, consumer brands and sport.</p></div>
