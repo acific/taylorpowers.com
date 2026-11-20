@@ -40,7 +40,7 @@
     new IntersectionObserver(([en]) => barEl.classList.toggle('solid', !en.isIntersecting), { rootMargin: '-70px 0px 0px 0px' }).observe(document.querySelector('.reel'));
   }
   // Case-page hero video
-  document.querySelectorAll('.case-hero video').forEach(v => { v.dataset.auto = '1'; vis.observe(v); if (still) v.pause(); });
+  document.querySelectorAll('.hero video').forEach(v => { v.dataset.auto = '1'; vis.observe(v); if (still) v.pause(); });
 
   // Case-page HD heroes: Vimeo background players fade in once they report playing
   const hd = document.querySelector('.case-hero-vimeo');
@@ -50,7 +50,7 @@
       let d = ev.data; try { if (typeof d === 'string') d = JSON.parse(d); } catch (_) { return; }
       if (d && (d.event === 'play' || d.event === 'playProgress' || d.event === 'timeupdate')) {
         hd.classList.add('on');
-        document.querySelector('.case-hero video')?.pause();
+        document.querySelector('.hero video')?.pause();
       }
     });
     hd.addEventListener('load', () => {

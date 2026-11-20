@@ -8,7 +8,7 @@ public coverage; don't add claims that aren't in either.
 import html, os, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "21"  # bump with ?v= in index.html when CSS/JS change
+V = "22"  # bump with ?v= in index.html when CSS/JS change
 
 PROJECTS = [
     dict(slug="superfile-trackhouse-nascar", client="SuperFile × Trackhouse Racing", title="Daytona 500",
@@ -78,41 +78,43 @@ def film_attrs(f):
     return f'data-video="{e(f["video"])}"'
 
 def page(p, more):
-    """One case page. `more` is the next two projects, shown under "More to explore"."""
+    """One case page, laid out like the reference template the owner chose.
+    `more` is the next two projects, shown under "More to explore"."""
     light = p.get("hero_light")
-    hero = (f'<video class="case-hero-media" autoplay muted loop playsinline poster="{p["hero_img"]}" aria-hidden="true"><source src="{p["hero_clip"]}" type="video/mp4"></video>'
+    hero = (f'<video class="hero-media" autoplay muted loop playsinline poster="{p["hero_img"]}" aria-hidden="true"><source src="{p["hero_clip"]}" type="video/mp4"></video>'
             if p.get("hero_clip") else
-            f'<img class="case-hero-media" src="{p["hero_img"]}" alt="{e(p["client"])}">')
+            f'<img class="hero-media" src="{p["hero_img"]}" alt="{e(p["client"])}">')
     if p.get("hero_vimeo"):
         hero += (f'<iframe class="case-hero-vimeo" data-hd src="https://player.vimeo.com/video/{p["hero_vimeo"]}?background=1&autoplay=1&loop=1&muted=1&dnt=1" '
                  f'allow="autoplay; fullscreen; picture-in-picture" title="{e(p["client"])}" aria-hidden="true" tabindex="-1"></iframe>')
     body = "".join(f"<p>{e(t)}</p>" for t in p["body"])
-    disciplines = "".join(f"<li>{e(d)}</li>" for d in p["disciplines"])
 
-    film = ""
+    # Media: the film as a full-width still that opens the player, then photos
+    # (skipping any that repeat the hero): two or more in square pairs, one on its own full width.
+    media = ""
     if p.get("film"):
-        film = (f'<section class="film wrap"><button type="button" class="film-poster" {film_attrs(p["film"])} data-title="{e(p["film"]["title"])}">'
-                f'<img src="{p["hero_img"]}" alt="" loading="lazy"><span class="play"><span class="play-dot" aria-hidden="true"></span>Watch the film</span></button></section>')
-
-    # Photos: skip any that repeat the hero; two or more show as pairs, a single one full width
+        media += (f'<button type="button" class="full film" {film_attrs(p["film"])} data-title="{e(p["film"]["title"])}">'
+                  f'<img src="{p["hero_img"]}" alt="" loading="lazy"><span class="play"><span class="play-dot" aria-hidden="true"></span>Watch the film</span></button>')
     photos = [g for g in p["gallery"] if g != p["hero_img"]]
-    gallery = ""
-    if photos:
-        figs = "".join(f'<figure class="{"light" if "art-car" in g else ""}"><img src="{g}" alt="" loading="lazy"></figure>' for g in photos)
-        gallery = f'<section class="pair{" single" if len(photos) == 1 else ""} wrap">{figs}</section>'
+    if len(photos) == 1:
+        g = photos[0]
+        media += f'<figure class="full{" light" if "art-car" in g else ""}"><img src="{g}" alt="" loading="lazy"></figure>'
+    elif photos:
+        media += '<div class="pair">' + "".join(f'<figure class="{"light" if "art-car" in g else ""}"><img src="{g}" alt="" loading="lazy"></figure>' for g in photos) + "</div>"
+    media = f'<section class="media wrap">{media}</section>' if media else ""
 
     results = ""
     if p["figures"] or p.get("link"):
         figs = "".join(f'<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>' for a, b in p["figures"])
-        link = (f'<a class="btn" href="{e(p["link"][1])}" target="_blank" rel="noopener">{e(p["link"][0])} ↗</a>' if p.get("link") else "")
-        results = (f'<section class="split wrap"><h2>{"Results." if p["figures"] else "Coverage."}</h2><div>'
+        link = (f'<a class="text-link" href="{e(p["link"][1])}" target="_blank" rel="noopener">{e(p["link"][0])} ↗</a>' if p.get("link") else "")
+        results = (f'<section class="row wrap"><h2>{"Results." if p["figures"] else "Coverage."}</h2><div class="row-text">'
                    f'{f"<dl class=figures>{figs}</dl>" if figs else ""}{link}</div></section>')
 
     cards = "".join(
         f'<a class="more-card" href="/work/{m["slug"]}/"><span class="more-img"><img src="{m["hero_img"]}" alt="" loading="lazy"></span>'
         f'<span class="more-name">{e(m["client"])}</span><span class="more-sub">{e(m["title"])} · {e(m["year"])}</span></a>' for m in more)
 
-    return f'''<!doctype html>
+    return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -126,58 +128,67 @@ def page(p, more):
 <meta property="og:image" content="https://taylorpowers.com{p["hero_img"]}">
 <meta property="og:url" content="https://taylorpowers.com/work/{p["slug"]}/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskervville:wght@400..700&display=swap">
 <link rel="preload" as="font" type="font/woff2" href="/assets/home/fonts/switzer-400.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/case.css?v={V}">
 </head>
 <body class="case">
-<header class="hero-bar{" on-light" if light else ""}">
-  <a class="who" href="/"><img src="/assets/home/avatar.jpg" alt=""><b>Taylor Powers</b></a>
-  <nav><a href="/#work">Work</a><a href="mailto:taylorraepowers@icloud.com">Contact ↗</a></nav>
+<header class="nav{" on-light" if light else ""}">
+  <nav class="nav-mid"><a href="/">Home</a><a href="/#work">Work</a></nav>
+  <a class="nav-end" href="mailto:taylorraepowers@icloud.com">Contact ↗</a>
 </header>
 <main>
-  <section class="case-hero{" light-hero" if light else ""}">
-    {hero}
-    <div class="case-hero-shade" aria-hidden="true"></div>
-    <div class="case-hero-copy">
-      <a class="all-work" href="/#work">← All work</a>
-      <div class="case-hero-info">
-        <h1>{e(p["title"])}</h1>
-        <p>{e(p["lead"])}</p>
-        <dl class="facts">
-          <div><dt>Client</dt><dd>{e(p["client"])}</dd></div>
-          <div><dt>Year</dt><dd>{e(p["year"])}</dd></div>
-          <div><dt>Role</dt><dd>{e(p["role"])}</dd></div>
-        </dl>
-      </div>
+  <section class="hero{" light-hero" if light else ""}">
+    <div class="hero-frame">{hero}</div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <a class="all-works" href="/#work">← All Works</a>
+    <div class="hero-copy">
+      <h1>{e(p["title"])}</h1>
+      <p>{e(p["lead"])}</p>
+      <dl class="facts">
+        <div><dt>Client</dt><dd>{e(p["client"])}</dd></div>
+        <div><dt>Year</dt><dd>{e(p["year"])}</dd></div>
+        <div><dt>Type</dt><dd>{e(p["disciplines"][0])}</dd></div>
+      </dl>
     </div>
   </section>
-  <section class="intro">
-    <div class="wrap intro-grid">
-      <div class="intro-side"><h2>Overview</h2><ul>{disciplines}</ul></div>
-      <div class="intro-text">{body}</div>
-    </div>
+  <section class="intro"><div class="wrap cols"><div></div><div class="intro-text">{body}</div></div></section>
+  <section class="row wrap">
+    <h2>Taylor’s role.</h2>
+    <div class="row-text"><p>{e(p["role"])}.</p><p>{e(" · ".join(p["disciplines"]))}</p></div>
   </section>
-  {film}
-  {gallery}
+  {media}
   {results}
   <section class="more wrap">
     <h2>More to explore.</h2>
-    <p>Two more projects from Taylor’s work.</p>
+    <p>Two more projects to look through.</p>
     <div class="more-grid">{cards}</div>
   </section>
 </main>
-<footer class="contact-foot">
+<footer class="foot">
   <div class="wrap">
-    <h2>Let’s work together.</h2>
-    <p>Taylor Powers · Brand &amp; Marketing Executive</p>
-    <div class="contact-actions">
-      <a class="pill" href="mailto:taylorraepowers@icloud.com">taylorraepowers@icloud.com</a>
-      <a class="pill" href="https://www.linkedin.com/in/taylorpowers2026" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <div class="cols foot-top">
+      <div>
+        <h2 class="rotate" aria-label="Let’s work together.">Let’s <span class="words" aria-hidden="true"><span>work together.</span><span>connect.</span><span>create.</span><span>work together.</span></span></h2>
+        <p class="foot-line">Let’s work together to bring your ideas to life.</p>
+      </div>
+      <div class="foot-right">
+        <p class="place">Based in Chicago</p>
+        <ul class="foot-links">
+          <li><a href="https://www.linkedin.com/in/taylorpowers2026" target="_blank" rel="noopener"><span>LinkedIn</span><span aria-hidden="true">↗</span></a></li>
+          <li><a href="/#work"><span>All work</span><span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
     </div>
-    <div class="contact-base"><span>© 2026 Taylor Powers</span><a href="/">taylorpowers.com</a></div>
+    <div class="foot-pills">
+      <a class="pill" href="mailto:taylorraepowers@icloud.com"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M3 5.5h14v9H3z M3 6l7 5 7-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>taylorraepowers@icloud.com</a>
+    </div>
+    <p class="foot-base">TAYLOR POWERS © 2026 ALL RIGHTS RESERVED</p>
   </div>
 </footer>
 <dialog class="player" id="player" aria-label="Video">
@@ -187,7 +198,7 @@ def page(p, more):
 <script src="/assets/site.js?v={V}" defer></script>
 </body>
 </html>
-'''
+"""
 
 n = len(PROJECTS)
 for i, p in enumerate(PROJECTS):

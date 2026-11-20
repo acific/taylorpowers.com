@@ -39,7 +39,7 @@ gh api repos/acific/taylorpowers.com/pages/builds/latest --jq .status   # "built
 
 - **Push as acific.** The repo moved from ShaneRealm to acific on 2026-11-20 because nobody could sign in to ShaneRealm any more (it was made with Google/Apple sign-in). `git push origin main` with acific active. The old ShaneRealm/taylorpowers.com repo is out of date and no longer serves the domain.
 - Commits use your own git identity, with no AI attribution lines.
-- **Cache busting.** After changing `assets/case.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py` (keep them equal; both are 21; `404.html` uses the same stamp), then rebuild.
+- **Cache busting.** After changing `assets/case.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py` (keep them equal; both are 22; `404.html` uses the same stamp), then rebuild.
 - **Checking it's live:** `curl -s "https://taylorpowers.com/?nc=$RANDOM" | grep -o 'home.css?v=[0-9]*'`.
 
 ## Previewing locally

@@ -17,8 +17,8 @@ On a computer, two columns; on a phone, one.
 
 Each project page has:
 
-- a full-screen header image or film (HD where there is one) with the title, a one-line summary and client, year and role
-- a black overview band with the story
+- a full-screen header image or film (HD where there is one) with the title, a one-line summary and client, year and type
+- a black band with the story, then Taylor's role
 - client, year, role and disciplines
 - the story and results
 - **Watch the film** and/or a link to press coverage

@@ -61,17 +61,18 @@ Used by the case pages (it was also the old home page's script; the Intro, Reel,
 
 ## `assets/case.css` (case pages)
 
-An editorial layout modelled on a Framer portfolio template the owner liked (2026-11-20), in the site's own type: Switzer throughout, `--ink #0a0a0a`, `--muted #757575`, `--line #e3e3e3`, `--soft #f4f4f4`, content in a 1180 px `.wrap`. In page order:
+Laid out like a Framer portfolio template the owner chose (2026-11-20) and asked to match exactly: grey page (`--bg #f4f4f4`), square-cornered images, Baskervville serif (Google Fonts) for headings, navigation and figures, Switzer for text (the template's BDO Grotesk isn't on Google Fonts; Switzer is the close match already self-hosted). Two `1fr` columns with a 16 px gap inside 40 px margins (20 px on phones). In page order:
 
-1. **Hero** (`.case-hero`, full screen): the image, local clip or Vimeo background (`.case-hero-vimeo`, fades in with `.on`) under a dark gradient. Over the bottom: **← All work** (`.all-work`) on the left; on the right the title, the lead and a facts table (`.facts`: client, year, role). A transparent bar (`.hero-bar`) at the top has Taylor's name and **Work** / **Contact**. `hero_light` renders (`.light-hero`) sit contained on light grey with dark text.
-2. **Intro band** (`.intro`, black): "Overview" and the disciplines on the left, the body paragraphs in large type on the right.
-3. **Film** (`.film`): a full-width 16:9 still (`.film-poster`, the hero image) with a **Watch the film** button; clicking opens the lightbox.
-4. **Photos** (`.pair`): gallery photos two to a row (square); a single photo is full width (`.pair.single`, 16:9).
-5. **Results.** / **Coverage.** (`.split`): heading left; the figures (`.figures`) and the coverage link right. "Coverage." when a project has a link but no figures.
-6. **More to explore.** (`.more`): the next two projects as photo cards.
-7. **Contact footer** (`.contact-foot`, black): "Let's work together.", email and LinkedIn, copyright.
+1. **Navigation** (`.nav`, over the hero): **Home** and **Work** centred, **Contact ↗** on the right.
+2. **Hero** (`.hero`, full screen): the image, local clip or Vimeo background (`.case-hero-vimeo`), easing in from 108% scale on load, under a dark gradient. **← All Works** bottom left; in the right column the title (56 px serif), the lead and a facts table (`.facts`: Client, Year, Type = the first discipline). `hero_light` renders (`.light-hero`) sit contained on the grey with dark text.
+3. **Intro band** (`.intro`, black): the body paragraphs at 20/24 px in the right column.
+4. **Taylor's role.** (`.row`): serif heading left; the role and the disciplines in grey on the right.
+5. **Media** (`.media`): the film as a full-width 3:2 still (`.full.film`) with **Watch the film**; photos (skipping any that repeat the hero) in square pairs (`.pair`), or one full width.
+6. **Results.** / **Coverage.** (`.row`): the figures (44 px serif) and the coverage link.
+7. **More to explore.** (`.more`): the next two projects, images at 449:334, serif names.
+8. **Footer** (`.foot`, black): "Let's" plus a rotating phrase (work together. / connect. / create., a CSS animation, off under reduced motion), "Based in Chicago", LinkedIn and All work links, the email pill, and the copyright line.
 
-Below 860 px everything stacks into one column. The same file also styles `404.html` (`.case-bar`, `.not-found`, `.case-foot`) and the lightbox (`.player`).
+Below 810 px everything stacks into one column. The same file also styles `404.html` (`.case-bar`, `.not-found`, `.case-foot`) and the lightbox (`.player`).
 
 `assets/site.css` (the old dark Archivo styles) was removed on 2026-11-20.
 

@@ -10,7 +10,7 @@ Visitor ──► Cloudflare DNS (taylorpowers.com, DNS only)
               ▼
         GitHub Pages (repo acific/taylorpowers.com, branch main, folder /)
               │  index.html, work/*/index.html, assets/*
-              ├──► (fonts: Switzer, self-hosted in assets/home/fonts)
+              ├──► Google Fonts (Baskervville, case pages); Switzer self-hosted in assets/home/fonts
               ├──► Vimeo player (HD background heroes, films in the lightbox)
               └──► YouTube (nocookie) player (films in the lightbox)
 
@@ -41,7 +41,7 @@ Mail ──► MX route1-3.mx.cloudflare.net ──► Cloudflare Email Routing
 
 | Service | Used for |
 |---|---|
-| (none for fonts) | Every page uses Switzer (400/500/600, from Fontshare), self-hosted in `assets/home/fonts/`, so the CSP allows `font-src 'self'`. The CSP still permits Google Fonts, which nothing loads any more |
+| fonts.googleapis.com / fonts.gstatic.com | Baskervville (serif headings on the case pages and `404.html`). Switzer (400/500/600, from Fontshare) is self-hosted in `assets/home/fonts/`, so the CSP also allows `font-src 'self'` |
 | player.vimeo.com | HD background heroes (`hero_vimeo`) and lightbox films |
 | youtube-nocookie.com | Lightbox films |
 
