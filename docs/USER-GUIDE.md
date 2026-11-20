@@ -17,7 +17,8 @@ On a computer, two columns; on a phone, one.
 
 Each project page has:
 
-- a big header (HD film where there is one)
+- the same light look as the home page, with a link back to all work
+- a big rounded header image or film (HD where there is one)
 - client, year, role and disciplines
 - the story and results
 - **Watch the film** and/or a link to press coverage
@@ -37,7 +38,7 @@ Ask Claude in the `~/Strange/taylorpowers.com` folder, or edit by hand:
 |---|---|
 | Home text, services, experience, project cards | `index.html` (images in `assets/home/`) |
 | A project page | `PROJECTS` in `scripts/build_work.py`, then run `python3 scripts/build_work.py` |
-| Colors and type | `assets/site.css` (the accent is `--accent`) |
+| Colors and type | `assets/home.css` (home) and `assets/case.css` (project pages) |
 | The showreel | Replace `assets/video/reel.mp4` (re-save with "fast start" so it streams) and `assets/video/reel-poster.jpg` |
 | The portrait | Replace `assets/img/taylor-portrait.jpg` |
 | Add HD footage to a project | Add `hero_vimeo="<Vimeo ID>"` to it in `PROJECTS` and rebuild |

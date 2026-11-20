@@ -51,12 +51,19 @@ Used by the case pages (it was also the old home page's script; the Intro, Reel,
 | Clock | `Intl.DateTimeFormat` for America/Chicago, refreshed every 15 s |
 | Lightbox | Builds a `<video>` or `<iframe>` and pauses every other video. On close it clears the frame and resumes visible `data-auto` videos |
 
-## `assets/site.css`
+## `assets/case.css` (case pages)
 
-- **Tokens:** `--bg #0a0a0a`, `--panel`, `--fg`, `--muted`, `--line`, `--accent #00a6ff` (neon blue), `--font` (Archivo).
-- **Type:** `.display` is weight 800 and `font-stretch: 62%` (condensed), set in uppercase.
-- **Sections:** `.bar`, `.reel*`, `.work`, `.grid`, `.tile`, `.media`, `.go`, `.meta`, `.logos`, `.about-main`, `.portrait`, `.figures`, `.pillars`, `.two`, `.list`, `.exp`, `.films`, `.contact`, `.player`, `.intro`, and the case-page classes (`.case-hero*`, `.case-body`, `.case-meta`, `.case-text`, `.case-actions`, `.case-figures`, `.case-gallery`, `.next`, `.case-foot`).
-- **Reduced motion:** a `prefers-reduced-motion: reduce` block turns off all animation and transitions.
+The case pages' look, matching the home page: white, Switzer (`@font-face` from `/assets/home/fonts/`), `--ink #0a0a0a`, `--muted #757575`, `--line #e3e3e3`, `--soft #f4f4f4`, content in a 1180 px `.wrap`.
+
+- **Top bar** (`.case-bar`, sticky, frosted white): avatar and name linking home (`.who`), **← All work** (`.back`).
+- **Hero** (`.case-hero`): a rounded 16:9 frame (at most 78vh) holding the image, the local clip or the Vimeo background (`.case-hero-vimeo`, full-width 16:9, fades in with `.on`). `hero_light` renders (`.case-hero-media.light`) are contained on light grey.
+- **Head** (`.case-head`): client in grey, then the title.
+- **Body** (`.case-body`): the meta list beside the lead and text; **Watch the film** (`.btn.solid`) and the coverage link (`.btn`); figures (`.case-figures`) and gallery (`.case-gallery`) span both columns. One column below 860 px.
+- **Next project** (`.next`) with a round arrow, then the footer (`.case-foot`) with the contact address.
+- **Lightbox** (`.player`): the dialog `site.js` opens for films.
+- **Reduced motion:** transitions off.
+
+`assets/site.css` (the old dark Archivo styles) was removed on 2026-11-20.
 
 ## Media
 

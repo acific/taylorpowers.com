@@ -18,7 +18,7 @@ node scripts/docs-check.mjs          # check the docs against the code
 git push origin main   # as acific
 ```
 
-After changing `assets/site.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py`. See [docs/OPERATIONS.md](docs/OPERATIONS.md).
+After changing `assets/case.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py`. See [docs/OPERATIONS.md](docs/OPERATIONS.md).
 
 ## Map
 
@@ -27,7 +27,7 @@ After changing `assets/site.css`, `assets/site.js`, `assets/home.css` or `assets
 | `index.html` | Home (Framer design): intro, logo strip, services, experience, contact, project cards |
 | `assets/home.css`, `assets/home.js`, `assets/home/` | The home page's styles, script, Switzer font files and images |
 | `work/<slug>/index.html` | Case pages, **generated** by `scripts/build_work.py`; edit `PROJECTS`, not the HTML |
-| `assets/site.css`, `assets/site.js` | All styles; shared behavior for every page |
+| `assets/case.css`, `assets/site.js` | The case pages' styles and behavior |
 | `assets/video/`, `assets/clips/` | The showreel, and silent loops cut from it |
 | `assets/img/`, `assets/logos/` | Stills, the portrait, partner logos |
 | `assets/og.jpg`, `assets/favicon.svg` | The share card and the tab icon |

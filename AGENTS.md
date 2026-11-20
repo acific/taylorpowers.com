@@ -8,7 +8,7 @@ The contract for coding agents working on taylorpowers.com.
 
 - `index.html`: the home page (hand-edited; the owner's Framer design). Its own `assets/home.css`, `assets/home.js` and `assets/home/`.
 - `work/<slug>/index.html`: case pages, **generated**. Change `PROJECTS` or the template in `scripts/build_work.py`, then run `python3 scripts/build_work.py`. Never hand-edit the generated HTML.
-- `assets/site.css` and `assets/site.js`: shared by every page. Every part of `site.js` must guard for missing elements.
+- `assets/case.css` styles the case pages (same look as the home page); `assets/site.js` runs on them (hero video, Vimeo heroes, lightbox). Every part of `site.js` must guard for missing elements.
 - Docs: [README.md](README.md) and [docs/README.md](docs/README.md); start with [docs/STATUS.md](docs/STATUS.md).
 
 ## Commands

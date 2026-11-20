@@ -8,7 +8,7 @@ public coverage; don't add claims that aren't in either.
 import html, os, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "17"  # bump with ?v= in index.html when CSS/JS change
+V = "18"  # bump with ?v= in index.html when CSS/JS change
 
 PROJECTS = [
     dict(slug="superfile-trackhouse-nascar", client="SuperFile × Trackhouse Racing", title="Daytona 500",
@@ -86,9 +86,9 @@ def page(p, nxt):
                  f'allow="autoplay; fullscreen; picture-in-picture" title="{e(p["client"])}" aria-hidden="true" tabindex="-1"></iframe>')
     actions = []
     if p.get("film"):
-        actions.append(f'<button type="button" class="chip-btn solid" {film_attrs(p["film"])} data-title="{e(p["film"]["title"])}">Watch the film</button>')
+        actions.append(f'<button type="button" class="btn solid" {film_attrs(p["film"])} data-title="{e(p["film"]["title"])}">Watch the film</button>')
     if p.get("link"):
-        actions.append(f'<a class="chip-btn" href="{e(p["link"][1])}" target="_blank" rel="noopener">{e(p["link"][0])} ↗</a>')
+        actions.append(f'<a class="btn" href="{e(p["link"][1])}" target="_blank" rel="noopener">{e(p["link"][0])} ↗</a>')
     figures = "".join(f'<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>' for a, b in p["figures"])
     gallery = "".join(f'<figure class="{"light" if "art-car" in g else ""}"><img src="{g}" alt="" loading="lazy"></figure>' for g in p["gallery"]) if len(p["gallery"]) >= 2 else ""
     body = "".join(f"<p>{e(t)}</p>" for t in p["body"])
@@ -106,27 +106,26 @@ def page(p, nxt):
 <meta property="og:image" content="https://taylorpowers.com{p["hero_img"]}">
 <meta property="og:url" content="https://taylorpowers.com/work/{p["slug"]}/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/assets/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v={V}">
+<link rel="preload" as="font" type="font/woff2" href="/assets/home/fonts/switzer-400.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/case.css?v={V}">
 </head>
 <body class="case-page">
-<header class="bar solid" id="bar">
-  <a class="mark" href="/">Taylor Powers</a>
-  <nav aria-label="Main"><a href="/#work">Work</a><a href="/#intro">About</a><a href="/#contact">Contact</a></nav>
+<header class="case-bar">
+  <div class="wrap">
+    <a class="who" href="/"><img src="/assets/home/avatar.jpg" alt=""><b>Taylor Powers</b><span>Brand &amp; Marketing Executive</span></a>
+    <a class="back" href="/#work">← All work</a>
+  </div>
 </header>
-<main>
+<main class="wrap">
   <section class="case-hero{" light-hero" if p.get("hero_light") else ""}">
     {hero}
-    <div class="case-hero-shade" aria-hidden="true"></div>
-    <div class="case-hero-copy">
-      <p class="kick accent">{e(p["client"])}</p>
-      <h1 class="display">{e(p["title"])}</h1>
-    </div>
   </section>
+  <header class="case-head">
+    <p class="case-client">{e(p["client"])}</p>
+    <h1 class="case-title">{e(p["title"])}</h1>
+  </header>
   <section class="case-body">
     <dl class="case-meta">
       <div><dt>Client</dt><dd>{e(p["client"])}</dd></div>
@@ -139,16 +138,19 @@ def page(p, nxt):
       {body}
       {f'<div class="case-actions">{"".join(actions)}</div>' if actions else ""}
     </div>
-    {f'<dl class="figures case-figures">{figures}</dl>' if figures else ""}
+    {f'<dl class="case-figures">{figures}</dl>' if figures else ""}
     {f'<div class="case-gallery">{gallery}</div>' if gallery else ""}
   </section>
   <a class="next" href="/work/{nxt["slug"]}/">
-    <span class="kick">Next project</span>
-    <span class="display">{e(nxt["client"])}</span>
-    <span class="next-sub">{e(nxt["title"])} →</span>
+    <span>
+      <span class="next-label">Next project</span>
+      <span class="next-name">{e(nxt["client"])}</span>
+      <span class="next-sub">{e(nxt["title"])}</span>
+    </span>
+    <span class="next-arrow" aria-hidden="true">→</span>
   </a>
+  <footer class="case-foot"><span>© 2026 Taylor Powers</span><a href="mailto:taylorraepowers@icloud.com">taylorraepowers@icloud.com</a></footer>
 </main>
-<footer class="case-foot"><a href="/#work">← All work</a><a href="mailto:taylor@taylorpowers.com">taylor@taylorpowers.com</a></footer>
 <dialog class="player" id="player" aria-label="Video">
   <div class="frame" id="playerFrame"></div>
   <div class="player-bar"><span id="playerTitle"></span><button type="button" id="playerClose">Close ✕</button></div>

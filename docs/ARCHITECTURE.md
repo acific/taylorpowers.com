@@ -10,7 +10,7 @@ Visitor ──► Cloudflare DNS (taylorpowers.com, DNS only)
               ▼
         GitHub Pages (repo acific/taylorpowers.com, branch main, folder /)
               │  index.html, work/*/index.html, assets/*
-              ├──► Google Fonts (Archivo, case pages; the home page self-hosts Switzer)
+              ├──► (fonts: Switzer, self-hosted in assets/home/fonts)
               ├──► Vimeo player (HD background heroes, films in the lightbox)
               └──► YouTube (nocookie) player (films in the lightbox)
 
@@ -25,7 +25,7 @@ Mail ──► MX route1-3.mx.cloudflare.net ──► Cloudflare Email Routing
 | Home page | `index.html` | The owner's Framer design: intro, logo strip, services, experience and contact on the left; project cards linking to outside coverage on the right |
 | Case-study pages | `work/<slug>/index.html` | One per project. **Generated** by `scripts/build_work.py`; never edit by hand |
 | Generator | `scripts/build_work.py` | Holds the `PROJECTS` data and the page template; writes the eight case pages |
-| Styles | `assets/site.css`, `assets/home.css` | `site.css` styles the case pages; `home.css` styles the home page only |
+| Styles | `assets/home.css`, `assets/case.css` | `home.css` styles the home page; `case.css` the case pages, in the same light Switzer look |
 | Behavior | `assets/site.js`, `assets/home.js` | `site.js` runs on the case pages; `home.js` (fade-ins, left-column pinning) on the home page; each part checks that its elements exist |
 | Media | `assets/video/`, `assets/clips/`, `assets/img/`, `assets/logos/`, `assets/home/` | Showreel, clips, stills and logos used by the case pages; the home page's avatar, logo strip, card images and Switzer fonts |
 | Share card and icon | `assets/og.jpg`, `assets/favicon.svg` | Link previews (1200×630) and the browser-tab icon |
@@ -41,7 +41,7 @@ Mail ──► MX route1-3.mx.cloudflare.net ──► Cloudflare Email Routing
 
 | Service | Used for |
 |---|---|
-| fonts.googleapis.com / fonts.gstatic.com | Archivo variable font (weights 100–900, widths 62–125) on the case pages. The home page's Switzer (400/500/600, from Fontshare) is self-hosted in `assets/home/fonts/`, so the CSP allows `font-src 'self'` |
+| (none for fonts) | Every page uses Switzer (400/500/600, from Fontshare), self-hosted in `assets/home/fonts/`, so the CSP allows `font-src 'self'`. The CSP still permits Google Fonts, which nothing loads any more |
 | player.vimeo.com | HD background heroes (`hero_vimeo`) and lightbox films |
 | youtube-nocookie.com | Lightbox films |
 
