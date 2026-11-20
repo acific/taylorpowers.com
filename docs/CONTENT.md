@@ -61,6 +61,24 @@ The bio, services, experience entries, email address and the project cards (name
 | Digital Domain | Digital Human Group / Lab: technicians, programmers, artists; Masquerade, Charlatan, real-time rendering; film, live events, gaming, mobile | digitaldomain.com |
 | EGO Labs 2.0 | Next-generation Z6 zero-turn riders ("All power. Zero compromise."): up to 27 HP gas-equivalent, up to 3 acres a charge (ZT5216L), Peak Power with up to six 56V batteries shared with 100+ tools, color display and EGO Connect app, E-Steer model, T6 tractor; "#1 rated brand", 250,000+ five-star reviews. The owner gave this page for the card (2026-11-20); the card's earlier video link was an unrelated mower product video and was dropped | egopowerplus.com/ridingmowers |
 
+### Added 2026-11-20 (second research pass)
+
+- **NASCAR:** Daytona result (started 13th, led laps 101–103, finished 30th) from motorsport.com; Watkins Glen win from pole, 74 of 100 laps, seventh Cup win, quote "this SuperFile Chevy was great" (foxsports.com, motorsport.com); "SuperFile Salutes" Coke 600 scheme (shop.trackhouse.com); quotes from Speedcafe and SI.
+- **MotoGP:** Jerez debut (crash.net); Assen Sprint and GP 1-2s, Ogura's first win (motogp.com); Brno pole, Sachsenring double podium, Silverstone win (motogp.com, motorsport.com); Valdez quote (crash.net). Photos: motogp.com (Pulselive CDN).
+- **Art car:** unveil and quotes (speedcafe.com, speedsport.com, slicksandsticks.com, speedwaydigest.com); render from speedwaydigest.com.
+- **Lefty Out There:** speedcafe.com, speedwaydigest.com, shop.trackhouse.com; render from speedcafe.com.
+- **SuperFile brand:** superfile.com (waitlist, tagline), si.com (sovereign file control). The brand film (Vimeo 1014838410) was uploaded Oct 1, 2024, before Taylor's tenure, and is labelled 2024.
+- **UFC & WWE:** ufc.com release (quotes, FREEDOM 250, UFC 329, WWE), mmapayout.com (weigh-ins). Image: ufc.com hero graphic.
+- **SuperFile × LAFC:** lafc.com Force for Good (Golden Boot Club, $50,000), LAFC on X (first look, Apr 4 2026). Images: lafc.com kit page and newsletter, the LAFC X post.
+- **FLEX × LAFC:** lafc.com (announcement, Heart of Gold, 5 Years Strong, Smokescreen), mlssoccer.com, legendsglobal.com. Images: lafc.com.
+- **FLEX launch:** corporate.lowes.com, toolguyd.com, flexpowertools.com. Images: flexpowertools.com.
+- **EGO Z6:** gbdmagazine.com (2021 specs), egopowerplus.com; next-gen Z6 from landscapearchitect.com (Mar 17, 2026) and egopowerplus.com/ridingmowers. Images: egopowerplus.com, YouTube thumbnail.
+- **SKIL:** ispot.tv (credits The Escape Pod as agency, so the page doesn't say Realm made it), YouTube (18.9M views when checked), skil.com. Images: ispot.tv frames.
+- **Wylie Co.:** borisfx.com (Dune shot counts, Wylie Cam), beforesandafters.com, dneg.com (Oscar), adsofbrands.net (studio history). Images: borisfx.com case study.
+- **Digital Domain:** digitaldomain.com (DHG, DigiDoug at TED 2019, Masquerade 2.0, Charlatan, Lombardi, awards). Images: digitaldomain.com.
+
+No public source names Taylor Powers or Realm Agency on any of these; her roles come from the resume.
+
 Not found in any public source (they come from the resume): 20,000+ assets, 200+ launches, 60B+ impressions, 150K+ Instagram, 25+ person department, $20M+ budgets.
 
 ## Location

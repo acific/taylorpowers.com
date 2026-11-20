@@ -26,9 +26,13 @@ GitHub Pages serves it for any missing address, so every path in it is root-abso
 - `lead`, `body` (paragraphs) and `figures` (number, label)
 - optionally `film` (`yt`, `vimeo` or `video`, plus `title`), `link` (label, URL) and `gallery` (shown only with two or more images)
 
-`PROJECTS` holds the fourteen projects in carousel order (slugs: `superfile-trackhouse-nascar`, `superfile-brand-launch`, `wylie-co`, `flex-lafc`, `superfile-ufc-wwe`, `superfile-lefty-out-there`, `superfile-lafc`, `superfile-trackhouse-motogp`, `ego`, `skil`, `superfile-art-car`, `flex-launch`, `digital-domain`, `ego-labs`). Each has `name` and `type` (as on the cards), `card` (the card image; the case-page hero defaults to its `@2x`), and the case-study fields. `page(p, more)` renders a case study (see `assets/main.css` below); `more` is the next two projects in `PROJECTS`, wrapping from the last to the first. Gallery photos that repeat the hero are skipped. It also sets per-page `<title>`, description and Open Graph tags. Pages use root-absolute paths (`/assets/...`), so they work only from the site root, which is how Pages and the local preview serve them.
+`PROJECTS` holds the fourteen projects in carousel order (slugs: `superfile-trackhouse-nascar`, `superfile-brand-launch`, `wylie-co`, `flex-lafc`, `superfile-ufc-wwe`, `superfile-lefty-out-there`, `superfile-lafc`, `superfile-trackhouse-motogp`, `ego`, `skil`, `superfile-art-car`, `flex-launch`, `digital-domain`, `ego-labs`). Each has `name` and `type` (as on the cards), `card` (the card image; the case-page hero defaults to its `@2x`), and the case-study fields. Each case study also has `role_text` (paragraphs for "Taylor's role.") and `sections` (a heading, paragraphs and optional `img`: one image full width, two or more in pairs). `page(p, more)` renders a case study (see `assets/main.css` below); `more` is the next two projects in `PROJECTS`, wrapping from the last to the first. Gallery photos that repeat the hero are skipped. It also sets per-page `<title>`, description and Open Graph tags. Pages use root-absolute paths (`/assets/...`), so they work only from the site root, which is how Pages and the local preview serve them.
 
 `V` sets the `?v=` cache stamp on `main.css`, `carousel.js` and `site.js` on every generated page; keep `404.html` equal.
+
+## Card images
+
+Card originals live ungraded in `sources/cards/<name>.jpg`. `scripts/grade_cards.sh` writes `assets/home/work/<name>@2x.jpg` (up to 2048 px) and `<name>.jpg` (1024 px) with one cinematic grade: contrast 1.14, saturation .86, cool shadows and warm highlights, a vignette and light grain. The portrait card (`taylor-powers`) is not graded. To change a card, replace its original and re-run the script.
 
 ## `assets/site.js`
 

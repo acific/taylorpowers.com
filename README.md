@@ -29,7 +29,8 @@ After changing `assets/main.css`, `assets/site.js` or `assets/carousel.js`, bump
 | `404.html` | Page not found (hand-edited) |
 | `assets/main.css`, `assets/carousel.js`, `assets/about.js`, `assets/site.js` | All styles; the home carousel; the About statement; case-page video and lightbox |
 | `assets/about/` | The About page's images (AI-generated, see docs/CONTENT.md) |
-| `assets/home/` | Card images (1024 px and `@2x`), logos, Switzer fonts, avatar |
+| `assets/home/` | Card images (1024 px and `@2x`, graded), logos, Switzer fonts, avatar |
+| `sources/cards/`, `scripts/grade_cards.sh` | Ungraded card originals, and the script that grades them into `assets/home/work/` (needs ffmpeg) |
 | `assets/video/`, `assets/clips/` | The showreel, and silent loops cut from it |
 | `assets/img/`, `assets/logos/` | Stills, the portrait, partner logos |
 | `assets/og.jpg`, `assets/favicon.svg`, `assets/apple-touch-icon.png` | The share card, the tab icon and the home-screen icon |

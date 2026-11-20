@@ -15,7 +15,8 @@ The contract for coding agents working on taylorpowers.com.
 | Command | What |
 |---|---|
 | `python3 -m http.server 5277` | Preview (or the `taylorpowers` config in `~/Strange/.claude/launch.json`) |
-| `python3 scripts/build_work.py` | Regenerate the case pages |
+| `python3 scripts/build_work.py` | Regenerate every page |
+| `sh scripts/grade_cards.sh` | Re-grade the card images from `sources/cards/` |
 | `node scripts/docs-check.mjs` | Docs harness; it's in `enforce` mode, so fix the docs, never the checker copy |
 | `git push origin main` (as acific) | Deploy (GitHub Pages) |
 
