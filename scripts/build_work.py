@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "40"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "41"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -428,41 +428,73 @@ def home():
 
 # ---------- Work: all projects ----------
 WINS = [
-    dict(slug="superfile-trackhouse-nascar", kicker="NASCAR Cup Series · May 10, 2026", title="Victory lane at Watkins Glen.",
-         p=["Shane van Gisbergen won Go Bowling at The Glen from pole in the SuperFile Chevrolet, leading 74 of 100 laps and finishing more than seven seconds clear for his seventh Cup Series win.",
-            "Taylor, who ran the SuperFile partnership, was in victory lane with the team."],
-         lead=I + "wins-wg-taylor-champagne.jpg", caption="Taylor (left) in victory lane at Watkins Glen.",
-         pair=[I + "nascar-wg-trophy-group.jpg", I + "nascar-wg-burnout.jpg"]),
-    dict(slug="superfile-trackhouse-motogp", kicker="MotoGP · June and August 2026", title="One-two at Assen. A win at Silverstone.",
-         p=["At the Dutch TT the SuperFile Aprilias finished first and second in both the Sprint and the Grand Prix: Raúl Fernández won the Sprint, and Ai Ogura took his first MotoGP win, the first for a Japanese rider in the premier class since 2004.",
-            "In August Fernández led from lights to flag at Silverstone for his second MotoGP win."],
-         lead=I + "motogp-assen-1-2.jpg", caption="", pair=[I + "motogp-silverstone.jpg", I + "motogp-medal.jpg"]),
-    dict(slug="flex-lafc", kicker="MLS Cup · November 5, 2022", title="Champions, with FLEX on the front.",
-         p=["LAFC won its first MLS Cup in FLEX’s second season on the front of the shirt, beating the Philadelphia Union 3–0 on penalties after a 3–3 draw. Gareth Bale’s header in the 128th minute, the latest goal in MLS history, forced the shootout.",
-            "With the Supporters’ Shield already won, it completed LAFC’s first double."],
-         lead=I + "wins-lafc-mls-cup.jpg", caption="", pair=[I + "wins-lafc-bale.jpg", I + "wins-lafc-vela.jpg"]),
+    dict(id="watkins-glen", slug="superfile-trackhouse-nascar", partner="SuperFile × Trackhouse Racing",
+         series="NASCAR Cup Series", when="May 10, 2026", place="Watkins Glen", title="Victory lane at Watkins Glen.",
+         stat=("74/100", "Laps led from pole"), stat2=("7th", "Cup Series win for van Gisbergen"),
+         p=["Shane van Gisbergen put the SuperFile Chevrolet on pole for Go Bowling at The Glen, led 74 of the 100 laps and won by more than seven seconds.",
+            "It came three months after the brand’s NASCAR debut at the Daytona 500. Taylor, who ran the partnership, was in victory lane with the team."],
+         hero=I + "nascar-wg-burnout.jpg", gallery=[I + "nascar-wg-trophy-group.jpg", I + "nascar-wg-victory-lane.jpg"],
+         caption="Taylor, beside the trophy, with van Gisbergen and the SuperFile team."),
+    dict(id="assen-silverstone", slug="superfile-trackhouse-motogp", partner="SuperFile Trackhouse MotoGP Team",
+         series="MotoGP", when="June & August 2026", place="Assen & Silverstone", title="One-two at Assen. Lights to flag at Silverstone.",
+         stat=("1–2", "Sprint and Grand Prix, Dutch TT"), stat2=("2", "Grand Prix wins in SuperFile colours"),
+         p=["At the Dutch TT the SuperFile Aprilias finished first and second twice in one weekend. Raúl Fernández won the Sprint; the next day Ai Ogura took his first MotoGP win, the first for a Japanese rider in the premier class since 2004.",
+            "In August, Fernández led every lap at Silverstone for his second Grand Prix win."],
+         hero=I + "motogp-assen-1-2.jpg", gallery=[I + "motogp-silverstone.jpg", I + "motogp-medal.jpg"], caption=""),
+    dict(id="mls-cup", slug="flex-lafc", partner="FLEX Power Tools × LAFC",
+         series="MLS Cup", when="November 5, 2022", place="Los Angeles", title="Champions, with FLEX on the front.",
+         stat=("128′", "Bale’s equaliser, the latest goal in MLS history"), stat2=("3–0", "On penalties after a 3–3 draw"),
+         p=["LAFC won its first MLS Cup in FLEX’s second season on the front of the shirt. Gareth Bale’s header in the 128th minute forced a shootout, and LAFC beat the Philadelphia Union 3–0 on penalties.",
+            "With the Supporters’ Shield already won, it completed the club’s first double."],
+         hero=I + "wins-lafc-mls-cup.jpg", gallery=[I + "wins-lafc-bale.jpg", I + "wins-lafc-vela.jpg"], caption=""),
 ]
 
 def wins():
     by_slug = {p["slug"]: p for p in PROJECTS}
-    blocks = ""
-    for n, w in enumerate(WINS):
-        cap = f'<figcaption>{e(w["caption"])}</figcaption>' if w["caption"] else ""
+    index = "".join(f'<li><a href="#{w["id"]}"><span>{e(w["place"])}</span><span>{e(w["series"])} · {e(w["when"][-4:])}</span></a></li>' for w in WINS)
+    chapters = ""
+    for w in WINS:
+        cap = f'<p class="win-cap">{e(w["caption"])}</p>' if w["caption"] else ""
         text = "".join(f"<p>{e(t)}</p>" for t in w["p"])
-        pair = "".join(f'<figure><img src="{g}" alt="" loading="lazy"></figure>' for g in w["pair"])
-        blocks += (f'<article class="win wrap"><figure class="win-lead"><img src="{w["lead"]}" alt="" loading="{"eager" if n == 0 else "lazy"}">{cap}</figure>'
-                   f'<div class="win-row"><div><p class="win-kicker">{e(w["kicker"])}</p><h2>{e(w["title"])}</h2></div>'
-                   f'<div class="row-text">{text}<a class="text-link" href="/work/{w["slug"]}/">{e(by_slug[w["slug"]]["name"])} →</a></div></div>'
-                   f'<div class="pair">{pair}</div></article>')
-    return (head("Wins · Taylor Powers", "Championships and race wins from the partnerships Taylor Powers built and ran: NASCAR, MotoGP and MLS Cup.", "/wins/", I + "wins-wg-taylor-champagne.jpg")
+        gallery = "".join(f'<figure class="reveal"><img src="{g}" alt="" loading="lazy"></figure>' for g in w["gallery"])
+        chapters += f"""
+  <section class="win" id="{w["id"]}" aria-label="{e(w["title"])}">
+    <div class="win-hero">
+      <img src="{w["hero"]}" alt="" loading="lazy">
+      <div class="win-shade" aria-hidden="true"></div>
+      <div class="win-hero-copy wrap">
+        <div class="reveal"><p class="win-meta">{e(w["series"])} <span aria-hidden="true">—</span> {e(w["when"])}</p><h2>{e(w["title"])}</h2></div>
+        <p class="win-stat reveal"><b>{e(w["stat"][0])}</b><span>{e(w["stat"][1])}</span></p>
+      </div>
+    </div>
+    <div class="win-body wrap">
+      <div class="win-side reveal"><p class="win-partner">{e(w["partner"])}</p><dl class="win-stat2"><dt>{e(w["stat2"][0])}</dt><dd>{e(w["stat2"][1])}</dd></dl></div>
+      <div class="win-text reveal">{text}<a class="win-link" href="/work/{w["slug"]}/">The full story: {e(by_slug[w["slug"]]["name"])} <span aria-hidden="true">→</span></a></div>
+    </div>
+    <div class="win-gallery wrap">{gallery}</div>
+    {f'<div class="wrap">{cap}</div>' if cap else ""}
+  </section>"""
+    return (head("Wins · Taylor Powers", "Championships and race wins from the partnerships Taylor Powers built and ran: NASCAR at Watkins Glen, MotoGP at Assen and Silverstone, and LAFC's 2022 MLS Cup.", "/wins/", I + "wins-wg-taylor-champagne.jpg")
             + f"""<body class="page wins">
-{nav("ink", "wins")}
+{nav("", "wins")}
 <main>
-  <section class="wrap wins-head"><h1 class="page-title">Wins<span>.</span></h1>
-    <p>Trophies, podiums and victory lanes from the partnerships Taylor built and ran.</p></section>
-  {blocks}
+  <section class="wins-hero">
+    <img src="{I}wins-wg-taylor-champagne.jpg" alt="Taylor Powers celebrating with the SuperFile team in victory lane at Watkins Glen">
+    <div class="wins-shade" aria-hidden="true"></div>
+    <div class="wins-hero-copy wrap">
+      <div>
+        <h1>Wins<span>.</span></h1>
+        <p class="wins-lede">The partnerships Taylor built and ran, on the days they finished first.</p>
+      </div>
+      <div class="wins-index-wrap">
+        <ol class="wins-index">{index}</ol>
+        <p class="wins-credit">Taylor, far left, in victory lane at Watkins Glen.</p>
+      </div>
+    </div>
+  </section>{chapters}
 </main>
 {FOOT}
+<script src="/assets/wins.js?v={V}" defer></script>
 </body>
 </html>
 """)
