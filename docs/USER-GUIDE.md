@@ -17,12 +17,14 @@ On a computer, two columns; on a phone, one.
 
 Each project page has:
 
-- the same light look as the home page, with a link back to all work
-- a big rounded header image or film (HD where there is one)
+- a full-screen header image or film (HD where there is one) with the title, a one-line summary and client, year and role
+- a black overview band with the story
 - client, year, role and disciplines
 - the story and results
 - **Watch the film** and/or a link to press coverage
-- **Next project** at the bottom
+- **More to explore** (two other projects) and a contact footer at the bottom
+
+More photos and story make these pages richer: send them per project and they go into `PROJECTS` (`gallery` and `body`).
 
 ## Email
 

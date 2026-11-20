@@ -40,7 +40,7 @@ GitHub Pages serves it for any missing address, so every path in it is root-abso
 - `lead`, `body` (paragraphs) and `figures` (number, label)
 - optionally `film` (`yt`, `vimeo` or `video`, plus `title`), `link` (label, URL) and `gallery` (shown only with two or more images)
 
-`page()` renders the template. Each page has a hero, a meta list (client, year, role, disciplines), text, actions (**Watch the film**, a coverage link), figures, a gallery, and a **Next project** link that wraps from the last to the first. It also sets per-page `<title>`, description and Open Graph tags. Pages use root-absolute paths (`/assets/...`), so they work only from the site root, which is how Pages and the local preview serve them.
+`page(p, more)` renders the editorial template (see `assets/case.css` below); `more` is the next two projects in `PROJECTS`, wrapping from the last to the first. Gallery photos that repeat the hero are skipped. It also sets per-page `<title>`, description and Open Graph tags. Pages use root-absolute paths (`/assets/...`), so they work only from the site root, which is how Pages and the local preview serve them.
 
 `V` sets the `?v=` cache stamp on the case pages' CSS and JS; keep it equal to the stamp in `index.html`.
 
@@ -61,15 +61,17 @@ Used by the case pages (it was also the old home page's script; the Intro, Reel,
 
 ## `assets/case.css` (case pages)
 
-The case pages' look, matching the home page: white, Switzer (`@font-face` from `/assets/home/fonts/`), `--ink #0a0a0a`, `--muted #757575`, `--line #e3e3e3`, `--soft #f4f4f4`, content in a 1180 px `.wrap`.
+An editorial layout modelled on a Framer portfolio template the owner liked (2026-11-20), in the site's own type: Switzer throughout, `--ink #0a0a0a`, `--muted #757575`, `--line #e3e3e3`, `--soft #f4f4f4`, content in a 1180 px `.wrap`. In page order:
 
-- **Top bar** (`.case-bar`, sticky, frosted white): avatar and name linking home (`.who`), **← All work** (`.back`).
-- **Hero** (`.case-hero`): a rounded 16:9 frame (at most 78vh) holding the image, the local clip or the Vimeo background (`.case-hero-vimeo`, full-width 16:9, fades in with `.on`). `hero_light` renders (`.case-hero-media.light`) are contained on light grey.
-- **Head** (`.case-head`): client in grey, then the title.
-- **Body** (`.case-body`): the meta list beside the lead and text; **Watch the film** (`.btn.solid`) and the coverage link (`.btn`); figures (`.case-figures`) and gallery (`.case-gallery`) span both columns. One column below 860 px.
-- **Next project** (`.next`) with a round arrow, then the footer (`.case-foot`) with the contact address.
-- **Lightbox** (`.player`): the dialog `site.js` opens for films.
-- **Reduced motion:** transitions off.
+1. **Hero** (`.case-hero`, full screen): the image, local clip or Vimeo background (`.case-hero-vimeo`, fades in with `.on`) under a dark gradient. Over the bottom: **← All work** (`.all-work`) on the left; on the right the title, the lead and a facts table (`.facts`: client, year, role). A transparent bar (`.hero-bar`) at the top has Taylor's name and **Work** / **Contact**. `hero_light` renders (`.light-hero`) sit contained on light grey with dark text.
+2. **Intro band** (`.intro`, black): "Overview" and the disciplines on the left, the body paragraphs in large type on the right.
+3. **Film** (`.film`): a full-width 16:9 still (`.film-poster`, the hero image) with a **Watch the film** button; clicking opens the lightbox.
+4. **Photos** (`.pair`): gallery photos two to a row (square); a single photo is full width (`.pair.single`, 16:9).
+5. **Results.** / **Coverage.** (`.split`): heading left; the figures (`.figures`) and the coverage link right. "Coverage." when a project has a link but no figures.
+6. **More to explore.** (`.more`): the next two projects as photo cards.
+7. **Contact footer** (`.contact-foot`, black): "Let's work together.", email and LinkedIn, copyright.
+
+Below 860 px everything stacks into one column. The same file also styles `404.html` (`.case-bar`, `.not-found`, `.case-foot`) and the lightbox (`.player`).
 
 `assets/site.css` (the old dark Archivo styles) was removed on 2026-11-20.
 

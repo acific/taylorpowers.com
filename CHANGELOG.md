@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **Case pages redesigned** after a Framer portfolio template the owner liked: full-screen hero with title, summary and a client/year/role table; a black overview band; the film as a large still that opens the player; photos in pairs; Results./Coverage.; More to explore (next two projects); a black "Let's work together." footer. Switzer throughout. Stamp 21.
 - **Polish:** a `404.html` page-not-found in the site's style (replaces GitHub's generic page); a schema.org `Person` search profile and canonical URL on the home page; a **SuperFile Brand Launch** card (second, linking to its case page), with the columns rebalanced for fourteen cards. Stamp 20.
 - **Refinements:** one shared easing, page fade-in, crossfade between pages, photos that fade in once loaded and a gentler 2% hover zoom; the logo strip trimmed and evened out (one tone, matched visual weight, slower, pauses on hover); larger name, the bio's first sentence in ink, more space between sections, experience years in an aligned column; a new share card and tab icon in the light design, plus a home-screen icon. Stamp 19.
 - **Case pages restyled** to match the home page: white, Switzer, a sticky bar with Taylor's name and **← All work**, the hero in a rounded frame with the title below it, black pill buttons, a round-arrow **Next project**, and the contact address `taylorraepowers@icloud.com` (as on the home page). New `assets/case.css`; `assets/site.css` and the Archivo font are gone. Stamp 18.
