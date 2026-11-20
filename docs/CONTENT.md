@@ -89,7 +89,7 @@ The footer and the home page's first card say "Chicago / Los Angeles / Las Vegas
 
 ## AI-generated images (About page)
 
-`assets/about/` holds nine images generated on 2026-11-20 in the owner's ChatGPT at the owner's request, styled after the reference template: four of Taylor made from `assets/img/taylor-portrait.jpg` as the likeness (`portrait`, `work`, `closing-1`, `closing-2`). The owner's green portrait (generated and supplied by the owner) is the home page's first card, `assets/home/work/taylor-powers.jpg` and five backdrops with no people (`service-1`…`service-5`). They are illustrations, not photos of real events; don't present them as such. The originals are in the owner's ChatGPT chat "Generate Portrait".
+`assets/about/` holds seven images generated in the owner's ChatGPT at the owner's request, styled after the reference template: two of Taylor made from `assets/img/taylor-portrait.jpg` as the likeness (`portrait`, and `editing`, at a colour-grading desk, supplied by the owner to replace the earlier photo-table image). The owner's green portrait (generated and supplied by the owner) is the home page's first card, `assets/home/work/taylor-powers.jpg` and five backdrops with no people (`service-1`…`service-5`). They are illustrations, not photos of real events; don't present them as such. The originals are in the owner's ChatGPT chat "Generate Portrait".
 
 ## Assets and their sources
 

@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **About:** the small photo is now the owner's editing-desk image; the closing photo pair at the bottom is gone. Stamp 36.
 - **About services as a deck** (owner's choice, "deck on a stage"): one framed 16:9 slide at a time on the black band with a segmented progress bar, a counter and arrows; from 810 px the band pins and the page scroll steps through the five slides (arrows and segments scroll to a slide). Phones show the slides stacked. Replaces the sideways row. Stamp 35.
 - **Home cards play their film** when centred (FLEX × LAFC, EGO, SKIL, Digital Domain): the card's `hero_clip` loads only when the card reaches the centre, plays muted and pauses when it leaves; off for reduced motion. **Digital Domain:** the studio's own showreel banner from digitaldomain.com as the case-page hero and card film. Stamp 34.
 - **Home:** an endless logo strip (the About logos) in the space between the arrows and the nav, hidden on desktop windows under 760 px tall and still for reduced motion. **Wylie Co.:** the card is now the Dune (2021) poster. **SuperFile × UFC** (renamed from UFC & WWE): UFC 329 weigh-in hero and card, the fight poster, and Sophie Cunningham's SuperFile round card. **FLEX × LAFC** links to LAFC's 2022 kit page. Stamp 33.

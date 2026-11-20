@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "35"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "36"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -294,9 +294,8 @@ ABOUT = dict(
                   ["wylie-co", "digital-domain", "ego-labs"],
                   ["superfile-trackhouse-nascar", "superfile-art-car"]],
     # Image slots: top pair, one backdrop per service, closing pair
-    img_small="/assets/about/work.jpg", img_big="/assets/about/portrait.jpg",
+    img_small="/assets/about/editing.jpg", img_big="/assets/about/portrait.jpg",
     img_services=["/assets/about/service-1.jpg", "/assets/about/service-2.jpg", "/assets/about/service-3.jpg", "/assets/about/service-4.jpg", "/assets/about/service-5.jpg"],
-    img_close=["/assets/about/closing-1.jpg", "/assets/about/closing-2.jpg"],
 )
 ABOUT_STATEMENT_SHORT = "A brand and marketing executive with 8+ years across Hollywood productions, global consumer brands, and high-profile partnerships in sports and entertainment."
 
@@ -485,7 +484,6 @@ def about():
     <dl class="big-figures">{numbers}</dl>
   </section>
   <section class="wrap logos" aria-label="Brands and studios">{logos}</section>
-  <section class="wrap ab-close">{"".join(f'<figure><img src="{x}" alt="" loading="lazy"></figure>' for x in a["img_close"])}</section>
 </main>
 {FOOT}
 <script src="/assets/about.js?v={V}" defer></script>
