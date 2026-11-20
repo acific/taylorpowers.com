@@ -198,7 +198,7 @@ PROJECTS = [
     dict(slug="skil", name="SKIL Gas Zombies Campaign", type="Account Management",
          client="SKIL", title="Don’t be a gas zombie",
          year="2022", role="Realm Agency", disciplines=["National TV", "Campaign", "Product launch"],
-         card=W + "skil-gas-zombies.jpg", hero_clip="/assets/clips/skil.mp4", hero_img="/assets/clips/skil.jpg",
+         card=W + "skil-gas-zombies.jpg", hero_clip="/assets/clips/skil-gas-zombie.mp4", hero_img="/assets/clips/skil-gas-zombie.jpg",
          lead="“Don’t Be a Gas Zombie”: SKIL’s national TV spot for its PWRCORE 40 cordless outdoor range.",
          body=["SKIL’s spot for PWRCORE 40, first published in March 2022, pitched its brushless 40V string trimmer, leaf blower, self-propelled mower and chainsaw as the way out of a world controlled by gas.",
                "SKIL carried the same idea across its pages: “Ditch the gas, keep the power.”"],
