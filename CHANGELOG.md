@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **Case pages:** removed "More to explore" (owner: distracting); pages end after Results. Stamp 39.
 - **SuperFile media from the owner:** the anthem film is the brand-launch hero and film; NASCAR gets the Daytona 500 film and loop, Daytona/Martinsville/Texas photos, the New Hampshire highlight and the Watkins Glen win (burnouts, victory lane, champagne); Lefty Out There gets the Chicagoland highlight, race, pit, artist and door photos and a new card; UFC gets the FREEDOM 250 and UFC 329 films; the MotoGP card is the unveil graphic. Sections can now carry their own film. **About:** "In numbers" and the logos now sit above the deck. Stamp 38.
 - **About deck is now a full presentation:** cover (editing-desk image, "Brand, partnerships and production."), a contents slide whose entries jump to each service, the five service slides and a closing slide with email, LinkedIn and Work links. Eight slides. Stamp 37.
 - **About:** the small photo is now the owner's editing-desk image; the closing photo pair at the bottom is gone. Stamp 36.

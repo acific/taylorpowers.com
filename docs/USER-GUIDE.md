@@ -21,7 +21,7 @@ Each project page has:
 - client, year, role and disciplines
 - the story and results
 - **Watch the film** and/or a link to press coverage
-- **More to explore** (two other projects) and a contact footer at the bottom
+- A contact footer at the bottom
 
 More photos and story make these pages richer: send them per project and they go into `PROJECTS` (`gallery` and `body`).
 

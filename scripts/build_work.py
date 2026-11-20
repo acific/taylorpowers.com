@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "38"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "39"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -516,7 +516,7 @@ def about():
 """)
 
 # ---------- Case study ----------
-def page(p, more):
+def page(p):
     light = p.get("hero_light")
     hero = (f'<video class="hero-media" autoplay muted loop playsinline poster="{p["hero_img"]}" aria-hidden="true"><source src="{p["hero_clip"]}" type="video/mp4"></video>'
             if p.get("hero_clip") else f'<img class="hero-media" src="{p["hero_img"]}" alt="{e(p["client"])}">')
@@ -554,9 +554,6 @@ def page(p, more):
         link = f'<a class="text-link" href="{e(p["link"][1])}" target="_blank" rel="noopener">{e(p["link"][0])} ↗</a>' if p.get("link") else ""
         results = (f'<section class="row wrap"><h2>{"Results." if p["figures"] else "Coverage."}</h2><div class="row-text">'
                    f'{f"<dl class=figures>{figs}</dl>" if figs else ""}{link}</div></section>')
-    cards = "".join(
-        f'<a class="more-card" href="/work/{m["slug"]}/"><span class="more-img"><img src="{m["card"]}"{img2x(m["card"])} sizes="(max-width: 809px) 100vw, 45vw" alt="" loading="lazy"></span>'
-        f'<span class="more-name">{e(m["name"])}</span><span class="more-sub">{e(m["type"])} · {e(m["year"])}</span></a>' for m in more)
     return (head(f'{p["name"]} · Taylor Powers', p["lead"], f'/work/{p["slug"]}/', p["hero_img"])
             + f"""<body class="case">
 {nav("on-light" if light else "", "work")}
@@ -582,11 +579,7 @@ def page(p, more):
   {media}
   {sections}
   {results}
-  <section class="more wrap">
-    <h2>More to explore.</h2>
-    <p>Two more projects to look through.</p>
-    <div class="more-grid">{cards}</div>
-  </section>
+  <div class="case-end"></div>
 </main>
 {FOOT}
 {PLAYER}
@@ -605,6 +598,5 @@ if __name__ == "__main__":
     write("index.html", home())
     write("work/index.html", work_index())
     write("about/index.html", about())
-    n = len(PROJECTS)
-    for i, p in enumerate(PROJECTS):
-        write(f"work/{p['slug']}/index.html", page(p, [PROJECTS[(i + 1) % n], PROJECTS[(i + 2) % n]]))
+    for p in PROJECTS:
+        write(f"work/{p['slug']}/index.html", page(p))
