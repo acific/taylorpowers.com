@@ -59,7 +59,7 @@ The bio, services, experience entries, email address and the project cards (name
 | Art car | Unveiled Mar 10, 2026; Mr. Brainwash (Thierry Guetta); "SuperBrainHouse"; Las Vegas debut Mar 15; quote "The car looks epic" | speedcafe.com; speedsport.com |
 | FLEX launch | 24V Stacked Lithium, Therma-Tech+; claims 200% more power, 300% longer life, ~20-minute charging | flexpowertools.com |
 | Digital Domain | Digital Human Group / Lab: technicians, programmers, artists; Masquerade, Charlatan, real-time rendering; film, live events, gaming, mobile | digitaldomain.com |
-| EGO Labs 2.0 | Card name from the owner's Framer site. Its video is an EGO POWER+ mower product video (LM2206SP); no public source for an "EGO Labs" program | YouTube |
+| EGO Labs 2.0 | Next-generation Z6 zero-turn riders ("All power. Zero compromise."): up to 27 HP gas-equivalent, up to 3 acres a charge (ZT5216L), Peak Power with up to six 56V batteries shared with 100+ tools, color display and EGO Connect app, E-Steer model, T6 tractor; "#1 rated brand", 250,000+ five-star reviews. The owner gave this page for the card (2026-11-20); the card's earlier video link was an unrelated mower product video and was dropped | egopowerplus.com/ridingmowers |
 
 Not found in any public source (they come from the resume): 20,000+ assets, 200+ launches, 60B+ impressions, 150K+ Instagram, 25+ person department, $20M+ budgets.
 

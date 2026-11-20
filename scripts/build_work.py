@@ -143,12 +143,15 @@ PROJECTS = [
                "Taylor coordinated visual effects production for the group, managing international workflows, artist schedules and deliverables."],
          figures=[], link=("Digital Domain’s digital humans", "https://digitaldomain.com/digital-humans-lab/"), gallery=[]),
     dict(slug="ego-labs", name="EGO Labs 2.0", type="Account Management / Production",
-         client="EGO Power+", title="EGO Labs 2.0",
-         year="Realm Agency", role="Realm Agency", disciplines=["Campaign", "Production"],
+         client="EGO Power+", title="The next generation of Z6 riders",
+         year="Realm Agency", role="Realm Agency", disciplines=["Product launch", "Campaign", "Production"],
          card=W + "ego-labs.png",
-         lead="EGO Labs 2.0, product content for EGO POWER+ produced at Realm Agency.",
-         body=["Part of Realm Agency’s work for EGO, where Taylor led account management and production across product launches and campaign content."],
-         figures=[], film=dict(yt="Mq8TwQIQwxw", title="EGO Labs 2.0"), gallery=[]),
+         lead="Launch work for EGO’s next generation of Z6 zero-turn riding mowers: all the power of gas, with no exhaust and no oil changes.",
+         body=["EGO introduced its next generation of Z6 zero-turn riding mowers with the line “All power. Zero compromise.” The range runs from the 42-inch Z6 to the 52-inch ZT5216L, rated up to 27 HP gas-equivalent and up to three acres on a single charge, plus a 42-inch model with E-Steer that drives like a car and the T6 lawn tractor.",
+               "Peak Power combines up to six of EGO’s 56V batteries, the same ones that run more than 100 EGO tools, and a color display connects to the EGO Connect app for blade speed, driving mode and mowing history. EGO calls itself the number one rated brand in cordless outdoor power, with more than 250,000 five-star reviews.",
+               "At Realm Agency, Taylor led account management and production for EGO across product launches and campaign content."],
+         figures=[("27 HP", "Gas-equivalent power, per EGO"), ("3 acres", "On a single charge, per EGO"), ("100+", "EGO tools on the same batteries")],
+         link=("EGO’s Z6 riding mowers", "https://egopowerplus.com/ridingmowers"), gallery=[]),
 ]
 for p in PROJECTS:  # the case-page hero defaults to the card image at 2x
     p.setdefault("hero_img", p["card"].rsplit(".", 1)[0] + "@2x.jpg")
