@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **Carousel opens on Taylor:** the green portrait is the first card and opens About. **SuperFile × LAFC:** the owner's training-kit photo, four kit photos and LAFC's announcement film (Brightcove, added to the lightbox and the CSP). Stamp 29.
 - **Carousel steps on the mouse wheel and trackpad** (one project per gesture). **About:** the owner's green portrait added full width between the opening photos and the experience band. Stamp 27.
 - **Home scales with the window like the template:** the card grows from 299 px (tablet) to `13.1vw + 197px` (desktop), every arc position is in card units, the text sits in a centred 1520 px column; checked against the template at 1024, 1280, 1440 and 2000 px. Fixed sideways scrolling on phones. Stamp 26.
 - **Home matched to the template at the pixel level** (type sizes, card frame and shadow, arc geometry, arrows, menu; "Works" in the menu). **About rebuilt like the template:** word-by-word statement, photo pair, black experience band, stacked full-screen service panels linking their projects, numbers, logos, closing pair; nine AI-generated images in `assets/about/`. New `assets/about.js`. Stamp 25.

@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "27"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "29"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -82,13 +82,17 @@ PROJECTS = [
                "The collaboration was part of SuperFile’s run of artist cars inside its Trackhouse Racing partnership, which Taylor led as VP of Brand."],
          link=("The Chicagoland livery", "https://speedcafe.com/nascar-news-2026-cup-series-chicagoland-shane-van-gisbergen-livery-lefty-out-there-details/"), figures=[], gallery=[]),
     dict(slug="superfile-lafc", name="SuperFile × LAFC", type="Brand Management",
-         client="SuperFile × LAFC", title="SuperFile × LAFC",
-         year="2026", role="VP of Brand, SuperFile", disciplines=["Sports partnership", "Brand integration"],
-         card=W + "superfile-lafc.webp",
-         lead="SuperFile on the front of LAFC’s black-and-gold training kit.",
-         body=["In 2026 SuperFile became a Golden Boot Club partner of Los Angeles FC and the front-of-training-kit sponsor, putting the brand on the club’s black-and-gold LAFC Training Kit.",
+         client="SuperFile × LAFC", title="The SuperFile training kit",
+         year="2026", role="VP of Brand, SuperFile", disciplines=["Sports partnership", "Training kit", "Brand integration", "Content"],
+         card=W + "superfile-lafc.jpg",
+         lead="SuperFile on the front of LAFC’s training kit, launched with the club’s own announcement film.",
+         body=["In 2026 SuperFile became a Golden Boot Club partner of Los Angeles FC and the front-of-training-kit sponsor, putting the brand on the LAFC Training Kit the squad wears every day.",
+               "LAFC describes the kit as built for the daily grind, bridging high-performance technology and the club’s Black & Gold look, and introduced it with a SuperFile announcement film shot with the players.",
                "Alongside the partnership, SuperFile donated $50,000 to the LAFC Foundation to support youth soccer. Taylor developed and managed the partnership as part of SuperFile’s sports program."],
-         figures=[("$50K", "Donated to the LAFC Foundation")], link=("The LAFC Training Kit", "https://www.lafc.com/culture/kit/superfile"), gallery=[]),
+         figures=[("$50K", "Donated to the LAFC Foundation")],
+         film=dict(bc="5534894108001/6394924761112", title="LAFC × SuperFile — Training kit announcement"),
+         link=("The kit on LAFC.com", "https://www.lafc.com/culture/kit/superfile"),
+         gallery=["/assets/img/lafc-superfile-l2.jpg", "/assets/img/lafc-superfile-l3.jpg", "/assets/img/lafc-superfile-p1.jpg", "/assets/img/lafc-superfile-p3.jpg"]),
     dict(slug="superfile-trackhouse-motogp", name="SuperFile Trackhouse MotoGP", type="Brand Management",
          client="SuperFile Trackhouse MotoGP Team", title="Name on the grid",
          year="2026", role="VP of Brand, SuperFile", disciplines=["Title partnership", "Content", "Hospitality"],
@@ -185,12 +189,14 @@ ABOUT = dict(
     img_services=["/assets/about/service-1.jpg", "/assets/about/service-2.jpg", "/assets/about/service-3.jpg", "/assets/about/service-4.jpg", "/assets/about/service-5.jpg"],
     img_close=["/assets/about/closing-1.jpg", "/assets/about/closing-2.jpg"],
 )
+ABOUT_STATEMENT_SHORT = "A brand and marketing executive with 8+ years across Hollywood productions, global consumer brands, and high-profile partnerships in sports and entertainment."
+
 LOGOS = [("ego", "EGO", 16), ("skil", "SKIL", 19), ("flex", "FLEX", 19), ("digital-domain", "Digital Domain", 19), ("wylie", "Wylie Co.", 23),
          ("netflix", "Netflix", 18), ("abc", "ABC", 27), ("fox", "FOX", 20), ("apple-tv", "Apple TV", 22), ("superfile", "SuperFile", 17), ("realm", "Realm", 20)]
 
 e = html.escape
 CSP = ("default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; "
-       "img-src 'self' data:; media-src 'self'; frame-src https://player.vimeo.com https://www.youtube-nocookie.com; connect-src 'self'; "
+       "img-src 'self' data:; media-src 'self'; frame-src https://player.vimeo.com https://www.youtube-nocookie.com https://players.brightcove.net; connect-src 'self'; "
        "object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests")
 
 def head(title, desc, url, image, extra=""):
@@ -255,6 +261,7 @@ PLAYER = """<dialog class="player" id="player" aria-label="Video">
 </dialog>"""
 
 def film_attrs(f):
+    if "bc" in f: return f'data-bc="{e(f["bc"])}"'
     if "yt" in f: return f'data-yt="{e(f["yt"])}"'
     if "vimeo" in f: return f'data-vimeo="{e(f["vimeo"])}"'
     return f'data-video="{e(f["video"])}"'
@@ -266,14 +273,19 @@ def img2x(src):
     return ""
 
 # ---------- Home: the carousel ----------
+# The first carousel card is Taylor herself and opens About
+ME = dict(slug=None, href="/about/", name="Taylor Powers", type="Brand & Marketing Executive",
+          lead=ABOUT_STATEMENT_SHORT, year="Based in Chicago", card=W + "taylor-powers.jpg")
+
 def home():
+    items = [ME] + PROJECTS
     slides = "".join(
-        f'<a class="slide" href="/work/{p["slug"]}/" data-i="{i}" aria-label="{e(p["name"])}">'
-        f'<img src="{p["card"]}"{img2x(p["card"])} sizes="320px" alt="" {"loading=\"lazy\" " if i > 3 and i < len(PROJECTS) - 3 else ""}draggable="false"></a>'
-        for i, p in enumerate(PROJECTS))
+        f'<a class="slide" href="{p.get("href") or "/work/" + p["slug"] + "/"}" data-i="{i}" aria-label="{e(p["name"])}">'
+        f'<img src="{p["card"]}"{img2x(p["card"])} sizes="320px" alt="" {"loading=\"lazy\" " if i > 3 and i < len(items) - 3 else ""}draggable="false"></a>'
+        for i, p in enumerate(items))
     info = "".join(
         f'<div class="info" data-i="{i}"{"" if i == 0 else " hidden"}><div class="info-left"><h1>{e(p["name"])}</h1><p>{e(p["lead"])}</p><span class="info-year">{e(p["year"])}</span></div>'
-        f'<p class="info-type">{e(p["type"])}</p></div>' for i, p in enumerate(PROJECTS))
+        f'<p class="info-type">{e(p["type"])}</p></div>' for i, p in enumerate(items))
     person = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Taylor Powers",'
               '"jobTitle":"Brand & Marketing Executive","url":"https://taylorpowers.com/","image":"https://taylorpowers.com/assets/home/avatar.jpg",'
               f'"email":"mailto:{EMAIL}","sameAs":["{LINKEDIN}"]}}</script>\n')

@@ -103,7 +103,10 @@
       node.src = el.dataset.video; node.controls = true; node.autoplay = true; node.playsInline = true;
     } else {
       node = document.createElement('iframe');
-      node.src = el.dataset.yt
+      if (el.dataset.bc) {  // Brightcove: "account/videoId" (LAFC's films)
+        const [acct, vid] = el.dataset.bc.split('/');
+        node.src = `https://players.brightcove.net/${acct}/default_default/index.html?videoId=${vid}&autoplay=true`;
+      } else node.src = el.dataset.yt
         ? `https://www.youtube-nocookie.com/embed/${el.dataset.yt}?autoplay=1&rel=0&modestbranding=1`
         : `https://player.vimeo.com/video/${el.dataset.vimeo}?autoplay=1&title=0&byline=0&portrait=0`;
       node.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media'; node.allowFullscreen = true;
@@ -124,7 +127,7 @@
   dlg.addEventListener('click', e => { if (e.target === dlg) close(); });
   $('playerClose').addEventListener('click', close);
   document.addEventListener('click', e => {
-    const el = e.target.closest('[data-yt], [data-vimeo], [data-video]');
+    const el = e.target.closest('[data-yt], [data-vimeo], [data-video], [data-bc]');
     if (el) { e.preventDefault(); open(el); }
   });
 })();
