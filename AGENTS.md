@@ -18,7 +18,7 @@ The contract for coding agents working on taylorpowers.com.
 | `python3 -m http.server 5277` | Preview (or the `taylorpowers` config in `~/Strange/.claude/launch.json`) |
 | `python3 scripts/build_work.py` | Regenerate the case pages |
 | `node scripts/docs-check.mjs` | Docs harness; it's in `enforce` mode, so fix the docs, never the checker copy |
-| `GH_TOKEN=$(gh auth token --user ShaneRealm) git push origin main` | Deploy (GitHub Pages) |
+| `git push origin main` (as acific) | Deploy (GitHub Pages) |
 
 ## Invariants
 
@@ -33,8 +33,8 @@ The contract for coding agents working on taylorpowers.com.
 
 ## Conventions
 
-- Commit as the repo-local identity `ShaneRealm <346018520+ShaneRealm@users.noreply.github.com>` (already in `.git/config`), with no AI or tool attribution lines.
-- Push with the ShaneRealm token, as in the table above. The active `gh` account on this Mac is often Acific, and pushing as Acific fails with a 403.
+- Commit with no AI or tool attribution lines.
+- Push as acific. The repo moved from ShaneRealm/taylorpowers.com on 2026-11-20; that old repo is stale.
 - Update the docs in the same commit as the change, and refresh each doc's `Last verified` line.
 - Media: re-save video with the index at the front (fast start). Clips are silent 720p at about 2 Mbps. Don't upscale images.
 

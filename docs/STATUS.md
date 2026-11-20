@@ -31,6 +31,6 @@
 
 ## Accounts and access
 
-- **GitHub:** ShaneRealm (repo owner) and Acific are both signed in to `gh`. Push with the ShaneRealm token (OPERATIONS).
+- **GitHub:** the repo is acific/taylorpowers.com (moved from ShaneRealm on 2026-11-20). Push as acific (OPERATIONS).
 - **Cloudflare:** the shared account (acificlabs@gmail.com).
 - **GoDaddy:** the owner's account (registrar only).

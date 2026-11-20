@@ -8,6 +8,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 - **Home page redesign:** `index.html` now matches the owner's Framer design (willing-iris-827866.framer.app): two columns, Switzer, a logo strip, services, experience, contact and thirteen project cards linking to outside coverage. Its styles and script are `assets/home.css` and `assets/home.js`; its images and self-hosted fonts are in `assets/home/`. Contact is taylorraepowers@icloud.com, as in the design. Fixed from the Framer version: the mailto (it pointed at a template address), the Trackhouse NASCAR link and "Brand Lanches".
 - **Security:** the CSP's `font-src` adds `'self'` for the self-hosted Switzer, in `index.html` and the case-page template. Case pages rebuilt. Stamp 15.
+- **Hosting:** the repo moved from ShaneRealm/taylorpowers.com to acific/taylorpowers.com (the owner couldn't sign in to ShaneRealm). The domain was re-verified for acific and `www` now points to acific.github.io.
 
 ## 2026-10-22
 

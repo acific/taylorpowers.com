@@ -6,9 +6,9 @@ A static site. There's no server code: GitHub Pages serves the files in the repo
 
 ```
 Visitor ──► Cloudflare DNS (taylorpowers.com, DNS only)
-              │  A @ → 185.199.108–111.153     CNAME www → shanerealm.github.io
+              │  A @ → 185.199.108–111.153     CNAME www → acific.github.io
               ▼
-        GitHub Pages (repo ShaneRealm/taylorpowers.com, branch main, folder /)
+        GitHub Pages (repo acific/taylorpowers.com, branch main, folder /)
               │  index.html, work/*/index.html, assets/*
               ├──► Google Fonts (Archivo, case pages; the home page self-hosts Switzer)
               ├──► Vimeo player (HD background heroes, films in the lightbox)

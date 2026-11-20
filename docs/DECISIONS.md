@@ -38,4 +38,4 @@ When asked what was wrong (just before ff6ab7a), the owner said it was **generic
 - **Case pages are generated** from one Python list, so eight pages can't drift from each other.
 - **HD heroes stream from Vimeo** in background mode (as realmempire.com does) instead of downloading and re-hosting the films.
 - **No phone number** on the public site.
-- **The repo belongs to the ShaneRealm GitHub account**, not Acific, because it's Taylor's site under the owner's personal account.
+- **The repo belongs to the acific GitHub account** since 2026-11-20. It was under ShaneRealm (the owner's personal account), but that account was made with Google/Apple sign-in and the owner could no longer get into it, so the site moved to acific and the domain was re-verified there.

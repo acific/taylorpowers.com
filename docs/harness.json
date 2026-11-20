@@ -9,6 +9,6 @@
     {"id": "case-slugs", "kind": "mirror", "source": ["scripts/build_work.py"], "extract": "slug=\"([a-z0-9-]+)\"", "docs": ["docs/IMPLEMENTATION.md"], "why": "every generated case page is listed in IMPLEMENTATION", "added": "2026-10-22"},
     {"id": "clips", "kind": "mirror", "source": ["index.html"], "extract": "data-src=\"/?assets/clips/([a-z-]+)\\.mp4\"", "docs": ["docs/IMPLEMENTATION.md"], "why": "every hover clip is documented with its cut", "added": "2026-10-22"},
     {"id": "old-accent", "kind": "forbid", "pattern": "volt accent|#d7ff3a", "docs": ["README.md", "AGENTS.md", "docs/IMPLEMENTATION.md", "docs/ARCHITECTURE.md", "docs/USER-GUIDE.md", "docs/OPERATIONS.md"], "why": "the volt yellow accent was replaced by neon blue (2026-10-21)", "added": "2026-10-22"},
-    {"id": "push-as-shanerealm", "kind": "require", "docs": ["docs/OPERATIONS.md"], "pattern": "gh auth token --user ShaneRealm", "why": "pushing as the active Acific account fails with 403", "added": "2026-10-22"}
+    {"id": "push-as-acific", "kind": "require", "docs": ["docs/OPERATIONS.md"], "pattern": "Push as acific", "why": "the repo moved from ShaneRealm to acific on 2026-11-20; OPERATIONS must say which account pushes", "added": "2026-11-20"}
   ]
 }

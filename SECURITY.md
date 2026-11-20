@@ -32,4 +32,4 @@ taylorpowers.com is a static site with no server code, no forms, no accounts, no
 
 ## Reporting
 
-Report issues to taylor@taylorpowers.com or the repository owner (github.com/ShaneRealm).
+Report issues to taylor@taylorpowers.com or the repository owner (github.com/acific).

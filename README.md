@@ -15,7 +15,7 @@ cd ~/Strange/taylorpowers.com
 python3 -m http.server 5277          # preview at http://localhost:5277 (or the "taylorpowers" preview config)
 python3 scripts/build_work.py        # regenerate the case pages after editing PROJECTS
 node scripts/docs-check.mjs          # check the docs against the code
-GH_TOKEN=$(gh auth token --user ShaneRealm) git push origin main
+git push origin main   # as acific
 ```
 
 After changing `assets/site.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py`. See [docs/OPERATIONS.md](docs/OPERATIONS.md).
