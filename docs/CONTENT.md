@@ -1,8 +1,12 @@
 # Content
 
-> Last verified against the code: 2026-10-22 (commit 605a391)
+> Last verified against the code: 2026-11-20 (commit 68010d3 + the Framer home page)
 
 Where every fact, number and asset on the site comes from. **Never add a claim that isn't in one of these sources.**
+
+## The home page: the owner's Framer design
+
+Since 2026-11-20 the home page's words, images and links come from the owner's own Framer site (willing-iris-827866.framer.app, built by the owner): the bio, the five services, the five experience entries, the email address and the thirteen project cards. The images were taken from that site into `assets/home/`. Where it differs from the resume below (for example, it lists Digital Domain for 2017–2020, where the resume has Wylie Co.), the home page follows the Framer design until the owner says otherwise.
 
 ## Source of truth: Taylor's resume (v9)
 

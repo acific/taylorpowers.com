@@ -1,6 +1,6 @@
 # User guide
 
-> Last verified against the code: 2026-10-22 (commit 605a391)
+> Last verified against the code: 2026-11-20 (commit 68010d3 + the Framer home page)
 
 For Taylor and Shane: what the site does and how to change it.
 
@@ -8,12 +8,10 @@ For Taylor and Shane: what the site does and how to change it.
 
 **Home (taylorpowers.com)**
 
-1. On a first visit, a one-second intro: "TAYLOR POWERS" on black.
-2. The showreel, full screen. **Sound on** turns the audio on, and **Watch full reel** opens it with controls.
-3. **Selected work**: nine projects. On a computer, hovering over FLEX × LAFC, EGO or SKIL plays a short clip; on a phone, the clip plays as it reaches the middle of the screen. Clicking any project opens its own page.
-4. **Partners & properties**: client and studio logos.
-5. **About**: the portrait, the bio, six headline numbers, four areas of work, roles held, experience, and film credits (click a title for its trailer).
-6. **Contact**: taylor@taylorpowers.com, LinkedIn and the time in Chicago.
+On a computer, two columns; on a phone, one.
+
+1. Left: Taylor's photo, name and bio, **Let's connect** (LinkedIn), a moving strip of client logos, **Services** (five areas), **Experience** (five roles) and **Reach out** (email).
+2. Right: thirteen project cards. Most open the press coverage or film for that project in a new tab.
 
 **Project pages (work/…)**
 
@@ -37,7 +35,7 @@ Ask Claude in the `~/Strange/taylorpowers.com` folder, or edit by hand:
 
 | To change | Edit |
 |---|---|
-| Home text, numbers, roles, experience, film credits | `index.html` |
+| Home text, services, experience, project cards | `index.html` (images in `assets/home/`) |
 | A project page | `PROJECTS` in `scripts/build_work.py`, then run `python3 scripts/build_work.py` |
 | Colors and type | `assets/site.css` (the accent is `--accent`) |
 | The showreel | Replace `assets/video/reel.mp4` (re-save with "fast start" so it streams) and `assets/video/reel-poster.jpg` |

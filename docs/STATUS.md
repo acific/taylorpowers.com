@@ -1,12 +1,13 @@
 # Status: where we left off
 
-> Last verified against the code: 2026-10-22 (commit 605a391)
+> Last verified against the code: 2026-11-20 (commit 68010d3 + the Framer home page)
 
-## State as of 2026-10-22
+## State as of 2026-11-20
 
 **Live and working:**
 
-- https://taylorpowers.com: the cinematic, reel-first site (v14 stamp) with eight case pages, HD Vimeo heroes on FLEX × LAFC and the SuperFile launch, a logo wall, the portrait, the intro and the share card.
+- https://taylorpowers.com: the home page now follows the owner's Framer design (v15 stamp, 2026-11-20). The eight case pages (with HD Vimeo heroes on FLEX × LAFC and the SuperFile launch) are still served under `work/` but the new home page doesn't link to them.
+- The home page's contact link is taylorraepowers@icloud.com, as in the Framer design, not taylor@taylorpowers.com.
 - taylor@taylorpowers.com forwards to Taylor's Gmail. DNS has fully propagated, including Google's resolvers.
 - DNS is on Cloudflare, and HTTPS is on through GitHub Pages.
 

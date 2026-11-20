@@ -1,8 +1,8 @@
 # taylorpowers.com
 
-> Last verified against the code: 2026-10-22 (commit 605a391)
+> Last verified against the code: 2026-11-20 (commit 68010d3 + the Framer home page)
 
-The professional site for **Taylor Powers**, brand and creative production executive (Chicago). It's cinematic and reel-first: a full-screen showreel, work that plays on hover, eight case-study pages, partner logos, and the bio with her portrait.
+The professional site for **Taylor Powers**, brand and creative production executive (Chicago). The home page follows the owner's Framer design (2026-11-20): a two-column portfolio with the intro, a logo strip, services, experience and contact on the left and thirteen project cards on the right. The eight case-study pages from the earlier site are still generated and served under `work/`.
 
 **Live:** https://taylorpowers.com · **Contact:** taylor@taylorpowers.com, which forwards to Taylor's Gmail · **Where we left off:** [docs/STATUS.md](docs/STATUS.md)
 
@@ -18,13 +18,14 @@ node scripts/docs-check.mjs          # check the docs against the code
 GH_TOKEN=$(gh auth token --user ShaneRealm) git push origin main
 ```
 
-After changing `assets/site.css` or `assets/site.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py`. See [docs/OPERATIONS.md](docs/OPERATIONS.md).
+After changing `assets/site.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py`. See [docs/OPERATIONS.md](docs/OPERATIONS.md).
 
 ## Map
 
 | Path | What |
 |---|---|
-| `index.html` | Home: intro, reel, work tiles, logo wall, About, contact |
+| `index.html` | Home (Framer design): intro, logo strip, services, experience, contact, project cards |
+| `assets/home.css`, `assets/home.js`, `assets/home/` | The home page's styles, script, Switzer font files and images |
 | `work/<slug>/index.html` | Case pages, **generated** by `scripts/build_work.py`; edit `PROJECTS`, not the HTML |
 | `assets/site.css`, `assets/site.js` | All styles; shared behavior for every page |
 | `assets/video/`, `assets/clips/` | The showreel, and silent loops cut from it |

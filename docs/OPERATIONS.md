@@ -1,6 +1,6 @@
 # Operations
 
-> Last verified against the code: 2026-10-22 (commit 605a391)
+> Last verified against the code: 2026-11-20 (commit 68010d3 + the Framer home page)
 
 ## Resources
 
@@ -39,7 +39,7 @@ gh api repos/ShaneRealm/taylorpowers.com/pages/builds/latest --jq .status   # "b
 
 - **Push as ShaneRealm.** This Mac's `gh` has both Acific and ShaneRealm signed in, and other sessions switch the active account back to Acific. `GH_TOKEN=$(gh auth token --user ShaneRealm)` uses ShaneRealm for that one command without changing the active account.
 - Commits use the repo-local identity `ShaneRealm <346018520+ShaneRealm@users.noreply.github.com>` (set in `.git/config`), with no AI attribution lines.
-- **Cache busting.** After changing `assets/site.css` or `assets/site.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py` (keep them equal; both are 14), then rebuild.
+- **Cache busting.** After changing `assets/site.css`, `assets/site.js`, `assets/home.css` or `assets/home.js`, bump `?v=` in `index.html` and `V` in `scripts/build_work.py` (keep them equal; both are 15), then rebuild.
 - **Checking it's live:** `curl -s "https://taylorpowers.com/?nc=$RANDOM" | grep -o 'site.css?v=[0-9]*'`.
 
 ## Previewing locally
