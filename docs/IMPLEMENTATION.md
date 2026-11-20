@@ -10,13 +10,13 @@ The owner's Framer design (willing-iris-827866.framer.app), rebuilt as static HT
 
 Two columns (`.layout`), stacked into one below 810 px:
 
-1. **Left column** (`aside.info`, sticky). `home.js` sets its `top` to `min(0, viewport height − its height)`, so once its end reaches the bottom of the screen it stays there while the cards keep scrolling.
+1. **Left column** (`aside.info`, sticky). `home.js` sets its `top` (and the card grid's) to `min(0, viewport height − its height)`, so whichever column is shorter stops at its end while the longer one keeps scrolling.
    - Header: avatar (`assets/home/avatar.jpg`), name, "Brand & Marketing Executive", bio and the **Let's connect** button (LinkedIn).
    - Logo strip (`.marquee`): eleven logos from `assets/home/logos/`, duplicated once and scrolled with a CSS animation (stopped under reduced motion). The owner's design includes it, as an exception to the no-marquee rule (see DECISIONS).
    - **Services.** Five numbered areas with their sub-services.
    - **Experience.** Five roles (title, company, years, one line).
    - **Reach out.** The mailto link, the copyright and a back-to-top button.
-2. **Project cards** (`section.work`). Thirteen cards (`.card`) with an image from `assets/home/work/`, a title and a role. Eleven link to outside coverage; Lefty Out There and Mr. Brainwash have no link, as in the Framer design. The home page no longer links to the case pages under `work/`.
+2. **Project cards** (`section.work`, sticky like the left column). Two columns (`.col`) of thirteen cards, split in page order so the two columns end at about the same height (by image aspect ratio). Each card has an order class `.o1`–`.o13`; below 810 px the columns dissolve (`display: contents`) and the order classes put the cards back in their original sequence. The cards (`.card`) with an image from `assets/home/work/`, a title and a role. Eleven link to outside coverage; Lefty Out There and Mr. Brainwash have no link, as in the Framer design. The home page no longer links to the case pages under `work/`.
 
 Every `.reveal` element fades up once as it enters the screen (an IntersectionObserver in `home.js`; `opacity` and `transform` only).
 

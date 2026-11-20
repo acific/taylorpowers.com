@@ -6,7 +6,7 @@
 
 **Live and working:**
 
-- https://taylorpowers.com: the home page now follows the owner's Framer design (v15 stamp, 2026-11-20). The eight case pages (with HD Vimeo heroes on FLEX × LAFC and the SuperFile launch) are still served under `work/` but the new home page doesn't link to them.
+- https://taylorpowers.com: the home page now follows the owner's Framer design (v16 stamp, 2026-11-20; project cards in two columns). The eight case pages (with HD Vimeo heroes on FLEX × LAFC and the SuperFile launch) are still served under `work/` but the new home page doesn't link to them.
 - The home page's contact link is taylorraepowers@icloud.com, as in the Framer design, not taylor@taylorpowers.com.
 - taylor@taylorpowers.com forwards to Taylor's Gmail. DNS has fully propagated, including Google's resolvers.
 - DNS is on Cloudflare, and HTTPS is on through GitHub Pages.

@@ -114,7 +114,13 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
 .to-top:hover { background: #d6d6d6; }
 
 /* ---------- Right column: work ---------- */
-.work { padding: var(--pad) var(--pad) var(--pad) 0; display: grid; gap: var(--gap); }
+.work {
+  position: sticky; top: 0; /* JS pins it like the left column */
+  padding: var(--pad) var(--pad) var(--pad) 0;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap);
+  align-items: start;
+}
+.col { display: grid; gap: var(--gap); }
 .card {
   position: relative; overflow: hidden;
   border-radius: 12px; background: #f2f2f2;
@@ -123,16 +129,16 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
 .card:hover img { transform: scale(1.03); }
 .card::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55));
+  background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.6));
   pointer-events: none;
 }
 .card-meta {
-  position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 1;
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+  position: absolute; left: 12px; right: 12px; bottom: 11px; z-index: 1;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
   color: #fff;
 }
-.card-meta h3 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.25; max-width: 70%; }
-.card-meta span { font-size: 14px; white-space: nowrap; }
+.card-meta h3 { font-size: 15px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.25; }
+.card-meta span { font-size: 12px; opacity: .8; }
 
 /* Scroll reveal */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
@@ -147,9 +153,28 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
 @media (max-width: 809px) {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .info { position: static; padding: 24px 16px 0; }
-  .work { padding: 0 16px 24px; }
+  .work { position: static; padding: 0 16px 24px; display: flex; flex-direction: column; }
+  .col { display: contents; } /* phones: one column, original order */
+  .card-meta h3 { font-size: 17px; }
+  .card-meta span { font-size: 13px; }
   .footer { display: none; }
   .footer-mobile { display: flex !important; margin: 0 16px 24px; }
 }
 .footer-mobile { display: none !important; }
 .footer-mobile .to-top { transform: none; }
+
+@media (max-width: 809px) {
+  .o1 { order: 1; }
+  .o2 { order: 2; }
+  .o3 { order: 3; }
+  .o4 { order: 4; }
+  .o5 { order: 5; }
+  .o6 { order: 6; }
+  .o7 { order: 7; }
+  .o8 { order: 8; }
+  .o9 { order: 9; }
+  .o10 { order: 10; }
+  .o11 { order: 11; }
+  .o12 { order: 12; }
+  .o13 { order: 13; }
+}
