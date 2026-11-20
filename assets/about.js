@@ -51,6 +51,7 @@
   prev?.addEventListener('click', () => go(current - 1));
   next?.addEventListener('click', () => go(current + 1));
   segs.forEach((s, k) => s.addEventListener('click', () => go(k)));
+  deck.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => wide.matches ? go(+b.dataset.go) : slides[+b.dataset.go]?.scrollIntoView({ behavior: 'smooth', block: 'center' })));
   addEventListener('scroll', () => requestAnimationFrame(move), { passive: true });
   addEventListener('resize', size); wide.addEventListener('change', size);
   size();

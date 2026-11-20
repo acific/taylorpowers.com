@@ -376,6 +376,23 @@ body.page .nav { position: absolute; }
 .deck-work a { border-bottom: 1px solid rgba(255,255,255,.3); transition: border-color .3s var(--ease), color .3s var(--ease); }
 .deck-work a:hover { color: #fff; border-color: #fff; }
 .deck-bar { display: none; }
+/* Cover, contents and closing slides */
+.deck-cover-main { margin-top: auto; }
+.deck-kicker { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.6); }
+.deck-title { margin-top: 12px; font-family: var(--sans); font-size: 40px; font-weight: 500; letter-spacing: -0.045em; line-height: .98; }
+.deck-lede { max-width: 420px; color: rgba(255,255,255,.85); }
+.deck-meta { color: rgba(255,255,255,.6); font-size: 13px; }
+.deck-contents .deck-title { margin-top: 28px; }
+.deck-toc { margin-top: auto; display: grid; border-top: 1px solid rgba(255,255,255,.2); }
+.deck-toc li { border-bottom: 1px solid rgba(255,255,255,.2); }
+.deck-toc button { width: 100%; display: flex; gap: 16px; align-items: baseline; padding: 10px 0; text-align: left; font-size: 18px; letter-spacing: -0.02em; color: #fff; transition: opacity .3s var(--ease); }
+.deck-toc button:hover { opacity: .7; }
+.deck-toc .num { font-family: var(--serif); font-size: 14px; color: rgba(255,255,255,.55); }
+.deck-contact { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.deck-contact a { border-bottom: 1px solid rgba(255,255,255,.35); transition: border-color .3s var(--ease); }
+.deck-contact a:hover { border-color: #fff; }
+.deck-cover .deck-shade, .deck-close .deck-shade { background: linear-gradient(90deg, rgba(0,0,0,.85), rgba(0,0,0,.45) 60%, rgba(0,0,0,.3)); }
+.deck-cover > img { object-position: 50% 22%; }
 @media (min-width: 810px) {
   .deck { padding: 0; }
   .deck-pin { position: sticky; top: 0; height: 100vh; height: 100svh; padding: 0 var(--pad); }
@@ -398,6 +415,14 @@ body.page .nav { position: absolute; }
   .deck-arrows .arrow { background: rgba(255,255,255,.15); }
   .deck-arrows .arrow:hover { background: rgba(255,255,255,.3); }
   .deck-arrows .arrow:disabled { opacity: .35; cursor: default; }
+  .deck-title { font-size: clamp(56px, 6.4vw, 104px); }
+  .deck-contents .deck-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); grid-template-rows: auto 1fr; column-gap: 64px; }
+  .deck-contents .deck-top { grid-column: 1 / -1; }
+  .deck-contents .deck-title { align-self: end; }
+  .deck-contents .deck-toc { align-self: end; }
+  .deck-toc button { font-size: clamp(20px, 2vw, 30px); padding: 14px 0; }
+  .deck-cover .deck-foot, .deck-close .deck-foot { align-items: end; }
+  .deck-meta, .deck-contact { justify-self: end; text-align: right; }
 }
 
 .ab-numbers { margin-top: 140px; display: grid; grid-template-columns: minmax(0, 600fr) minmax(0, 329fr); gap: var(--gap); align-items: end; }

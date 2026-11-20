@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "36"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "37"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -442,15 +442,30 @@ def about():
     jobs = "".join(
         f'<li class="job"><span class="plus" aria-hidden="true">+</span><div class="job-main"><h3>{e(t)}</h3><p>{e(d)}</p></div>'
         f'<span class="job-co">{e(c)}</span><span class="job-yr">[{e(y)}]</span></li>' for t, c, y, d in a["jobs"])
-    n = len(a["services"])
-    panels = "".join(
-        f'<article class="deck-slide{" is-on" if i == 1 else ""}" data-i="{i - 1}" aria-roledescription="slide" aria-label="{i} of {n}: {e(name)}">'
-        f'<img src="{img}" alt="" loading="lazy"><div class="deck-shade"></div>'
-        f'<div class="deck-copy"><p class="deck-top"><span>Services</span><span>{i:02d} / {n:02d}</span></p>'
-        f'<h3><span class="num">{i:02d}.</span> {e(name)}</h3>'
-        f'<div class="deck-foot"><ul class="deck-list">{"".join(f"<li>{e(x)}</li>" for x in items)}</ul>'
-        f'<div class="deck-work"><p>Selected work</p><ul>{"".join(f"<li><a href='/work/{w}/'>{e(by_slug[w]['name'])}</a></li>" for w in work)}</ul></div></div></div></article>'
+    # The services as a presentation: cover, contents, one slide per service, closing
+    k = len(a["services"])
+    n = k + 3
+    top = lambda label, i: f'<p class="deck-top"><span>{label}</span><span>{i:02d} / {n:02d}</span></p>'
+    def slide(i, kind, label, img, inner):
+        return (f'<article class="deck-slide deck-{kind}{" is-on" if i == 1 else ""}" data-i="{i - 1}" aria-roledescription="slide" aria-label="{i} of {n}: {e(label)}">'
+                f'<img src="{img}" alt="" loading="{"eager" if i == 1 else "lazy"}"><div class="deck-shade"></div><div class="deck-copy">{top("Taylor Powers" if kind == "cover" else "Services", i)}{inner}</div></article>')
+    cover = slide(1, "cover", "Cover", a["img_small"],
+        '<div class="deck-cover-main"><p class="deck-kicker">Capabilities</p><h3 class="deck-title">Brand, partnerships<br>and production.</h3></div>'
+        f'<div class="deck-foot"><p class="deck-lede">{e(ABOUT_STATEMENT_SHORT)}</p><p class="deck-meta">Chicago / Los Angeles / Las Vegas<br>{len(a["services"])} services · selected work</p></div>')
+    contents = slide(2, "contents", "Contents", a["img_services"][0],
+        '<h3 class="deck-title">Contents</h3><ol class="deck-toc">'
+        + "".join(f'<li><button type="button" data-go="{i + 2}"><span class="num">{i:02d}</span>{e(name)}</button></li>' for i, (name, _) in enumerate(a["services"], 1))
+        + '</ol>')
+    panels = cover + contents + "".join(
+        slide(i + 2, "svc", name, img,
+              f'<h3><span class="num">{i:02d}.</span> {e(name)}</h3>'
+              f'<div class="deck-foot"><ul class="deck-list">{"".join(f"<li>{e(x)}</li>" for x in items)}</ul>'
+              f'<div class="deck-work"><p>Selected work</p><ul>{"".join(f"<li><a href='/work/{w}/'>{e(by_slug[w]['name'])}</a></li>" for w in work)}</ul></div></div>')
         for i, ((name, items), work, img) in enumerate(zip(a["services"], a["service_work"], a["img_services"]), 1))
+    panels += slide(n, "close", "Contact", a["img_services"][-1],
+        '<div class="deck-cover-main"><p class="deck-kicker">Thank you</p><h3 class="deck-title">Let’s build<br>what’s next.</h3></div>'
+        f'<div class="deck-foot"><p class="deck-lede">Brand, marketing and partnership leadership across film, consumer brands and sport.</p>'
+        f'<p class="deck-contact"><a href="mailto:{EMAIL}">Email ↗</a><a href="{LINKEDIN}" rel="noopener" target="_blank">LinkedIn ↗</a><a href="/work/">All work →</a></p></div>')
     bars = "".join(f'<button type="button" class="deck-seg{" is-on" if i == 0 else ""}" aria-label="Slide {i + 1}"></button>' for i in range(n))
     numbers = "".join(f'<div><dt>{e(n)}</dt><dd>{e(l)}</dd></div>' for n, l in a["numbers"])
     logos = "".join(f'<img class="h{h}" src="/assets/home/logos/{n}.{"svg" if n == "skil" else "png"}" alt="{e(alt)}">' for n, alt, h in LOGOS)
