@@ -1,4 +1,12 @@
 // Home page: fade-in on scroll and pinning of both columns. Guards for missing elements.
+document.documentElement.classList.add('js');
+
+// Photos fade in once they've loaded (CSS hides them only while this script runs)
+document.querySelectorAll('.card img').forEach(img => {
+  const done = () => img.classList.add('loaded');
+  if (img.complete && img.naturalWidth) done(); else { img.addEventListener('load', done); img.addEventListener('error', done); }
+});
+
 // Fade-in on scroll
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });

@@ -17,7 +17,14 @@
   --bg: #fff;
   --pad: 20px;
   --gap: 8px;
+  --ease: cubic-bezier(.22, .61, .36, 1);
 }
+
+/* Crossfade between the home page and the case pages (browsers that support it) */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; animation-timing-function: var(--ease); }
+body { animation: page-in .6s var(--ease) both; }
+@keyframes page-in { from { opacity: 0; } }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -46,15 +53,16 @@ img { display: block; max-width: 100%; }
   display: flex;
   flex-direction: column;
 }
-.section { padding: 40px 0; border-top: 1px solid var(--line); }
+.section { padding: 48px 0; border-top: 1px solid var(--line); }
 .section:first-child { border-top: 0; padding-top: 0; }
 
 .header { display: flex; align-items: center; gap: 12px; }
 .header img { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; }
-.header h1 { font-size: 24px; font-weight: 500; letter-spacing: -0.05em; line-height: 1.2; }
+.header h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.05em; line-height: 1.2; }
 .header p { color: var(--muted); }
 
 .bio { color: var(--muted); margin-top: 24px; max-width: 440px; }
+.bio b { color: var(--ink); font-weight: 400; }
 .btn {
   display: inline-flex; align-items: center;
   margin-top: 32px;
@@ -62,7 +70,7 @@ img { display: block; max-width: 100%; }
   background: var(--ink); color: #fff;
   border-radius: 999px;
   font-weight: 600;
-  transition: opacity .2s;
+  transition: opacity .3s var(--ease);
 }
 .btn:hover { opacity: .8; }
 
@@ -73,11 +81,16 @@ img { display: block; max-width: 100%; }
           mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
 .marquee-track {
-  display: flex; gap: 24px; width: max-content;
-  animation: marquee 30s linear infinite;
+  display: flex; align-items: center; gap: 44px; height: 40px; width: max-content;
+  animation: marquee 45s linear infinite;
 }
-.marquee-track img { height: 40px; width: 76px; object-fit: contain; }
-@keyframes marquee { to { transform: translateX(calc(-50% - 12px)); } }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+/* Every logo in one soft dark tone, sized by hand (hN) so they read at the same visual weight */
+.marquee-track img { width: auto; filter: brightness(0); opacity: .42; transition: opacity .4s var(--ease); }
+.marquee-track img:hover { opacity: .9; }
+.h16 { height: 16px; } .h17 { height: 17px; } .h18 { height: 18px; } .h19 { height: 19px; } .h20 { height: 20px; }
+.h22 { height: 22px; } .h23 { height: 23px; } .h27 { height: 27px; }
+@keyframes marquee { to { transform: translateX(calc(-50% - 22px)); } }
 
 h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 28px; }
 
@@ -89,10 +102,12 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
 
 /* Experience */
 .jobs { display: grid; gap: 24px; }
-.job-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+/* Title, company, then the years in their own right-aligned column */
+.job-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: baseline; gap: 8px; }
 .job-head strong { font-weight: 400; }
 .job-head span { color: var(--muted); font-size: 14px; }
-.job-head span::before { content: "•"; color: #ccc; margin-right: 6px; font-size: 10px; vertical-align: 2px; }
+.job-head span:nth-of-type(1)::before { content: "•"; color: #ccc; margin-right: 8px; font-size: 10px; vertical-align: 2px; }
+.job-head span:nth-of-type(2) { justify-self: end; font-variant-numeric: tabular-nums; }
 .job p { color: var(--muted); font-size: 14px; margin-top: 6px; }
 
 /* Contact */
@@ -125,8 +140,9 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
   position: relative; overflow: hidden;
   border-radius: 12px; background: #f2f2f2;
 }
-.card img { width: 100%; height: auto; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-.card:hover img { transform: scale(1.03); }
+.card img { width: 100%; height: auto; transition: transform 1.2s var(--ease), opacity .8s var(--ease); }
+.card:hover img { transform: scale(1.02); }
+.js .card img:not(.loaded) { opacity: 0; } /* photos fade in once loaded */
 .card::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.6));
@@ -141,12 +157,14 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
 .card-meta span { font-size: 12px; opacity: .8; }
 
 /* Scroll reveal */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .marquee-track { animation: none; }
   html { scroll-behavior: auto; }
+  body { animation: none; }
+  .js .card img:not(.loaded) { opacity: 1; }
 }
 
 /* ---------- Mobile ---------- */
@@ -165,13 +183,13 @@ h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 
 /* Video loops: silent clips that fade in over the photo while playing */
 .clip {
   position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; opacity: 0; transition: opacity .4s ease; pointer-events: none;
+  object-fit: cover; opacity: 0; transition: opacity .5s var(--ease); pointer-events: none;
 }
 .card.playing .clip { opacity: 1; }
 
 /* Mouse and trackpad: the photos stay clean and each title fades in on hover */
 @media (hover: hover) and (pointer: fine) {
-  .card::after, .card-meta { opacity: 0; transition: opacity .35s ease, transform .35s ease; }
+  .card::after, .card-meta { opacity: 0; transition: opacity .45s var(--ease), transform .45s var(--ease); }
   .card-meta { transform: translateY(6px); }
   .card:hover::after, .card:focus-visible::after,
   .card:hover .card-meta, .card:focus-visible .card-meta { opacity: 1; transform: none; }

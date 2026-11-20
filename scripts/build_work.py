@@ -8,7 +8,7 @@ public coverage; don't add claims that aren't in either.
 import html, os, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "18"  # bump with ?v= in index.html when CSS/JS change
+V = "19"  # bump with ?v= in index.html when CSS/JS change
 
 PROJECTS = [
     dict(slug="superfile-trackhouse-nascar", client="SuperFile × Trackhouse Racing", title="Daytona 500",
@@ -108,6 +108,7 @@ def page(p, nxt):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff2" href="/assets/home/fonts/switzer-400.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/case.css?v={V}">
 </head>

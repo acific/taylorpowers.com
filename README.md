@@ -30,7 +30,7 @@ After changing `assets/case.css`, `assets/site.js`, `assets/home.css` or `assets
 | `assets/case.css`, `assets/site.js` | The case pages' styles and behavior |
 | `assets/video/`, `assets/clips/` | The showreel, and silent loops cut from it |
 | `assets/img/`, `assets/logos/` | Stills, the portrait, partner logos |
-| `assets/og.jpg`, `assets/favicon.svg` | The share card and the tab icon |
+| `assets/og.jpg`, `assets/favicon.svg`, `assets/apple-touch-icon.png` | The share card, the tab icon and the home-screen icon |
 | `CNAME` | Custom domain for GitHub Pages |
 
 ## Docs

@@ -12,7 +12,7 @@ Two columns (`.layout`), stacked into one below 810 px:
 
 1. **Left column** (`aside.info`, sticky). `home.js` sets its `top` (and the card grid's) to `min(0, viewport height − its height)`, so whichever column is shorter stops at its end while the longer one keeps scrolling.
    - Header: avatar (`assets/home/avatar.jpg`), name, "Brand & Marketing Executive", bio and the **Let's connect** button (LinkedIn).
-   - Logo strip (`.marquee`): eleven logos from `assets/home/logos/`, duplicated once and scrolled with a CSS animation (stopped under reduced motion). The owner's design includes it, as an exception to the no-marquee rule (see DECISIONS).
+   - Logo strip (`.marquee`): eleven logos from `assets/home/logos/` (named by brand), each trimmed to its artwork with a transparent background. CSS shows them all in one soft dark tone (`filter: brightness(0)` at 42% opacity, darker on hover) and sizes each by hand (`.h16`–`.h27`) so they carry the same visual weight. Duplicated once and scrolled with a CSS animation (45 s, paused on hover, stopped under reduced motion). The owner's design includes it, as an exception to the no-marquee rule (see DECISIONS).
    - **Services.** Five numbered areas with their sub-services.
    - **Experience.** Five roles (title, company, years, one line).
    - **Reach out.** The mailto link, the copyright and a back-to-top button.
@@ -21,7 +21,7 @@ Two columns (`.layout`), stacked into one below 810 px:
    - **Sharper photos:** each image has a `srcset` with the 1024 px file and an `@2x.jpg` (up to 2048 px, re-saved as JPEG quality 80 from the Framer originals), so only large or high-density screens download the bigger one.
    - **Clips:** FLEX × LAFC (`flex-falcon`), SKIL (`skil`) and EGO Z6 (`ego`) carry `data-clip` and a `<video class="clip">`. `home.js` sets the source on first use; with a mouse it plays on hover and pauses on leave, on touch it plays while the card is in the middle 30% of the screen and pauses otherwise. Skipped under reduced motion.
 
-Every `.reveal` element fades up once as it enters the screen (an IntersectionObserver in `home.js`; `opacity` and `transform` only).
+Motion shares one easing (`--ease`). The page fades in on load, and pages crossfade when moving between the home page and a case page (`@view-transition`, in browsers that support it). Card photos fade in once loaded (`.js .card img:not(.loaded)`; `home.js` adds `js` and `loaded`), and zoom 2% on hover. The bio's first sentence is in ink (`.bio b`); experience years sit in their own right-aligned column with tabular figures. Every `.reveal` element fades up once as it enters the screen (an IntersectionObserver in `home.js`; `opacity` and `transform` only).
 
 ## `scripts/build_work.py` (case pages)
 
