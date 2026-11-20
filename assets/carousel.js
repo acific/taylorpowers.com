@@ -58,6 +58,19 @@
   ring.addEventListener('pointermove', (ev) => { if (x0 !== null && Math.abs(ev.clientX - x0) > 8) dragged = true; });
   ring.addEventListener('click', (ev) => { if (dragged) { ev.preventDefault(); ev.stopPropagation(); dragged = false; } }, true);
 
+  // Mouse wheel and trackpad: one project per gesture. Deltas add up until they pass a threshold,
+  // then further scrolling is ignored until the gesture pauses, so a trackpad flick moves one step.
+  let acc = 0, locked = false, idle;
+  addEventListener('wheel', (ev) => {
+    ev.preventDefault();
+    const d = Math.abs(ev.deltaX) > Math.abs(ev.deltaY) ? ev.deltaX : ev.deltaY;
+    clearTimeout(idle);
+    idle = setTimeout(() => { acc = 0; locked = false; }, 180);
+    if (locked) return;
+    acc += d;
+    if (Math.abs(acc) > 30) { go(current + (acc > 0 ? 1 : -1)); acc = 0; locked = true; }
+  }, { passive: false });
+
   addEventListener('resize', layout);
   // Cards start stacked at the centre (CSS) and fan out on the next frame (timer as a fallback)
   requestAnimationFrame(() => requestAnimationFrame(layout));

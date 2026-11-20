@@ -65,7 +65,7 @@ Not found in any public source (they come from the resume): 20,000+ assets, 200+
 
 ## AI-generated images (About page)
 
-`assets/about/` holds nine images generated on 2026-11-20 in the owner's ChatGPT at the owner's request, styled after the reference template: four of Taylor made from `assets/img/taylor-portrait.jpg` as the likeness (`portrait`, `work`, `closing-1`, `closing-2`) and five backdrops with no people (`service-1`…`service-5`). They are illustrations, not photos of real events; don't present them as such. The originals are in the owner's ChatGPT chat "Generate Portrait".
+`assets/about/` holds nine images generated on 2026-11-20 in the owner's ChatGPT at the owner's request, styled after the reference template: four of Taylor made from `assets/img/taylor-portrait.jpg` as the likeness (`portrait`, `work`, `closing-1`, `closing-2`), plus `portrait-green.jpg`, a portrait the owner generated and supplied and five backdrops with no people (`service-1`…`service-5`). They are illustrations, not photos of real events; don't present them as such. The originals are in the owner's ChatGPT chat "Generate Portrait".
 
 ## Assets and their sources
 
