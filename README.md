@@ -27,7 +27,8 @@ After changing `assets/main.css`, `assets/site.js` or `assets/carousel.js`, bump
 | `scripts/build_work.py` | The generator and all the content: `PROJECTS` (fourteen projects) and `ABOUT` |
 | `index.html`, `work/index.html`, `about/index.html`, `work/<slug>/index.html` | **Generated**: home carousel, Work grid, About, case studies. Edit the generator, not the HTML |
 | `404.html` | Page not found (hand-edited) |
-| `assets/main.css`, `assets/carousel.js`, `assets/site.js` | All styles; the home carousel; case-page video and lightbox |
+| `assets/main.css`, `assets/carousel.js`, `assets/about.js`, `assets/site.js` | All styles; the home carousel; the About statement; case-page video and lightbox |
+| `assets/about/` | The About page's images (AI-generated, see docs/CONTENT.md) |
 | `assets/home/` | Card images (1024 px and `@2x`), logos, Switzer fonts, avatar |
 | `assets/video/`, `assets/clips/` | The showreel, and silent loops cut from it |
 | `assets/img/`, `assets/logos/` | Stills, the portrait, partner logos |

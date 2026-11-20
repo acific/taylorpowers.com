@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "23"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "25"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -172,7 +172,18 @@ ABOUT = dict(
               ("Partnerships & Sponsorships", ["Partnership Strategy & Development", "Sponsorship Negotiations", "Brand Integrations & Activations", "Account Management"]),
               ("Creative Production", ["Creative Leadership & Direction", "End-to-End Production Management", "VFX, Animation & Finishing Supervision", "Production Operations & Resource Management"]),
               ("Experiential Marketing and Events", ["Experiential Strategy", "Event Production & Management", "Sponsorship Activations", "Executive & VIP Hospitality", "Branded Merchandise & Promotional Programs"])],
-    numbers=[("8+", "Years of experience"), ("60B+", "Impressions, FLEX × LAFC"), ("$20M+", "Production budgets managed")],
+    numbers=[("8+", "Years of experience"), ("60B+", "Impressions, FLEX × LAFC")],
+    summary="Hollywood visual effects, then agency leadership, then building a brand from the ground up.",
+    # Projects behind each service (same order as services), linked from the service panels
+    service_work=[["superfile-brand-launch", "superfile-lefty-out-there", "superfile-lafc"],
+                  ["skil", "ego", "flex-launch"],
+                  ["superfile-ufc-wwe", "flex-lafc", "superfile-trackhouse-motogp"],
+                  ["wylie-co", "digital-domain", "ego-labs"],
+                  ["superfile-trackhouse-nascar", "superfile-art-car"]],
+    # Image slots: top pair, one backdrop per service, closing pair
+    img_small="/assets/about/work.jpg", img_big="/assets/about/portrait.jpg",
+    img_services=["/assets/about/service-1.jpg", "/assets/about/service-2.jpg", "/assets/about/service-3.jpg", "/assets/about/service-4.jpg", "/assets/about/service-5.jpg"],
+    img_close=["/assets/about/closing-1.jpg", "/assets/about/closing-2.jpg"],
 )
 LOGOS = [("ego", "EGO", 16), ("skil", "SKIL", 19), ("flex", "FLEX", 19), ("digital-domain", "Digital Domain", 19), ("wylie", "Wylie Co.", 23),
          ("netflix", "Netflix", 18), ("abc", "ABC", 27), ("fox", "FOX", 20), ("apple-tv", "Apple TV", 22), ("superfile", "SuperFile", 17), ("realm", "Realm", 20)]
@@ -213,7 +224,7 @@ def head(title, desc, url, image, extra=""):
 def nav(cls="", current=""):
     def a(href, label, key):
         return f'<a href="{href}"{" aria-current=\"page\"" if key == current else ""}>{label}</a>'
-    return (f'<header class="nav {cls}"><nav class="nav-mid">{a("/", "Home", "home")}{a("/about/", "About", "about")}{a("/work/", "Work", "work")}</nav>'
+    return (f'<header class="nav {cls}"><nav class="nav-mid">{a("/", "Home", "home")}{a("/about/", "About", "about")}{a("/work/", "Works", "work")}</nav>'
             f'<a class="nav-end" href="mailto:{EMAIL}">Contact ↗</a></header>')
 
 FOOT = f"""<footer class="foot">
@@ -271,9 +282,9 @@ def home():
 <main class="stage" aria-roledescription="carousel" aria-label="Selected work">
   <div class="infos" aria-live="polite">{info}</div>
   <div class="ring">{slides}</div>
-  <div class="arrows"><button type="button" class="arrow prev" aria-label="Previous work">‹</button><button type="button" class="arrow next" aria-label="Next work">›</button></div>
+  <div class="arrows"><button type="button" class="arrow prev" aria-label="Previous work"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 8L9.5 12L13.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="arrow next" aria-label="Next work"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 8L14.5 12L10.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
 </main>
-<footer class="home-nav"><span class="me">Taylor Powers</span>{nav("inline", "home")}</footer>
+<footer class="home-nav">{nav("inline", "home")}</footer>
 <script src="/assets/carousel.js?v={V}" defer></script>
 </body>
 </html>
@@ -299,36 +310,46 @@ def work_index():
 # ---------- About ----------
 def about():
     a = ABOUT
-    jobs = "".join(f'<li class="job"><div><h3>{e(t)}</h3><p>{e(d)}</p></div><span>{e(c)}</span><span class="yr">[{e(y)}]</span></li>' for t, c, y, d in a["jobs"])
-    services = "".join(f'<li><span class="num">{i:02d}.</span><h3>{e(n)}</h3><ul>{"".join(f"<li>{e(x)}</li>" for x in items)}</ul></li>' for i, (n, items) in enumerate(a["services"], 1))
+    by_slug = {p["slug"]: p for p in PROJECTS}
+    words = " ".join(f"<span>{e(w)}</span>" for w in a["statement"].split())
+    jobs = "".join(
+        f'<li class="job"><span class="plus" aria-hidden="true">+</span><div class="job-main"><h3>{e(t)}</h3><p>{e(d)}</p></div>'
+        f'<span class="job-co">{e(c)}</span><span class="job-yr">[{e(y)}]</span></li>' for t, c, y, d in a["jobs"])
+    panels = "".join(
+        f'<section class="svc"><div class="svc-card"><img src="{img}" alt="" loading="lazy"><div class="svc-shade"></div>'
+        f'<div class="svc-copy"><div><h3><span class="num">{i:02d}.</span> {e(name)}</h3><ul>{"".join(f"<li>{e(x)}</li>" for x in items)}</ul></div>'
+        f'<div class="svc-work"><p>Selected work</p><ul>{"".join(f"<li><a href='/work/{w}/'>{e(by_slug[w]['name'])}</a></li>" for w in work)}</ul></div></div></div></section>'
+        for i, ((name, items), work, img) in enumerate(zip(a["services"], a["service_work"], a["img_services"]), 1))
     numbers = "".join(f'<div><dt>{e(n)}</dt><dd>{e(l)}</dd></div>' for n, l in a["numbers"])
     logos = "".join(f'<img class="h{h}" src="/assets/home/logos/{n}.{"svg" if n == "skil" else "png"}" alt="{e(alt)}">' for n, alt, h in LOGOS)
     return (head("About · Taylor Powers", a["statement"], "/about/", "/assets/og.jpg")
-            + f"""<body class="page">
+            + f"""<body class="page about">
 {nav("ink", "about")}
 <main>
-  <section class="wrap about-top">
-    <p class="statement">{e(a["statement"])}</p>
-    <div class="cols about-more"><div></div><div>{"".join(f"<p>{e(x)}</p>" for x in a["paras"])}<a class="btn solid" href="{LINKEDIN}" target="_blank" rel="noopener">Let’s connect</a></div></div>
+  <section class="wrap ab-top">
+    <p class="statement" aria-label="{e(a["statement"])}">{words}</p>
+    <div class="ab-intro">
+      <div class="ab-paras">{"".join(f"<p>{e(x)}</p>" for x in a["paras"])}<p>{e(a["summary"])}</p></div>
+      <figure class="ab-small"><img src="{a["img_small"]}" alt=""></figure>
+      <figure class="ab-big"><img src="{a["img_big"]}" alt="Taylor Powers"></figure>
+    </div>
   </section>
-  <section class="wrap about-photos">
-    <figure class="ph-small"><img src="/assets/home/work/superfile-brand-launch.jpg" alt="" loading="lazy"></figure>
-    <figure class="ph-big"><img src="/assets/img/taylor-portrait.jpg" alt="Taylor Powers"></figure>
+  <div class="dark">
+    <section class="wrap ab-exp">
+      <div class="ab-exp-head"><h2>Brands, studios, and my experience.</h2><p>{e(a["summary"])}</p></div>
+      <ul class="jobs">{jobs}</ul>
+    </section>
+    <div class="svcs">{panels}</div>
+  </div>
+  <section class="wrap ab-numbers">
+    <div><h2>In numbers.</h2><p>Highlights from campaigns, partnerships and productions across film, consumer brands and sport.</p></div>
+    <dl class="big-figures">{numbers}</dl>
   </section>
-  <section class="wrap row">
-    <h2>Brands and studios, and my experience.</h2>
-    <div class="row-text"><p>Hollywood visual effects, then agency leadership, then building a brand from the ground up.</p></div>
-  </section>
-  <section class="wrap"><ul class="jobs">{jobs}</ul></section>
   <section class="wrap logos" aria-label="Brands and studios">{logos}</section>
-  <section class="wrap"><ol class="services">{services}</ol></section>
-  <section class="wrap row">
-    <h2>In numbers.</h2>
-    <div class="row-text"><dl class="figures">{numbers}</dl></div>
-  </section>
-  <div class="spacer"></div>
+  <section class="wrap ab-close">{"".join(f'<figure><img src="{x}" alt="" loading="lazy"></figure>' for x in a["img_close"])}</section>
 </main>
 {FOOT}
+<script src="/assets/about.js?v={V}" defer></script>
 </body>
 </html>
 """)

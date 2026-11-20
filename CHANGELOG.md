@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **Home matched to the template at the pixel level** (type sizes, card frame and shadow, arc geometry, arrows, menu; "Works" in the menu). **About rebuilt like the template:** word-by-word statement, photo pair, black experience band, stacked full-screen service panels linking their projects, numbers, logos, closing pair; nine AI-generated images in `assets/about/`. New `assets/about.js`. Stamp 25.
 - **SKIL case study** expanded from iSpot (2022 national TV spot for PWRCORE 40). The owner's Vimeo copy is blocked from embedding, so the film stays on SKIL's YouTube upload.
 - **EGO Labs 2.0 case study** rewritten from egopowerplus.com/ridingmowers, the page the owner gave for it (next-generation Z6 riders); the unrelated mower video was dropped.
 - **Whole site after the reference template:** a home-page carousel of all fourteen projects (`assets/carousel.js`), a Work grid, an About page (bio, portrait, experience, logos, services, numbers), and a case study for every project. Six new case studies (Wylie Co., Lefty Out There, SuperFile × LAFC, FLEX launch, Digital Domain, EGO Labs 2.0), and all fourteen expanded from public sources listed in docs/CONTENT.md. One generator builds every page; `assets/case.css` became `assets/main.css`; the old home's `home.css` and `home.js` are gone. Stamp 23.

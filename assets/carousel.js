@@ -8,14 +8,14 @@
   const n = slides.length;
   let current = 0;
 
-  // Position by distance from the centre (measured on the reference at 1009 px wide, 300 px card):
-  // x offset, y offset, scale, rotation in degrees.
-  const ARC = [[0, -40, 1, 0], [274, 30, .665, 6], [465, 95, .494, 12], [569, 135, .475, 16]];
+  // Position by distance from the centre, measured on the reference (1024 px wide, 299 px card):
+  // x offset, y drop, scale, rotation in degrees.
+  const ARC = [[0, 0, 1, 0], [274, 63, .669, 6], [465, 122, .495, 12], [630, 165, .495, 16]];
 
   const layout = () => {
-    const card = slides[0].offsetWidth || 300;
-    const kx = Math.max(innerWidth / 1009, .5) * (card / 300) * (innerWidth < 810 ? 1.15 : 1);
-    const ky = card / 300;
+    const card = slides[0].clientWidth || 299;
+    const kx = Math.max(innerWidth / 1024, .5) * (card / 299) * (innerWidth < 810 ? 1.15 : 1);
+    const ky = card / 299;
     slides.forEach((s, i) => {
       let d = i - current;
       if (d > n / 2) d -= n;
@@ -59,6 +59,7 @@
   ring.addEventListener('click', (ev) => { if (dragged) { ev.preventDefault(); ev.stopPropagation(); dragged = false; } }, true);
 
   addEventListener('resize', layout);
-  // Cards start stacked at the centre (CSS) and fan out on the next frame
+  // Cards start stacked at the centre (CSS) and fan out on the next frame (timer as a fallback)
   requestAnimationFrame(() => requestAnimationFrame(layout));
+  setTimeout(layout, 120);
 })();
