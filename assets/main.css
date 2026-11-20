@@ -230,8 +230,9 @@ h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; l
    the carousel arc centred at 55% height, arrows 194px below the centre, menu 56px from the bottom
    ===================================================================== */
 body.home { height: 100vh; height: 100svh; min-height: 620px; overflow: hidden; position: relative; }
-.stage { position: absolute; inset: 0; }
-.infos { position: absolute; z-index: 3; top: 40px; left: var(--pad); right: var(--pad); pointer-events: none; }
+.stage { position: absolute; inset: 0; overflow: hidden; }
+/* The text sits in a centred 1520px column (40px margins below that) */
+.infos { position: absolute; z-index: 3; top: 40px; left: max(var(--pad), calc((100% - 1520px) / 2)); right: max(var(--pad), calc((100% - 1520px) / 2)); pointer-events: none; }
 .info { display: flex; justify-content: space-between; gap: 32px; animation: info-in .6s var(--ease) both; }
 .info[hidden] { display: none; }
 @keyframes info-in { from { opacity: 0; transform: translateY(8px); } }
@@ -241,12 +242,13 @@ body.home { height: 100vh; height: 100svh; min-height: 620px; overflow: hidden; 
 .info-year { display: block; margin-top: 16px; font-size: 14px; line-height: 1.2; }
 .info-type { font-family: var(--serif); text-align: right; white-space: nowrap; flex: none; }
 
-:root { --card: 299px; }
-@media (max-height: 760px) { :root { --card: 270px; } }
-@media (max-width: 809px) { :root { --card: 230px; } }
+:root { --card: 299px; --cy: 55%; }
+/* Desktop (1200px and up): the card grows with the window, as on the reference (365px at 1280, 459px at 2000) */
+@media (min-width: 1200px) { :root { --card: min(calc(13.1vw + 197px), 48vh); --cy: 52.9%; } }
+@media (max-width: 809px) { :root { --card: 230px; --cy: 60%; } }
 .ring { position: absolute; inset: 0; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
 .slide {
-  position: absolute; left: 50%; top: 55%; width: var(--card); height: var(--card);
+  position: absolute; left: 50%; top: var(--cy); width: var(--card); height: var(--card);
   margin: calc(var(--card) / -2 - 4px) 0 0 calc(var(--card) / -2 - 4px);
   border: 4px solid #fff; box-sizing: content-box; background: #fff;
   box-shadow: 0 10px 25px rgba(0,0,0,.12);
@@ -255,7 +257,7 @@ body.home { height: 100vh; height: 100svh; min-height: 620px; overflow: hidden; 
 .slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .slide:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
-.arrows { position: absolute; left: 50%; top: calc(55% + var(--card) * .649); transform: translateX(-50%); display: flex; gap: 16px; z-index: 3; }
+.arrows { position: absolute; left: 50%; top: calc(var(--cy) + var(--card) * .689 - 12px); transform: translateX(-50%); display: flex; gap: 16px; z-index: 3; }
 .arrow { width: 24px; height: 24px; border-radius: 50%; background: rgba(0,0,0,.15); color: #fff; display: grid; place-items: center; transition: background .3s var(--ease); }
 .arrow svg { width: 100%; height: 100%; display: block; }
 .arrow:hover { background: rgba(0,0,0,.28); }
@@ -273,8 +275,6 @@ body.home { height: 100vh; height: 100svh; min-height: 620px; overflow: hidden; 
   .info-type { order: -1; text-align: left; font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: -0.03em; color: var(--grey); }
   .info-left p { margin-top: 12px; }
   .info-year { margin-top: 12px; }
-  .slide { top: 60%; }
-  .arrows { top: calc(60% + var(--card) * .7); }
   .home-nav { bottom: 28px; }
 }
 

@@ -8,14 +8,14 @@
   const n = slides.length;
   let current = 0;
 
-  // Position by distance from the centre, measured on the reference (1024 px wide, 299 px card):
-  // x offset, y drop, scale, rotation in degrees.
-  const ARC = [[0, 0, 1, 0], [274, 63, .669, 6], [465, 122, .495, 12], [630, 165, .495, 16]];
+  // Position by distance from the centre, measured on the reference at several window sizes. Everything
+  // scales with the card: x offset and drop in card widths, then scale and tilt in degrees.
+  const ARC = [[0, 0, 1, 0], [.914, .207, .669, 6], [1.552, .396, .495, 12], [2.104, .526, .495, 16]];
 
   const layout = () => {
     const card = slides[0].clientWidth || 299;
-    const kx = Math.max(innerWidth / 1024, .5) * (card / 299) * (innerWidth < 810 ? 1.15 : 1);
-    const ky = card / 299;
+    const kx = card * (innerWidth < 810 ? .62 : 1);  // phones: pull the side cards in so they peek
+    const ky = card;
     slides.forEach((s, i) => {
       let d = i - current;
       if (d > n / 2) d -= n;
@@ -23,7 +23,7 @@
       const a = Math.abs(d), sign = Math.sign(d);
       const [x, y, sc, r] = ARC[Math.min(a, 3)];
       const far = a > 3;
-      s.style.transform = `translate(${sign * (far ? x + 120 : x) * kx}px, ${y * ky}px) rotate(${sign * r}deg) scale(${far ? .4 : sc})`;
+      s.style.transform = `translate(${sign * (far ? x + .4 : x) * kx}px, ${y * ky}px) rotate(${sign * r}deg) scale(${far ? .4 : sc})`;
       s.style.opacity = far ? '0' : '1';
       s.style.zIndex = String(10 - a);
       s.style.pointerEvents = far ? 'none' : '';
