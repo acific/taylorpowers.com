@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **About:** removed the full-width portrait (it stays as the home page's first card). Stamp 32.
 - **All fourteen case studies expanded** from a second research pass (sources in docs/CONTENT.md): story sections with their own photos, Taylor's role, results and figures. New official images for UFC, MotoGP, FLEX, EGO, Wylie Co. and Digital Domain. **Every card graded** to one cinematic look by `scripts/grade_cards.sh` from originals in `sources/cards/`. Stamp 31.
 - **About at desktop size matched to the template** (64 px statement, photo placement, light experience section, sideways-scrolling services row). **Cards in black and white** until centred (carousel) or hovered (Work, More to explore). Location now "Chicago / Los Angeles / Las Vegas". Stamp 30.
 - **Carousel opens on Taylor:** the green portrait is the first card and opens About. **SuperFile × LAFC:** the owner's training-kit photo, four kit photos and LAFC's announcement film (Brightcove, added to the lightbox and the CSP). Stamp 29.

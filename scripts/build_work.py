@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "31"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "32"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -290,7 +290,7 @@ ABOUT = dict(
                   ["wylie-co", "digital-domain", "ego-labs"],
                   ["superfile-trackhouse-nascar", "superfile-art-car"]],
     # Image slots: top pair, one backdrop per service, closing pair
-    img_small="/assets/about/work.jpg", img_big="/assets/about/portrait.jpg", img_wide="/assets/about/portrait-green.jpg",
+    img_small="/assets/about/work.jpg", img_big="/assets/about/portrait.jpg",
     img_services=["/assets/about/service-1.jpg", "/assets/about/service-2.jpg", "/assets/about/service-3.jpg", "/assets/about/service-4.jpg", "/assets/about/service-5.jpg"],
     img_close=["/assets/about/closing-1.jpg", "/assets/about/closing-2.jpg"],
 )
@@ -451,7 +451,6 @@ def about():
       <figure class="ab-big"><img src="{a["img_big"]}" alt="Taylor Powers"></figure>
     </div>
   </section>
-  <section class="wrap ab-wide"><figure><img src="{a["img_wide"]}" alt="Taylor Powers" loading="lazy"></figure></section>
   <section class="wrap ab-exp">
     <div class="ab-exp-head"><h2>Brands, studios, and my experience.</h2><p>{e(a["summary"])}</p></div>
     <ul class="jobs">{jobs}</ul>
