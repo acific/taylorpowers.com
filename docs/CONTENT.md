@@ -68,7 +68,8 @@ The bio, services, experience entries, email address and the project cards (name
 - **Art car:** unveil and quotes (speedcafe.com, speedsport.com, slicksandsticks.com, speedwaydigest.com); render from speedwaydigest.com.
 - **Lefty Out There:** speedcafe.com, speedwaydigest.com, shop.trackhouse.com; render from speedcafe.com.
 - **SuperFile brand:** superfile.com (waitlist, tagline), si.com (sovereign file control). The brand film (Vimeo 1014838410) was uploaded Oct 1, 2024, before Taylor's tenure, and is labelled 2024.
-- **UFC & WWE:** ufc.com release (quotes, FREEDOM 250, UFC 329, WWE), mmapayout.com (weigh-ins). Image: ufc.com hero graphic.
+- **UFC & WWE:** ufc.com release (quotes, FREEDOM 250, UFC 329, WWE), mmapayout.com (weigh-ins). UFC 329: mmafighting.com weigh-in results (Jul 10, 2026; McGregor makes weight, SuperFile on the scale), Fox/OutKick, SI, Bleacher Report and Hola (Sophie Cunningham with the SuperFile round-1 card before Pimblett vs. Saint Denis; Dana White booked her about eight minutes before). Images: ufc.com hero graphic; Getty weigh-in photo via mmafighting.com; the UFC 329 poster via a Mavrix (Arizona) watch-party post; round-card photos via Fox and Hola.
+- **Wylie Co. card:** the Dune (2021) theatrical poster (TMDB), padded square on a blurred copy of itself.
 - **SuperFile × LAFC:** lafc.com Force for Good (Golden Boot Club, $50,000), LAFC on X (first look, Apr 4 2026). Images: lafc.com kit page and newsletter, the LAFC X post.
 - **FLEX × LAFC:** lafc.com (announcement, Heart of Gold, 5 Years Strong, Smokescreen), mlssoccer.com, legendsglobal.com. Images: lafc.com.
 - **FLEX launch:** corporate.lowes.com, toolguyd.com, flexpowertools.com. Images: flexpowertools.com.

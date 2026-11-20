@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "32"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "33"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -96,12 +96,12 @@ PROJECTS = [
                   img=[I + "flex-5-years-strong.jpg", I + "flex-smokescreen.jpg"]),
          ],
          figures=[("60B+", "Impressions"), ("3", "Seasons of kits with FLEX on the front")], film=dict(vimeo="781610331", title="FLEX × LAFC"),
-         link=("FLEX named LAFC’s jersey sponsor", "https://www.lafc.com/news/lafc-announces-flex-power-tools-official-jersey-sponsor"),
+         link=("The 2022 kit on LAFC.com", "https://www.lafc.com/culture/kit/2022"),
          gallery=[]),
-    dict(slug="superfile-ufc-wwe", name="SuperFile × UFC & WWE", type="Brand Management",
+    dict(slug="superfile-ufc-wwe", name="SuperFile × UFC", type="Brand Management",
          client="SuperFile × UFC & WWE", title="Fight night, worldwide",
          year="2026", role="VP of Brand, SuperFile", disciplines=["Global partnership", "Live events", "Broadcast integration"],
-         card=W + "superfile-ufc-wwe.jpg", hero_img=I + "ufc-glove.jpg",
+         card=W + "superfile-ufc-wwe.jpg", hero_img=I + "ufc329-weigh-in.jpg",
          lead="A global partnership with TKO that made SuperFile the first Official Secure File Sharing Partner of both UFC and WWE.",
          body=["TKO and SuperFile announced the partnership on June 9, 2026, creating a new sponsorship category across both properties.",
                "“SuperFile is redefining how organizations protect, control, and share their digital content,” said Robby Miller of TKO. “When you build a company, there are certain moments you never forget,” said Shane Valdez. “This will be one of them.”"],
@@ -109,7 +109,11 @@ PROJECTS = [
          sections=[
              dict(h="The White House.", p=["Five days later SuperFile was an Official Partner of UFC FREEDOM 250 on the White House grounds, with its branding inside the Octagon and broadcast integrations reaching an estimated one billion households in 210 countries and territories.",
                                            "SuperFile presented the night’s Super Replay of its most memorable moments, a “Keys to Victory” feature on each fighter’s strategy, and the one-hour UFC FREEDOM 250 SuperFile Post-Show. Its mark also stood in front of the scale at the weigh-ins."]),
-             dict(h="International Fight Week.", p=["SuperFile was then presenting partner of UFC 329, McGregor vs. Holloway 2, at T-Mobile Arena in Las Vegas on July 11, the headline event of International Fight Week, with activation across UFC’s numbered events and Fight Nights."]),
+             dict(h="UFC 329.", p=["SuperFile was then presenting partner of UFC 329, McGregor vs. Holloway 2, at T-Mobile Arena in Las Vegas on July 11, the headline event of International Fight Week, with activation across UFC’s numbered events and Fight Nights.",
+                                  "Its mark ran across the fight poster and the weigh-in stage, and sat on the scale itself the day before, when Conor McGregor made weight for his first fight since 2021."],
+                  img=[I + "ufc329-poster.jpg", I + "ufc329-round-card.jpg"]),
+             dict(h="Round one.", p=["The round cards carried SuperFile too. For the co-main event, Paddy Pimblett against Benoît Saint Denis, Indiana Fever guard Sophie Cunningham walked the Octagon as a surprise ring-card holder with the SuperFile “1”. Dana White said he booked her about eight minutes before she went out, and the moment ran across Fox, Sports Illustrated and Bleacher Report."],
+                  img=[I + "ufc329-round-card-cage.jpg"]),
              dict(h="WWE.", p=["In WWE, the deal brings side-ring-mat placements, presenting-partner designations and custom social and digital content across Premium Live Events including WrestleMania, Money in the Bank, Survivor Series and the Royal Rumble."]),
          ],
          figures=[("1B", "Households, UFC FREEDOM 250"), ("210", "Countries and territories")],
@@ -391,6 +395,10 @@ def home():
     info = "".join(
         f'<div class="info" data-i="{i}"{"" if i == 0 else " hidden"}><div class="info-left"><h1>{e(p["name"])}</h1><p>{e(p["lead"])}</p><span class="info-year">{e(p["year"])}</span></div>'
         f'<p class="info-type">{e(p["type"])}</p></div>' for i, p in enumerate(items))
+    logo = lambda n, alt, h: f'<img class="h{h}" src="/assets/home/logos/{n}.{"svg" if n == "skil" else "png"}" alt="{alt}" draggable="false">'
+    logo_set = "".join(logo(n, e(alt), h) for n, alt, h in LOGOS)
+    strip = (f'<div class="home-logos" role="region" aria-label="Brands and studios"><div class="home-logos-track">'
+             f'<div class="home-logos-set">{logo_set}</div><div class="home-logos-set" aria-hidden="true">{"".join(logo(n, "", h) for n, alt, h in LOGOS)}</div></div></div>')
     person = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Taylor Powers",'
               '"jobTitle":"Brand & Marketing Executive","url":"https://taylorpowers.com/","image":"https://taylorpowers.com/assets/home/avatar.jpg",'
               f'"email":"mailto:{EMAIL}","sameAs":["{LINKEDIN}"]}}</script>\n')
@@ -399,6 +407,7 @@ def home():
 <main class="stage" aria-roledescription="carousel" aria-label="Selected work">
   <div class="infos" aria-live="polite">{info}</div>
   <div class="ring">{slides}</div>
+  {strip}
   <div class="arrows"><button type="button" class="arrow prev" aria-label="Previous work"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 8L9.5 12L13.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="arrow next" aria-label="Next work"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 8L14.5 12L10.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
 </main>
 <footer class="home-nav">{nav("inline", "home")}</footer>

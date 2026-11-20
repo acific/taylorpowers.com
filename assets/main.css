@@ -264,6 +264,25 @@ body.home { height: 100vh; height: 100svh; min-height: 620px; overflow: hidden; 
 .arrow { width: 24px; height: 24px; border-radius: 50%; background: rgba(0,0,0,.15); color: #fff; display: grid; place-items: center; transition: background .3s var(--ease); }
 .arrow svg { width: 100%; height: 100%; display: block; }
 .arrow:hover { background: rgba(0,0,0,.28); }
+/* Logo strip in the space between the arrows and the nav (owner's Framer design): a slow, endless row */
+.home-logos {
+  position: absolute; left: 50%; z-index: 2; width: min(900px, calc(100% - 2 * var(--pad)));
+  top: calc((var(--cy) + var(--card) * .689 + 12px + 100% - 81px) / 2); transform: translate(-50%, -50%);
+  overflow: hidden; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.home-logos-track { display: flex; width: max-content; animation: logos 48s linear infinite; }
+.home-logos-set { display: flex; align-items: center; gap: 72px; padding-right: 72px; flex: none; }
+.home-logos img { width: auto; filter: brightness(0); opacity: .7; }
+@keyframes logos { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .home-logos-track { animation: none; } }
+@media (max-width: 809px) {
+  .home-logos { top: calc((var(--cy) + var(--card) * .689 + 12px + 100% - 53px) / 2); }
+  .home-logos-set { gap: 48px; padding-right: 48px; }
+  .home-logos img { transform: scale(.85); }
+}
+@media (max-height: 760px) and (min-width: 810px) { .home-logos { display: none; } }
 .home-nav { position: absolute; left: 0; right: 0; bottom: 56px; display: flex; justify-content: center; z-index: 3; }
 .home-nav .nav { font-family: var(--serif); font-size: 14px; font-weight: 600; }
 .home-nav .nav.inline .nav-mid { gap: 8px; }

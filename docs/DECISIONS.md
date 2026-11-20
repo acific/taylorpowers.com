@@ -31,7 +31,7 @@ When asked what was wrong (just before ff6ab7a), the owner said it was **generic
 1. **No scroll-driven animation and no scroll-jacking** (Lenis or similar). The SVG-mask zoom and the scroll-linked frame both read as glitchy.
 2. **Animate only `transform` and `opacity`.** Never scale SVG masks or large text.
 3. **Pause every video that's off screen**, and load clips only on first use.
-4. **Avoid the "AI-made" look:** gradient text, glow blobs, grain, cursor glows, mono "01 ·" eyebrows, italic-serif accent words, count-up numbers, pill chips, marquees and cute copy. The home page's logo strip is another: it's in the owner's own Framer design.
+4. **Avoid the "AI-made" look:** gradient text, glow blobs, grain, cursor glows, mono "01 ·" eyebrows, italic-serif accent words, count-up numbers, pill chips, marquees and cute copy. The logo strips (About, and the endless one under the home carousel the owner asked for) are another: they're in the owner's own design.
 5. **Ask for direction before another redesign** rather than guessing.
 6. **Footage over stills** wherever there's real footage.
 
