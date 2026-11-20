@@ -55,7 +55,7 @@ The bio, services, experience entries, email address and the project cards (name
 | SuperFile × LAFC | Golden Boot Club partner and front-of-training-kit sponsor (2026); $50,000 to the LAFC Foundation | lafc.com (kit page; Force for Good, April 2026) |
 | MotoGP | Title sponsor from Jun 5, 2026, the last team without one; "long-term strategic commitment"; from the Hungarian GP at Balaton Park; riders Fernández and Ogura | crash.net; motogp.com |
 | EGO Z6 | ZT4204L, 42" zero-turn, four 56V batteries, up to 2 acres a charge; film "Power without limits – the world's first platform compatible rider" | egopowerplus.com; EGO POWER+ on YouTube |
-| SKIL | Film "SKIL / Don't be a Gas Zombie" on SKIL Tools' YouTube channel | YouTube |
+| SKIL | National TV spot for PWRCORE 40, published Mar 8, 2022; 40V brushless string trimmer, leaf blower, self-propelled mower, chainsaw; zombie-neighbour story; tagline "What Powers You?"; at Lowe's. iSpot credits the agency as The Escape Pod, so the page doesn't say Realm made it. The owner's Vimeo copy (722974060) is domain-restricted and won't play on the site; the page uses SKIL's YouTube upload | ispot.tv; YouTube |
 | Art car | Unveiled Mar 10, 2026; Mr. Brainwash (Thierry Guetta); "SuperBrainHouse"; Las Vegas debut Mar 15; quote "The car looks epic" | speedcafe.com; speedsport.com |
 | FLEX launch | 24V Stacked Lithium, Therma-Tech+; claims 200% more power, 300% longer life, ~20-minute charging | flexpowertools.com |
 | Digital Domain | Digital Human Group / Lab: technicians, programmers, artists; Masquerade, Charlatan, real-time rendering; film, live events, gaming, mobile | digitaldomain.com |
