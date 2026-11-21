@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "41"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "42"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -446,12 +446,18 @@ WINS = [
          stat=("128′", "Bale’s equaliser, the latest goal in MLS history"), stat2=("3–0", "On penalties after a 3–3 draw"),
          p=["LAFC won its first MLS Cup in FLEX’s second season on the front of the shirt. Gareth Bale’s header in the 128th minute forced a shootout, and LAFC beat the Philadelphia Union 3–0 on penalties.",
             "With the Supporters’ Shield already won, it completed the club’s first double."],
-         hero=I + "wins-lafc-mls-cup.jpg", gallery=[I + "wins-lafc-bale.jpg", I + "wins-lafc-vela.jpg"], caption=""),
+         hero=I + "wins-lafc-mls-cup.jpg", gallery=[I + "wins-lafc-bale.jpg", I + "wins-lafc-vela.jpg"], caption="",
+         feature=dict(img=I + "wins-lafc-ring.jpg", kicker="The ring", title="128 black diamonds.",
+                      text="LAFC presented its championship rings, made with Baron, on March 4, 2023. The top carries 128 black diamonds for Bale’s 128th-minute goal, set in a black obsidian finish that was a first in major league sports.")),
 ]
 
 def wins():
     by_slug = {p["slug"]: p for p in PROJECTS}
     index = "".join(f'<li><a href="#{w["id"]}"><span>{e(w["place"])}</span><span>{e(w["series"])} · {e(w["when"][-4:])}</span></a></li>' for w in WINS)
+    def feature(f):
+        if not f: return ""
+        return (f'<div class="win-feature wrap"><figure class="reveal"><img src="{f["img"]}" alt="" loading="lazy"></figure>'
+                f'<div class="win-feature-text reveal"><p class="win-meta">{e(f["kicker"])}</p><h3>{e(f["title"])}</h3><p>{e(f["text"])}</p></div></div>')
     chapters = ""
     for w in WINS:
         cap = f'<p class="win-cap">{e(w["caption"])}</p>' if w["caption"] else ""
@@ -472,7 +478,7 @@ def wins():
       <div class="win-text reveal">{text}<a class="win-link" href="/work/{w["slug"]}/">The full story: {e(by_slug[w["slug"]]["name"])} <span aria-hidden="true">→</span></a></div>
     </div>
     <div class="win-gallery wrap">{gallery}</div>
-    {f'<div class="wrap">{cap}</div>' if cap else ""}
+    {f'<div class="wrap">{cap}</div>' if cap else ""}{feature(w.get("feature"))}
   </section>"""
     return (head("Wins · Taylor Powers", "Championships and race wins from the partnerships Taylor Powers built and ran: NASCAR at Watkins Glen, MotoGP at Assen and Silverstone, and LAFC's 2022 MLS Cup.", "/wins/", I + "wins-wg-taylor-champagne.jpg")
             + f"""<body class="page wins">

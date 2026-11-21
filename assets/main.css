@@ -456,8 +456,8 @@ body.page .nav { position: absolute; }
    ===================================================================== */
 body.wins { --bg: #000; background: #000; color: #fff; }
 .wins-hero { position: relative; height: 100vh; height: 100svh; min-height: 640px; overflow: hidden; }
-.wins-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; animation: hero-in 1.8s var(--ease) both; }
-.wins-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 48%, rgba(0,0,0,.85) 100%); }
+.wins-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; filter: brightness(1.35) contrast(1.05) saturate(1.05); animation: hero-in 1.8s var(--ease) both; }
+.wins-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 55%, rgba(0,0,0,.8) 100%); }
 .wins-hero-copy { position: absolute; left: 0; right: 0; bottom: 44px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 40px; align-items: end; }
 .wins-hero h1 { font-size: clamp(110px, 17vw, 300px); line-height: .8; letter-spacing: -0.035em; font-weight: 400; }
 .wins-hero h1 span { color: #d9ff3c; }
@@ -496,6 +496,11 @@ body.wins { --bg: #000; background: #000; color: #fff; }
 .win-gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
 .win-gallery figure:hover img { transform: scale(1.03); }
 .win-cap { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,.55); }
+.win-feature { margin-top: 120px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.win-feature figure { aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+.win-feature img { width: 100%; height: 100%; object-fit: cover; }
+.win-feature h3 { margin-top: 16px; font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 4.6vw, 80px); line-height: .95; letter-spacing: -0.02em; }
+.win-feature-text > p:last-child { margin-top: 24px; max-width: 420px; font-size: 16px; line-height: 1.4; color: rgba(255,255,255,.8); }
 body.wins .foot { border-top: 1px solid rgba(255,255,255,.15); }
 
 /* Revealed once as they come into view (wins.js); visible without the script */
@@ -517,4 +522,5 @@ body.wins .foot { border-top: 1px solid rgba(255,255,255,.15); }
   .win-stat2 { margin-top: 20px; }
   .win-stat2 dt { font-size: 48px; }
   .win-gallery { grid-template-columns: minmax(0, 1fr); margin-top: 56px; }
+  .win-feature { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 72px; }
 }
