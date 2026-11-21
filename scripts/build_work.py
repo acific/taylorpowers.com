@@ -29,7 +29,7 @@ PROJECTS = [
     dict(slug="superfile-trackhouse-nascar", name="SuperFile × Trackhouse Racing NASCAR", type="Brand Management",
          client="SuperFile × Trackhouse Racing", title="Daytona 500",
          year="2026", role="VP of Brand, SuperFile", disciplines=["Sponsorship", "Livery", "Race-weekend activation", "VIP hospitality"],
-         card=W + "trackhouse-nascar.jpg", hero_clip="/assets/clips/nascar-daytona.mp4", hero_img=I + "nascar-daytona-speed.jpg",
+         card=W + "nascar-fan-day.jpg", hero_clip="/assets/clips/nascar-fan-day.mp4", hero_img="/assets/clips/nascar-fan-day.jpg",
          lead="SuperFile’s first NASCAR partnership arrived on the sport’s biggest stage: Shane van Gisbergen’s black-and-neon #97 Chevrolet at the 2026 Daytona 500.",
          body=["On February 6, 2026, Trackhouse Racing announced SuperFile as the sponsor of Shane van Gisbergen’s No. 97 Chevrolet for the 68th Daytona 500. It was the Chicago company’s first step into NASCAR, introducing a brand built on what it calls sovereign file control: content that stays “trackable, unhackable, takebackable.”",
                "“There is no better place than Daytona to introduce SuperFile to NASCAR for the first time,” van Gisbergen said. Trackhouse owner Justin Marks added that SuperFile “has a very unique position in the tech space.”"],
