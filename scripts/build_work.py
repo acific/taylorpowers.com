@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "46"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "47"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -264,11 +264,12 @@ PROJECTS = [
          year="Realm Agency", role="Realm Agency", disciplines=["Product launch", "Campaign", "Production"],
          card=W + "ego-labs-blower.jpg", hero_clip="/assets/clips/ego-labs-blower.mp4", hero_img="/assets/clips/ego-labs-blower.jpg",
          film=dict(yt="pT_z7orpfJE", title="EGO POWER+ 765 CFM Blower (LB7654)"),
-         lead="EGO’s next generation of Z6 zero-turn riders: all the power of gas, with no exhaust and no oil changes.",
+         lead="EGO Labs 2.0: product launches staged as lab experiments, putting EGO’s battery tools head to head with gas.",
          body=["EGO announced its next-generation Z6 riders on March 17, 2026, under the line “All power. Zero compromise.” They are rated up to 27 HP gas-equivalent and up to three acres on a single charge, with an 80 mm wider track, 30% more peak torque than the first Z6 and IPX5 weather resistance.",
                "“All power, zero compromise,” said Tim Baker, EGO’s vice president of product."],
          role_text=["At Realm Agency, Taylor led account management and production for EGO across product launches and campaign content."],
          sections=[
+             dict(h="EGO vs gas.", p=["EGO Labs turns a product launch into a controlled test. In the 2024 spot for the 765 CFM LB7654 blower, scientists run EGO against gas on a test rig, then show the numbers on screen: 765 CFM, a top speed of 200 mph and more than 90 minutes of run time, per EGO."]),
              dict(h="Three riders.", p=["The range spans the 42-inch lap-bar ZT4214L, the 42-inch ZT4215S with E-Steer, which drives like a car, and the 52-inch ZT5216L. Peak Power combines up to six of EGO’s 56V batteries, the same packs that run more than 100 EGO tools, and a color display connects to the EGO Connect app."],
                   img=[I + "ego-z6-esteer.jpg", I + "ego-z6-overhead.jpg"]),
              dict(h="The brand behind it.", p=["EGO calls itself the number-one rated brand in cordless outdoor power, with more than 250,000 five-star reviews."]),
@@ -424,6 +425,27 @@ for p in PROJECTS:
     pre, post, add = d.pop("pre", []), d.pop("post", []), d.pop("add", [])
     p.update(d)
     p["sections"] = pre + p.get("sections", []) + add + post
+
+# ---------- Card labels: one consistent name, type and year per project (carousel, case-page title, Wins links) ----------
+CARDS = {
+    "superfile-trackhouse-nascar": ("SuperFile × Trackhouse NASCAR", "Sports Partnership", "2026"),
+    "superfile-brand-launch": ("SuperFile Brand Launch", "Brand Launch", "2025 — 2026"),
+    "wylie-co": ("Wylie Co.", "Visual Effects", "2017 — 2020"),
+    "flex-lafc": ("FLEX Power Tools × LAFC", "Sports Partnership", "2021 — 2025"),
+    "superfile-ufc-wwe": ("SuperFile × TKO (UFC & WWE)", "Sports Partnership", "2026"),
+    "superfile-lefty-out-there": ("SuperFile × Lefty Out There", "Artist Collaboration", "2026"),
+    "superfile-lafc": ("SuperFile × LAFC", "Sports Partnership", "2026"),
+    "superfile-trackhouse-motogp": ("SuperFile × Trackhouse MotoGP", "Title Partnership", "2026"),
+    "ego": ("EGO POWER+", "Brand Strategy", "2021 — 2025"),
+    "skil": ("SKIL Power Tools", "Brand Campaign", "2022 — 2024"),
+    "superfile-art-car": ("SuperFile × Mr. Brainwash", "Artist Collaboration", "2026"),
+    "flex-launch": ("FLEX Power Tools Launch", "Brand Launch", "2021"),
+    "digital-domain": ("Digital Domain", "Visual Effects", "2020 — 2021"),
+    "ego-labs": ("EGO Labs 2.0", "Product Campaign", "2024"),
+}
+for p in PROJECTS:
+    if p["slug"] in CARDS:
+        p["name"], p["type"], p["year"] = CARDS[p["slug"]]
 
 for p in PROJECTS:  # the case-page hero defaults to the card image at 2x
     p.setdefault("hero_img", p["card"].rsplit(".", 1)[0] + "@2x.jpg")

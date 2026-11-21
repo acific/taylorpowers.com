@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **Card audit:** five cards rebuilt from stronger frames (Wylie: Paul and Gurney off the ornithopter from the Dune trailer; SKIL: the gas-zombie neighbour; FLEX × LAFC: the FLEX drill close-up; FLEX launch: the grinder-sparks shot from the owner's deck; Lefty: a tighter crop on the car). One consistent set of card names, types and years in `CARDS` (e.g. "SuperFile × Trackhouse MotoGP", "Sports Partnership", Realm work dated 2021–2025 instead of "Realm Agency"). EGO Labs' summary now matches its 2024 blower film. Stamp 47.
 - **EGO Labs 2.0:** card, hero loop and film from EGO's 765 CFM Blower (LB7654) spot (YouTube pT_z7orpfJE), shot in the EGO Labs set.
 - **SuperFile × Trackhouse NASCAR:** new card (the SuperFile Racing booth) and hero loop from the owner's Trackhouse Fan Day film (`26-0601_FanDay_Assembly_PH_v2.mp4`).
 - **New link preview** (`assets/og-2026.jpg`, 2400×1260): the 2026 headshot on a dark olive ground with "Taylor Powers." in the site serif, the role, the brands and the URL; used by Home, About and the 404, with image size and alt tags for iMessage. **Phone pass:** finger-sized tap areas for the menu, carousel arrows, back link and deck links; safe-area spacing for the home menu; the Wins opener keeps Taylor in frame on tall screens; on phones only the centred home card plays its film. **Mr. Brainwash art car:** new card (the three-car poster) and hero (the artist with the car in Las Vegas). Stamp 46.
