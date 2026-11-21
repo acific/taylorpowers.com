@@ -182,7 +182,7 @@ PROJECTS = [
     dict(slug="ego", name="EGO Z6 Launch", type="Production",
          client="EGO Power+", title="EGO Z6 launch",
          year="2021", role="Realm Agency", disciplines=["Product launch", "Live action", "VFX", "Post-production"],
-         card=W + "ego-z6.jpg", hero_clip="/assets/clips/ego.mp4", hero_img="/assets/clips/ego.jpg",
+         card=W + "ego-mower.jpg", hero_clip="/assets/clips/ego-mower.mp4", hero_img="/assets/clips/ego-mower.jpg",
          lead="Launch creative for the EGO Z6, the world’s first platform-compatible zero-turn rider.",
          body=["EGO introduced the 42-inch Z6 as the world’s first platform-compatible zero-turn rider: it runs on the same 56V batteries as the rest of the POWER+ line. It reached Lowe’s, Ace Hardware and EGO dealers from February 2021, after what EGO says was more than six years of research and development.",
                "Its launch film, “Power without limits,” published in March 2021, carried the line “Power Like No Other.”"],
@@ -363,7 +363,7 @@ DECK = {
         post=[dict(h="Impact.", p=["The work contributed to EGO’s continued market-share growth and its recognition as the number-one rated brand in cordless outdoor power equipment.",
                                    "Beyond single campaigns, it set up a scalable approach connecting product innovation, storytelling and omnichannel execution, supporting EGO’s growing ecosystem and its move into the professional market."])],
         figures=[("110+", "Product launches supported across EGO and EGO Commercial"), ("39%+", "Cordless market share at Lowe’s (2025)"), ("2", "Major brand platforms developed")],
-        film=dict(video=V_ + "ego-reel.mp4", poster=V_ + "ego-reel.jpg", title="EGO POWER+"),
+        film=dict(yt="Mq8TwQIQwxw", poster="/assets/clips/ego-mower.jpg", title="EGO POWER+ 22\" Select Cut mower"),
         link=("EGO at Chervon", "https://global.chervongroup.com/en/what-we-do/our-brands/ego")),
     "flex-lafc": dict(
         title="Launching a national power tool brand through a landmark sports partnership",
