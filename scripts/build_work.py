@@ -302,7 +302,7 @@ ABOUT = dict(
                   ["wylie-co", "digital-domain", "ego-labs"],
                   ["superfile-trackhouse-nascar", "superfile-art-car"]],
     # Image slots: top pair, one backdrop per service, closing pair
-    img_small="/assets/about/editing.jpg", img_big="/assets/about/portrait.jpg",
+    img_small="/assets/about/editing.jpg", img_big="/assets/about/headshot-2026.jpg",
     img_services=["/assets/about/service-1.jpg", "/assets/about/service-2.jpg", "/assets/about/service-3.jpg", "/assets/about/service-4.jpg", "/assets/about/service-5.jpg"],
 )
 ABOUT_STATEMENT_SHORT = "A brand and marketing executive with 8+ years across Hollywood productions, global consumer brands, and high-profile partnerships in sports and entertainment."
