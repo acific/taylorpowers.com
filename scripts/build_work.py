@@ -61,8 +61,7 @@ PROJECTS = [
                     "On social, Taylor launched and scaled SuperFile’s Instagram to more than 150,000 followers in eight months, averaging 18,000+ new followers a month."],
          sections=[
              dict(h="From zero to the world stage.", p=["In 2026 the brand debuted at the Daytona 500, became title sponsor of a MotoGP team, went inside the Octagon at UFC FREEDOM 250 at the White House, signed on for WWE’s Premium Live Events and went onto the front of LAFC’s training kit.",
-                                                        "Each partnership carried the same black and neon-yellow identity, from a race car’s hood to a fighter’s glove."],
-                  img=[I + "ufc-glove.jpg", I + "motogp-medal.jpg"]),
+                                                        "Each partnership carried the same black and neon-yellow identity, from a race car’s hood to a fighter’s glove."]),
              dict(h="The anthem.", p=["The 30-second anthem film put the launch identity on screen in the brand’s black and neon yellow.",
                                     "It built on the brand film Valdez released in October 2024, which set out the idea before the product: “SuperFile isn’t just a tool — it’s a vision. It’s for creators.”"]),
          ],

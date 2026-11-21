@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **SuperFile Brand Launch:** removed the glove and medal photo pair (owner's request).
 - **Wins:** the LAFC chapter adds the 2022 MLS Cup ring (128 black diamonds for Bale's 128th-minute goal; LAFC/Baron release, Mar 4, 2023); the opener photo is brightened. Stamp 42.
 - **Wins redesigned to feel premium** (owner: "make it absolutely great"): black cinematic page, full-screen opener of Taylor in victory lane with an oversized "Wins." and an index, then a full-screen chapter per win with a headline number (74/100, 1–2, 128′), the story and two photos; content fades up once on entry (`assets/wins.js`). Stamp 41.
 - **Works page replaced by Wins** (`/wins/`, owner's idea): Watkins Glen victory lane (with Taylor, identified by the owner), the MotoGP one-two at Assen and Silverstone win, and LAFC's 2022 MLS Cup with FLEX on the shirt. Menu, footer, deck, case-page back link and 404 now point to Wins or Home; `/work/` forwards to `/wins/`. Stamp 40.
