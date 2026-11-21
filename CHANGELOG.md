@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **EGO Labs 2.0:** card, hero loop and film from EGO's 765 CFM Blower (LB7654) spot (YouTube pT_z7orpfJE), shot in the EGO Labs set.
 - **SuperFile × Trackhouse NASCAR:** new card (the SuperFile Racing booth) and hero loop from the owner's Trackhouse Fan Day film (`26-0601_FanDay_Assembly_PH_v2.mp4`).
 - **New link preview** (`assets/og-2026.jpg`, 2400×1260): the 2026 headshot on a dark olive ground with "Taylor Powers." in the site serif, the role, the brands and the URL; used by Home, About and the 404, with image size and alt tags for iMessage. **Phone pass:** finger-sized tap areas for the menu, carousel arrows, back link and deck links; safe-area spacing for the home menu; the Wins opener keeps Taylor in frame on tall screens; on phones only the centred home card plays its film. **Mr. Brainwash art car:** new card (the three-car poster) and hero (the artist with the car in Las Vegas). Stamp 46.
 - **New cards and hero videos:** EGO POWER+ from the Z6 "Power without limits" film (also its YouTube film), FLEX × LAFC from FLEX's Stacked Lithium hero video, and Wylie Co. from the Dune official trailer (also its film). Stamp 45.
