@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "42"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "43"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
