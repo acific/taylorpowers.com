@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "45"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "46"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -213,7 +213,7 @@ PROJECTS = [
     dict(slug="superfile-art-car", name="SuperFile × Mr. Brainwash Artist Collaboration", type="Brand Management",
          client="SuperFile × Mr. Brainwash", title="The art car",
          year="2026", role="VP of Brand, SuperFile", disciplines=["Art car", "Culture", "NASCAR"],
-         card=W + "mr-brainwash.jpg", hero_img=I + "artcar-render.jpg", hero_light=True,
+         card=W + "mr-brainwash-trio.jpg", hero_img=I + "d-artcar-mbw.jpg",
          lead="The #97 handed to the street artist Mr. Brainwash for Las Vegas, turning a race weekend into a culture moment.",
          body=["Trackhouse unveiled the livery on March 10, 2026: Mr. Brainwash, the LA-based street artist Thierry Guetta, known for album covers for Madonna, Rick Ross and Kygo, painted Shane van Gisbergen’s No. 97 Chevrolet to celebrate SuperFile’s multi-year, multi-race partnership with the team.",
                "The artwork also marked the launch of SuperFile’s digital ownership platform."],
@@ -301,7 +301,7 @@ DECK = {
                   img=[I + "d-lefty-group.jpg", I + "d-lefty-crew.jpg"])]),
     "superfile-art-car": dict(
         add=[dict(h="Three cars, one artist.", p=["The Mr. Brainwash collaboration produced a family of SuperFile No. 97 schemes, and the artist came to the track to see his car run."],
-                  img=[I + "d-artcar-trio.jpg", I + "d-artcar-mbw.jpg"])]),
+                  img=[I + "d-artcar-trio.jpg", I + "artcar-render.jpg"])]),
     "superfile-trackhouse-motogp": dict(
         lead="The first title partner in Trackhouse MotoGP history: SuperFile took its Trackhouse relationship from American motorsport to a world championship on five continents.",
         body=["Building on the NASCAR partnership, SuperFile expanded its relationship with Trackhouse Racing into the MotoGP World Championship, becoming the first-ever title partner of the Trackhouse MotoGP Team.",
@@ -479,7 +479,8 @@ def head(title, desc, url, image, extra=""):
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://taylorpowers.com{url}">
-<meta property="og:image" content="https://taylorpowers.com{image}">
+<meta property="og:image" content="https://taylorpowers.com{image}">{'<meta property="og:image:width" content="2400"><meta property="og:image:height" content="1260"><meta property="og:image:alt" content="Taylor Powers, Brand &amp; Marketing Executive">' if image.endswith("og-2026.jpg") else ""}
+<meta property="og:site_name" content="Taylor Powers">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f4f4f4">
 <link rel="icon" href="/assets/favicon.svg">
@@ -560,7 +561,7 @@ def home():
     person = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Taylor Powers",'
               '"jobTitle":"Brand & Marketing Executive","url":"https://taylorpowers.com/","image":"https://taylorpowers.com/assets/home/avatar.jpg",'
               f'"email":"mailto:{EMAIL}","sameAs":["{LINKEDIN}"]}}</script>\n')
-    return (head("Taylor Powers — Brand & Marketing Executive", ABOUT["statement"], "/", "/assets/og.jpg", person)
+    return (head("Taylor Powers — Brand & Marketing Executive", ABOUT["statement"], "/", "/assets/og-2026.jpg", person)
             + f"""<body class="home">
 <main class="stage" aria-roledescription="carousel" aria-label="Selected work">
   <div class="infos" aria-live="polite">{info}</div>
@@ -697,7 +698,7 @@ def about():
     bars = "".join(f'<button type="button" class="deck-seg{" is-on" if i == 0 else ""}" aria-label="Slide {i + 1}"></button>' for i in range(n))
     numbers = "".join(f'<div><dt>{e(n)}</dt><dd>{e(l)}</dd></div>' for n, l in a["numbers"])
     logos = "".join(f'<img class="h{h}" src="/assets/home/logos/{n}.{"svg" if n == "skil" else "png"}" alt="{e(alt)}">' for n, alt, h in LOGOS)
-    return (head("About · Taylor Powers", a["statement"], "/about/", "/assets/og.jpg")
+    return (head("About · Taylor Powers", a["statement"], "/about/", "/assets/og-2026.jpg")
             + f"""<body class="page about">
 {nav("ink", "about")}
 <main>

@@ -525,3 +525,20 @@ body.wins .foot { border-top: 1px solid rgba(255,255,255,.15); }
   .win-gallery { grid-template-columns: minmax(0, 1fr); margin-top: 56px; }
   .win-feature { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 72px; }
 }
+
+/* =====================================================================
+   Phones: finger-sized tap targets, safe areas, and crops that keep people in frame
+   ===================================================================== */
+@media (max-width: 809px) {
+  .nav-mid a, .home-nav .nav.inline .nav-end { position: relative; }
+  .nav a::after, .arrow::after, .all-works::after { content: ""; position: absolute; inset: -12px -4px; }
+  .nav-end::after { inset: -12px 0 -12px -8px; }
+  .arrow { position: relative; width: 32px; height: 32px; }
+  .arrows { gap: 20px; }
+  .deck-work li, .deck-list li { padding: 3px 0; }
+  .deck-work a, .deck-contact a { display: inline-block; padding: 6px 0; }
+  .win-link, .text-link { display: inline-block; padding: 8px 0; }
+  .home-nav { bottom: calc(28px + env(safe-area-inset-bottom)); }
+  .wins-hero > img { object-position: 14% 30%; }
+  .wins-hero-copy, .win-hero-copy { padding-bottom: env(safe-area-inset-bottom); }
+}

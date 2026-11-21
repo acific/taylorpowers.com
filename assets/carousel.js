@@ -39,11 +39,14 @@
   // card loads and plays its film; cards pushed off the arc pause. Side cards stay black and white like
   // the stills. Skipped when the visitor prefers reduced motion.
   const still = matchMedia('(prefers-reduced-motion: reduce)');
+  // On phones only the centre card plays, to save data; larger screens play every card on the arc
+  const small = matchMedia('(max-width: 809px)');
+  const reach = () => (small.matches ? 0 : 3);
   const films = () => slides.forEach((s, i) => {
     const v = s.querySelector('.slide-video');
     if (!v) return;
     let d = Math.abs(i - current); d = Math.min(d, n - d);
-    if (d <= 3 && !still.matches && !document.hidden) {
+    if (d <= reach() && !still.matches && !document.hidden) {
       if (!v.src) { v.src = v.dataset.src; v.addEventListener('playing', () => v.classList.add('is-playing')); }
       v.play().catch(() => {});
     } else {

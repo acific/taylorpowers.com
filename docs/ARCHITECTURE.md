@@ -30,7 +30,7 @@ Mail ──► MX route1-3.mx.cloudflare.net ──► Cloudflare Email Routing
 | Styles | `assets/main.css` | Every page, including `404.html` |
 | Behavior | `assets/carousel.js`, `assets/about.js`, `assets/site.js` | The home carousel; the About statement; case-page video, Vimeo heroes and the lightbox. Each part checks that its elements exist |
 | Media | `assets/video/`, `assets/clips/`, `assets/img/`, `assets/logos/`, `assets/home/` | Showreel, clips, stills and logos used by the case pages; the home page's avatar, logo strip, card images and Switzer fonts |
-| Share card and icons | `assets/og.jpg`, `assets/favicon.svg`, `assets/apple-touch-icon.png` | Link previews (1200×630: Taylor's photo, name and role beside three project photos, in the light design), the tab icon (black rounded tile, white "TP") and the phone home-screen icon (Taylor's photo, 180 px) |
+| Share card and icons | `assets/og-2026.jpg` (rendered from `sources/og/og.html` with headless Chrome at 2×), `assets/favicon.svg`, `assets/apple-touch-icon.png` | Link previews (1200×630: Taylor's photo, name and role beside three project photos, in the light design), the tab icon (black rounded tile, white "TP") and the phone home-screen icon (Taylor's photo, 180 px) |
 | Domain | `CNAME` | Tells GitHub Pages to serve taylorpowers.com |
 
 ## Hosting and domain
