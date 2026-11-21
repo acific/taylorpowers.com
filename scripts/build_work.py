@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "43"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "44"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -274,6 +274,154 @@ PROJECTS = [
          figures=[("27 HP", "Gas-equivalent power, per EGO"), ("3 acres", "On a single charge, per EGO"), ("100+", "EGO tools on the same batteries")],
          link=("EGO’s Z6 riding mowers", "https://egopowerplus.com/ridingmowers"), gallery=[]),
 ]
+
+# ---------- The owner's case-study write-ups (deck "26-1120_TaylorPowers_Portfolio_Case-Study_Writeups_TP", 2026-11-20) ----------
+# These replace the lead, intro, role, results and link of the pages they cover, in the third person the site uses.
+# "pre" sections come before a page's existing story sections, "post" after; "add" are extra photo sections.
+V_ = "/assets/video/"
+DECK = {
+    "superfile-trackhouse-nascar": dict(
+        lead="SuperFile’s market entry on NASCAR’s biggest stage: a multi-year Trackhouse Racing partnership that started with Shane van Gisbergen’s No. 97 Chevrolet at the 2026 Daytona 500.",
+        body=["As VP of Brand at SuperFile, Taylor led the brand-side strategy and activation of a multi-year partnership with Trackhouse Racing, establishing NASCAR as a key platform for introducing an emerging technology company to a national audience.",
+              "The partnership launched at the 2026 Daytona 500 with Shane van Gisbergen’s No. 97 Chevrolet and expanded into a multi-race program that brought together national broadcast exposure, creative brand integrations, executive hospitality and business development."],
+        role_text=["Taylor oversaw the brand-side partnership activation, connecting sponsorship rights to broader marketing and business objectives: strategic planning, brand integration, creative and production oversight, cross-functional coordination, relationship development, merchandising and swag, and VIP hospitality.",
+                   "The program included the Daytona 500 debut, later race activations, branded content and experiences designed to make the partnership commercially valuable beyond race-day exposure."],
+        pre=[dict(h="The strategy.", p=["The partnership was built to support SuperFile’s market entry, with three objectives: accelerate national brand awareness, establish credibility, and create valuable B2B relationships with prospective customers, partners and industry leaders.",
+                                        "Trackhouse was a strategic fit for its unconventional approach to motorsport, its emphasis on innovation and its willingness to challenge traditional sponsorship models. That shared outlook let the partnership combine NASCAR’s national reach with creative flexibility, executive access and commercial opportunities well beyond race day."])],
+        post=[dict(h="On track.", p=["Across the season the No. 97 carried SuperFile from Daytona to Martinsville, Texas and beyond, with the crew, the car and the livery all part of the brand."],
+                   img=[I + "d-nascar-turn1.jpg", I + "d-nascar-track.jpg", I + "d-nascar-crew.jpg", I + "d-nascar-livery.jpg"]),
+              dict(h="Impact.", p=["The partnership established SuperFile’s presence in NASCAR, generated national brand visibility and opened the door to executive networking, strategic introductions and early-stage business development.",
+                                   "What began with a Daytona 500 debut became a multi-year racing partnership, and a model for how sports sponsorship can support brand positioning, market entry and commercial relationships."])],
+        figures=[("75M+", "Estimated impressions across NASCAR and MotoGP in the program’s first season"), ("7.5M", "TV viewers for SuperFile’s debut at the Daytona 500"),
+                 ("16M+", "TV viewers across SuperFile-backed NASCAR Cup races"), ("<4 months", "From NASCAR debut to MotoGP title sponsor")],
+        link=("SuperFile’s story", "https://superfile.com/story")),
+    "superfile-lefty-out-there": dict(
+        add=[dict(h="On the grid.", p=["The artist joined the team on the grid at Chicagoland, and the crew wore SuperFile through every stop."],
+                  img=[I + "d-lefty-group.jpg", I + "d-lefty-crew.jpg"])]),
+    "superfile-art-car": dict(
+        add=[dict(h="Three cars, one artist.", p=["The Mr. Brainwash collaboration produced a family of SuperFile No. 97 schemes, and the artist came to the track to see his car run."],
+                  img=[I + "d-artcar-trio.jpg", I + "d-artcar-mbw.jpg"])]),
+    "superfile-trackhouse-motogp": dict(
+        lead="The first title partner in Trackhouse MotoGP history: SuperFile took its Trackhouse relationship from American motorsport to a world championship on five continents.",
+        body=["Building on the NASCAR partnership, SuperFile expanded its relationship with Trackhouse Racing into the MotoGP World Championship, becoming the first-ever title partner of the Trackhouse MotoGP Team.",
+              "The multi-year naming-rights agreement created the SuperFile Trackhouse MotoGP Team, extending the brand from American motorsport to a global championship spanning five continents."],
+        role_text=["As VP of Brand, Taylor led SuperFile’s brand-side strategy and activation, overseeing the partnership’s creative direction, brand integration, marketing and hands-on production.",
+                   "That covered international race-weekend activations, VIP and executive hospitality, guest experiences, branded merchandise, promotional swag and gifting, partner communications and cross-functional production logistics, working with Trackhouse and outside partners to turn the title sponsorship into one global brand presence."],
+        pre=[dict(h="The strategy.", p=["Working with Trackhouse had shown the value of a partner that shared SuperFile’s ambition to challenge convention. MotoGP was the natural next step: building on an established relationship while introducing SuperFile to international audiences.",
+                                        "The title partnership went deeper than logos, with SuperFile across the team’s identity, bikes, rider apparel and merchandise, and a platform for international business development, executive networking and race-weekend hospitality."],
+                  img=[I + "d-motogp-unveil.jpg", I + "d-motogp-celebrate.jpg"])],
+        post=[dict(h="Impact.", p=["The expansion strengthened SuperFile’s relationship with Trackhouse and established the brand in one of the world’s premier motorsport championships.",
+                                   "Turning an existing partnership into a global title sponsorship gave SuperFile a broader platform for international awareness, strategic relationships and long-term commercial opportunities."],
+                   img=[I + "d-motogp-podium.jpg"])],
+        figures=[("75M+", "Estimated media impressions across NASCAR and MotoGP in the first season"), ("1st", "Naming-rights partner in Trackhouse MotoGP history"), ("5", "Continents of global brand visibility")],
+        hero_clip="/assets/clips/motogp-season.mp4",
+        film=dict(video=V_ + "motogp-season.mp4", poster=V_ + "motogp-season.jpg", title="SuperFile Trackhouse MotoGP Team"),
+        link=("Title sponsor announcement", "https://www.trackhouse.com/news/2026/june/05/superfile-trackhouse-motogp-team")),
+    "superfile-lafc": dict(
+        lead="SuperFile on LAFC’s training kit and in its Golden Boot Club: a partnership with one of MLS’s most recognisable clubs, built for visibility, relationships and community.",
+        body=["As VP of Brand at SuperFile, Taylor led the brand-side strategy and activation of SuperFile’s partnership with Los Angeles Football Club, making SuperFile an official training kit sponsor and Golden Boot Club partner.",
+              "The partnership aligned SuperFile with one of Major League Soccer’s most recognisable clubs, creating national brand exposure, fan engagement, executive hospitality and business development."],
+        role_text=["Taylor led the brand-side strategy, planning and execution: sponsorship integration, marketing, creative direction, branded content and hands-on production.",
+                   "Her remit also covered match-day activations, VIP and executive hospitality, partner events, guest experiences, co-branded merchandise, gifting, food and beverage, and coordination with LAFC’s partnership and marketing teams, including a SuperFile-presented MLS match, curated executive networking and community programs."],
+        pre=[dict(h="The strategy.", p=["As SuperFile prepared for market, it wanted to stand beside an organisation known for sporting excellence, cultural relevance and a strong business community.",
+                                        "Taylor had worked with LAFC before, on FLEX Power Tools’ front-of-jersey partnership, and knew the club could deliver value beyond exposure. The training kit gave consistent visibility through training sessions, club media and digital content; with match-day activations and LAFC’s corporate network, it became a platform for recognition, credibility and relationships."],
+                  img=[I + "d-lafc-hq.jpg", I + "d-lafc-top.jpg"])],
+        post=[dict(h="Impact.", p=["The partnership established SuperFile in Major League Soccer, with sustained visibility and opportunities for executive relationships, strategic introductions and prospective business partnerships.",
+                                   "It also showed SuperFile’s commitment to community, through a $50,000 contribution to the LAFC Foundation supporting access to youth soccer across Los Angeles."],
+                   img=[I + "d-lafc-presentation.jpg", I + "d-lafc-night.jpg"])],
+        hero_clip="/assets/clips/lafc-superfile-training.mp4", hero_img="/assets/clips/lafc-superfile-training.jpg"),
+    "superfile-ufc-wwe": dict(
+        name="SuperFile × TKO (UFC & WWE)", client="SuperFile × TKO",
+        lead="A global partnership with TKO Group Holdings that made SuperFile the first Official Secure File Sharing Partner of both UFC and WWE.",
+        body=["As VP of Brand at SuperFile, Taylor led the brand-side strategy and activation of a global partnership with TKO Group Holdings, connecting SuperFile with two of the world’s most recognised sports and entertainment properties: UFC and WWE.",
+              "The multi-year agreement created a platform across marquee UFC events, Fight Nights and WWE Premium Live Events, combining broadcast exposure, digital content, in-venue branding, experiential activations and executive hospitality."],
+        role_text=["Taylor led SuperFile’s brand-side strategy, planning and activation across UFC and WWE: sponsorship integration, marketing, creative direction, branded content and hands-on production.",
+                   "That included broadcast and in-venue branding, digital integrations, event activations, VIP and executive hospitality, investor and partner experiences, merchandise, gifting, food and beverage, and coordination with TKO’s partnership, marketing and production teams, including UFC’s Super Replay and Keys to Victory features and the SuperFile-presented UFC FREEDOM 250 Post-Show."],
+        pre=[dict(h="The strategy.", p=["Ahead of a broader market launch, SuperFile’s priority was to accelerate awareness, establish credibility and create business opportunities through established global partners.",
+                                        "TKO offered two distinct, highly engaged audiences through one relationship. The approach went beyond exposure: integrating SuperFile into major live events, broadcast programming and premium experiences, and using TKO’s network for executive relationships, investor engagement and business development."],
+                  img=[I + "d-ufc-whitehouse.jpg", I + "d-ufc-weighin.jpg"])],
+        post=[dict(h="Inside the Octagon.", p=["From the White House lawn to UFC 329 in Las Vegas, SuperFile sat on the scale, the round cards and the Octagon itself."],
+                   img=[I + "d-ufc-holloway.jpg", I + "d-ufc-octagon.jpg", I + "d-ufc-cage.jpg", I + "ufc329-round-card.jpg"]),
+              dict(h="Impact.", p=["The partnership put SuperFile across two major global sports and entertainment properties, reaching audiences through live events, broadcast and digital platforms.",
+                                   "Beyond exposure, it created opportunities for executive networking, investor engagement, strategic introductions and prospective commercial relationships."])],
+        figures=[("1st", "Official Secure File Sharing Partner across UFC and WWE"), ("1B+", "Combined global fanbase across UFC and WWE, in 170 countries"), ("49.9M", "Combined reported viewership for UFC FREEDOM 250 and UFC 329")],
+        link=("Partnership announcement", "https://www.ufc.com/news/tko-and-superfile-announce-global-partnership-across-ufc-and-wwe")),
+    "ego": dict(
+        name="EGO POWER+", client="EGO POWER+ × Realm Agency", type="Account Management", year="Realm Agency", role="Realm Agency",
+        title="Proving battery can beat gas",
+        disciplines=["Brand strategy", "Integrated marketing", "Product launches", "Brand development", "Creative production"],
+        lead="Helping the number-one rated brand in cordless outdoor power prove that battery can beat gas: national campaigns, EGO Labs 2.0 and the launch of EGO Commercial.",
+        body=["At Realm Agency, Taylor led the agency-side relationship with EGO POWER+, supporting brand growth, product launches and integrated marketing for one of the outdoor power equipment industry’s leading innovators.",
+              "The work spanned national advertising, the evolution of EGO Labs 2.0, and the development and launch of EGO Commercial, supporting the introduction of 100+ products and EGO’s market-share growth."],
+        role_text=["Taylor led agency-side strategy, client relationships, campaign development and end-to-end execution across EGO’s consumer and commercial portfolios, with brand leadership, creative teams, production partners and outside stakeholders.",
+                   "Her remit covered brand positioning, product launches, creative direction, influencer marketing, sponsorship activations and integrated campaigns, with hands-on oversight of pre-production, production and post. The work ran across national TV, digital and social, branded content, product photo and video, web, retail merchandising, in-store displays, packaging and e-commerce, including Amazon, Lowe’s and Ace, on multimillion-dollar production budgets."],
+        pre=[dict(h="The strategy.", p=["EGO was challenging an industry long dominated by gas, proving battery technology could match or beat it without the noise, fumes or maintenance. The strategy: change perceptions, demonstrate the technology and accelerate adoption at home and on the job.",
+                                        "Building on EGO’s reputation for unconventional demonstrations, from loading a string trimmer while skydiving to running a snow blower in Antarctica, EGO Labs 2.0 pushed product storytelling further. One standout put the EGO Z6 zero-turn mower on Chicago’s Soldier Field to show its power and runtime on one of football’s most famous surfaces."],
+                  img=[I + "d-ego-soldier-field.jpg", I + "d-ego-soldier-aerial.jpg"]),
+             dict(h="EGO Commercial.", p=["Realm also helped develop and launch EGO Commercial, a distinct brand identity and marketing foundation positioning EGO’s professional-grade equipment as a real alternative to gas."],
+                  img=[I + "d-ego-hq.jpg", I + "d-ego-team.jpg"])],
+        post=[dict(h="Impact.", p=["The work contributed to EGO’s continued market-share growth and its recognition as the number-one rated brand in cordless outdoor power equipment.",
+                                   "Beyond single campaigns, it set up a scalable approach connecting product innovation, storytelling and omnichannel execution, supporting EGO’s growing ecosystem and its move into the professional market."])],
+        figures=[("110+", "Product launches supported across EGO and EGO Commercial"), ("39%+", "Cordless market share at Lowe’s (2025)"), ("2", "Major brand platforms developed")],
+        film=dict(video=V_ + "ego-reel.mp4", poster=V_ + "ego-reel.jpg", title="EGO POWER+"),
+        link=("EGO at Chervon", "https://global.chervongroup.com/en/what-we-do/our-brands/ego")),
+    "flex-lafc": dict(
+        title="Launching a national power tool brand through a landmark sports partnership",
+        lead="FLEX Power Tools on the front of LAFC’s jersey for five years: the sports platform behind a new power tool brand’s national launch.",
+        body=["At Realm Agency, Taylor helped lead the launch and activation of FLEX Power Tools’ five-year, front-of-jersey partnership with Los Angeles Football Club, supporting the brand’s introduction to the U.S. professional power tool market.",
+              "Timed to FLEX’s nationwide retail launch at Lowe’s, the partnership became a cornerstone of its marketing, combining national broadcast exposure, integrated advertising, fan engagement, retail promotions and experiential activations."],
+        role_text=["Taylor helped lead agency-side strategy, planning and activation with FLEX leadership, LAFC, creative teams and production partners: brand positioning, campaign development, sponsorship integrations, creative direction, branded content and hands-on production across digital, social, broadcast and retail.",
+                   "The program also included match-day activations, VIP and customer hospitality, fan experiences, co-branded merchandise and community work, including FLEX’s Power to Empower program."],
+        pre=[dict(h="The strategy.", p=["FLEX was entering a market dominated by established professional brands. The challenge: build immediate awareness, earn credibility with tradespeople and position FLEX as a serious contender.",
+                                        "Realm identified LAFC for the fit between the club’s cultural identity, its passionate fanbase and FLEX’s audience of contractors and tradespeople. Rather than a logo placement, it became an integrated platform across jerseys, stadium branding, broadcast, digital, retail and community."],
+                  img=[I + "d-flexlafc-vela.jpg", I + "d-flexlafc-5ys.jpg"])],
+        post=[dict(h="Match days.", p=["On the pitch and in the stands, FLEX was part of the club: from the 2022 title run to fan events, player meet-ups and community days."],
+                   img=[I + "d-flexlafc-bale.jpg", I + "d-flexlafc-huddle.jpg", I + "d-flexlafc-players.jpg", I + "d-flexlafc-event.jpg"],
+                   film=dict(video=V_ + "flex-lafc-chicho.mp4", poster=V_ + "flex-lafc-chicho.jpg", title="FLEX × LAFC", label="Watch the spot")),
+              dict(h="Impact.", p=["The partnership established FLEX’s national presence, connecting the brand with a passionate sports audience as it entered the U.S. professional market.",
+                                   "Across five years it generated a reported 60 billion+ media impressions, and FLEX hit its sales targets within the first six months of launch."])],
+        figures=[("60B+", "Reported media impressions across the five-year partnership"), ("#1", "Best-selling MLS player jersey in 2022: Gareth Bale’s FLEX-branded LAFC shirt"), ("2022", "MLS Cup champions, with FLEX on the front")],
+        film=dict(video=V_ + "flex-lafc-film.mp4", poster=V_ + "flex-lafc-film.jpg", title="FLEX × LAFC")),
+    "flex-launch": dict(
+        title="Building a challenger brand in one of the most competitive markets",
+        lead="Turning a century-old German brand into a U.S. contender: FLEX Power Tools’ North American launch, exclusively at Lowe’s.",
+        body=["At Realm Agency, Taylor helped lead the North American launch of FLEX Power Tools, turning a century-old German brand known for professional polishers and grinders into a major contender in the U.S. cordless market.",
+              "With Chervon North America, Realm built and ran the brand and go-to-market strategy behind FLEX’s nationwide retail launch at Lowe’s, from positioning and messaging to product launches, national advertising and retail."],
+        role_text=["Taylor led agency-side account management, brand strategy, campaign development and integrated marketing with Chervon’s brand and product leadership: market research, competitive positioning, messaging, identity, product positioning and naming, go-to-market planning, creative direction and hands-on oversight of pre-production, production and post.",
+                   "The omnichannel work covered national TV, product photo and video, CGI and 3D animation, web and e-commerce, paid digital and social, influencers, sponsorship integrations, packaging, merchandising, in-store displays, Amazon and Lowe’s digital channels, trade shows and sales enablement."],
+        pre=[dict(h="The strategy.", p=["Milwaukee, DeWalt and Makita had spent decades earning tradespeople’s trust, and many pros had invested heavily in their battery platforms. Winning them over took more than a good ad.",
+                                        "FLEX was positioned as the next generation of professional power tools, leaning on German engineering, performance and 24V cordless technology, with performance-led storytelling and demonstrations. The LAFC jersey deal gave it awareness; the wider marketing turned that into product education, retail engagement and demand."],
+                  img=[I + "d-flex-lowes.jpg", I + "d-flex-launch-event.jpg"])],
+        post=[dict(h="Stacked Lithium, on film.", p=["The launch work carried through to FLEX’s Stacked Lithium battery: more power, longer runtime and faster charging, shown the way pros use their tools."],
+                   img=[I + "d-flex-stacked.jpg", I + "d-flex-sparks.jpg"]),
+              dict(h="Impact.", p=["The launch established FLEX as a new competitor in the U.S. professional market, with national recognition and strong early momentum: a reported nearly $29 million in online sales in its first launch quarter in 2021, well ahead of projections.",
+                                   "It also laid a scalable brand and marketing foundation for continued product expansion, retail growth and national advertising."])],
+        figures=[("~$29M", "Reported online sales in the launch quarter (2021)"), ("100+", "Product launches supported across the FLEX 24V portfolio"), ("1,700+", "Lowe’s stores supported at launch")],
+        hero_clip="/assets/clips/flex-stacked-lithium.mp4", hero_img="/assets/clips/flex-stacked-lithium.jpg",
+        film=dict(video=V_ + "flex-stacked-lithium.mp4", poster=V_ + "flex-stacked-lithium.jpg", title="FLEX Stacked Lithium"),
+        link=("FLEX launches at Lowe’s", "https://corporate.lowes.com/newsroom/press-releases/lowes-launch-new-cordless-power-tool-innovation-pros-exclusive-flex-offering-03-18-21")),
+    "skil": dict(
+        title="Reimagining a century-old brand for a new generation",
+        lead="Making a 100-year-old American brand matter to a new generation of DIYers: the Gas Zombies campaign and SKIL’s 2024 brand refresh.",
+        body=["At Realm Agency, Taylor helped lead the modernisation of SKIL Power Tools, a 100-year-old American brand whose legacy goes back to the invention of the circular saw in 1924.",
+              "From the viral Gas Zombies campaign to a full brand refresh in 2024, the work combined strategic positioning, original storytelling and omnichannel execution to make an established brand relevant to today’s consumers."],
+        role_text=["Taylor co-developed the Gas Zombies concept and led its creative development alongside Realm CEO Shane Valdez and the SKIL team, from storyboards through production and delivery.",
+                   "Across the account she led management, brand strategy, campaign development and integrated marketing with Chervon’s brand leadership: research, insights, positioning, messaging, visual identity, creative direction and hands-on production, plus retail and e-commerce across Lowe’s, Ace Hardware and Amazon."],
+        pre=[dict(h="The strategy.", p=["A century of recognition wasn’t enough to win modern consumers. The challenge was to build on the legacy while making SKIL more distinctive and approachable for today’s DIY audience, from two directions: campaigns people would notice, and a stronger brand foundation to keep them.",
+                                        "Gas Zombies used humour and a cinematic look to challenge reliance on gas-powered equipment, turning an everyday product benefit into a story people remembered."],
+                  img=[I + "d-skil-gaszombie.jpg", I + "d-skil-mower.jpg"])],
+        post=[dict(h="The 2024 refresh.", p=["Building on the campaign work, Realm led a comprehensive brand refresh in 2024, using market research, competitive analysis and audience insights to evolve SKIL’s identity, messaging and marketing for the modern DIY consumer."],
+                   img=[I + "d-skil-saw.jpg"]),
+              dict(h="Impact.", p=["The work brought fresh creative energy to a century-old name. Gas Zombies drew nearly 19 million views on its original YouTube release alone, and the 2024 refresh set a new strategic and creative foundation connecting SKIL’s history of innovation with a new generation."])],
+        figures=[("~19M", "YouTube views for Gas Zombies"), ("150+", "Product launches supported across SKIL’s tools and outdoor equipment")]),
+}
+for p in PROJECTS:
+    d = DECK.get(p["slug"])
+    if not d: continue
+    d = dict(d)
+    pre, post, add = d.pop("pre", []), d.pop("post", []), d.pop("add", [])
+    p.update(d)
+    p["sections"] = pre + p.get("sections", []) + add + post
 
 for p in PROJECTS:  # the case-page hero defaults to the card image at 2x
     p.setdefault("hero_img", p["card"].rsplit(".", 1)[0] + "@2x.jpg")
