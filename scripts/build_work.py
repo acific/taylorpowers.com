@@ -14,7 +14,7 @@ The layout follows the Framer portfolio template the owner chose (see docs/DECIS
 import html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-V = "44"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
+V = "45"  # cache stamp for /assets/main.css, /assets/site.js and /assets/carousel.js; 404.html uses it too
 
 EMAIL = "taylorraepowers@icloud.com"
 LINKEDIN = "https://www.linkedin.com/in/taylorpowers2026"
@@ -71,7 +71,8 @@ PROJECTS = [
     dict(slug="wylie-co", name="Wylie Co.", type="VFX Coordinator",
          client="Wylie Co.", title="Visual effects for film and television",
          year="2017 — 2020", role="VFX Coordinator, Wylie Co.", disciplines=["VFX production", "Feature film", "Television"],
-         card=W + "wylie-dune.jpg", hero_img=I + "dune-eyes-of-ibad.jpg",
+         card=W + "wylie-dune-trailer.jpg", hero_clip="/assets/clips/wylie-dune-trailer.mp4", hero_img="/assets/clips/wylie-dune-trailer.jpg",
+         film=dict(yt="n9xhJrPXop4", title="Dune — Official Trailer (Warner Bros.)"),
          lead="Visual effects production at Wylie Co., the studio behind postvis and final effects on Dune, including the Fremen’s blue eyes.",
          body=["Wylie Co. is a boutique visual effects studio in Culver City and Montreal, founded in 2015 as Rebellion VFX. Its credits run from Everest and Terminator: Dark Fate to Beastie Boys Story, The Stand and Dune.",
                "The studio works across the whole pipeline: previsualization, postvis that lets editors cut with temporary effects, and final shots."],
@@ -88,7 +89,7 @@ PROJECTS = [
     dict(slug="flex-lafc", name="FLEX Power Tools × LAFC", type="Account Management",
          client="FLEX × LAFC", title="Front of the jersey",
          year="2021 — 2023", role="Account Director → Senior Account Director, Realm Agency", disciplines=["Jersey sponsorship", "Campaign development", "Partner relations", "Experiential"],
-         card=W + "flex-lafc.jpg", hero_clip="/assets/clips/flex-falcon.mp4", hero_img="/assets/clips/flex-falcon.jpg", hero_vimeo="781610331",
+         card=W + "flex-lafc-crew.jpg", hero_clip="/assets/clips/flex-lafc-crew.mp4", hero_img="/assets/clips/flex-lafc-crew.jpg",
          lead="FLEX Power Tools on the front of Los Angeles FC’s jersey: a multi-year deal that launched a new tool brand with one of MLS’s loudest clubs.",
          body=["On March 26, 2021, LAFC named FLEX its Official Jersey Sponsor, replacing YouTube TV and putting FLEX on every Club, Community and specialty jersey. It was the first sports partnership for FLEX’s parent company, Chervon North America.",
                "The deal made FLEX the club’s Official Power Tool Partner and a member of its top Golden Boot Club tier, with exclusive content, media, signage and a co-branded retail promotion, timed to FLEX’s launch at Lowe’s that spring."],
@@ -182,7 +183,7 @@ PROJECTS = [
     dict(slug="ego", name="EGO Z6 Launch", type="Production",
          client="EGO Power+", title="EGO Z6 launch",
          year="2021", role="Realm Agency", disciplines=["Product launch", "Live action", "VFX", "Post-production"],
-         card=W + "ego-mower.jpg", hero_clip="/assets/clips/ego-mower.mp4", hero_img="/assets/clips/ego-mower.jpg",
+         card=W + "ego-z6-soldier-field.jpg", hero_clip="/assets/clips/ego-z6-soldier-field.mp4", hero_img="/assets/clips/ego-z6-soldier-field.jpg",
          lead="Launch creative for the EGO Z6, the world’s first platform-compatible zero-turn rider.",
          body=["EGO introduced the 42-inch Z6 as the world’s first platform-compatible zero-turn rider: it runs on the same 56V batteries as the rest of the POWER+ line. It reached Lowe’s, Ace Hardware and EGO dealers from February 2021, after what EGO says was more than six years of research and development.",
                "Its launch film, “Power without limits,” published in March 2021, carried the line “Power Like No Other.”"],
@@ -363,7 +364,7 @@ DECK = {
         post=[dict(h="Impact.", p=["The work contributed to EGO’s continued market-share growth and its recognition as the number-one rated brand in cordless outdoor power equipment.",
                                    "Beyond single campaigns, it set up a scalable approach connecting product innovation, storytelling and omnichannel execution, supporting EGO’s growing ecosystem and its move into the professional market."])],
         figures=[("110+", "Product launches supported across EGO and EGO Commercial"), ("39%+", "Cordless market share at Lowe’s (2025)"), ("2", "Major brand platforms developed")],
-        film=dict(yt="Mq8TwQIQwxw", poster="/assets/clips/ego-mower.jpg", title="EGO POWER+ 22\" Select Cut mower"),
+        film=dict(yt="d1Lis7rNkAg", poster="/assets/clips/ego-z6-soldier-field.jpg", title="EGO Z6 — Power without limits"),
         link=("EGO at Chervon", "https://global.chervongroup.com/en/what-we-do/our-brands/ego")),
     "flex-lafc": dict(
         title="Launching a national power tool brand through a landmark sports partnership",

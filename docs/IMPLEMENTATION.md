@@ -70,7 +70,7 @@ Below 810 px everything stacks into one column. The same file also styles `404.h
 | Folder | Contents | How it was made |
 |---|---|---|
 | `assets/video/` | `reel.mp4` (1080p H.264, 45 s, about 5.6 MB) and `reel-poster.jpg` | The owner's showreel, re-saved with the index at the front (fast start) |
-| `assets/clips/` | `ego`, `flex-falcon`, `flex-soccer`, `skil` (`.mp4` and `.jpg`) | Cut silent from the reel (EGO 4.4–7.9 s, falcon 19.4–22.6 s, soccer 30.0–34.6 s, SKIL 26.9–30.2 s), 1280×720 H.264 at about 2.2 Mbps, about 1 MB each |
+| `assets/clips/` | Silent hero and home-card loops (`.mp4` with a `.jpg` poster), one per project with a `hero_clip`: cut from the owner's media, the brands' own videos or the films listed in docs/CONTENT.md | 720p, about 1.5 Mbps, fast start |
 | `assets/img/` | `ufc-wwe`, `motogp-superfile`, `art-car`, `flex-lafc-welcome`, `taylor-portrait` | See [CONTENT.md](CONTENT.md) for the source of each |
 | `assets/logos/` | 13 SVGs | Wikimedia Commons, Simple Icons and the brands' own sites |
 

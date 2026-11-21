@@ -6,6 +6,7 @@ There are no version numbers; each entry is a date and the commits it covers. Th
 
 ## 2026-11-20
 
+- **New cards and hero videos:** EGO POWER+ from the Z6 "Power without limits" film (also its YouTube film), FLEX × LAFC from FLEX's Stacked Lithium hero video, and Wylie Co. from the Dune official trailer (also its film). Stamp 45.
 - **EGO POWER+:** new card, hero loop and film from EGO's 22" Select Cut mower spot (YouTube Mq8TwQIQwxw), replacing the Z6 clip and the deck reel.
 - **Case studies rewritten from the owner's write-ups** (deck "26-1120_TaylorPowers_Portfolio_Case-Study_Writeups_TP", in third person): NASCAR, MotoGP, SuperFile × LAFC, SuperFile × TKO (renamed from SuperFile × UFC), EGO POWER+ (renamed from EGO Z6 Launch), FLEX × LAFC, FLEX launch and SKIL now open with the owner's overview, strategy, role and impact, use the deck's stats as Results, and add its photos and films (MotoGP season film and hero loop, LAFC training-top hero loop, EGO reel, FLEX × LAFC film and spot, FLEX Stacked Lithium spot and hero loop). **New headshot:** the owner's 2026 headshot is the About portrait and the home page's first card.
 - **About:** the large portrait is now the owner's 2026 headshot.
