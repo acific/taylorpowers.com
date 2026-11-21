@@ -450,7 +450,7 @@ ABOUT = dict(
                   ["wylie-co", "digital-domain", "ego-labs"],
                   ["superfile-trackhouse-nascar", "superfile-art-car"]],
     # Image slots: top pair, one backdrop per service, closing pair
-    img_small="/assets/about/editing.jpg", img_big="/assets/about/headshot-2026.jpg",
+    img_small="/assets/about/editing.jpg", img_big="/assets/about/taylor-headshot-2026.jpg",
     img_services=["/assets/about/service-1.jpg", "/assets/about/service-2.jpg", "/assets/about/service-3.jpg", "/assets/about/service-4.jpg", "/assets/about/service-5.jpg"],
 )
 ABOUT_STATEMENT_SHORT = "A brand and marketing executive with 8+ years across Hollywood productions, global consumer brands, and high-profile partnerships in sports and entertainment."
@@ -539,7 +539,7 @@ def img2x(src):
 # ---------- Home: the carousel ----------
 # The first carousel card is Taylor herself and opens About
 ME = dict(slug=None, href="/about/", name="Taylor Powers", type="Brand & Marketing Executive",
-          lead=ABOUT_STATEMENT_SHORT, year="Chicago / Los Angeles / Las Vegas", card=W + "taylor-powers.jpg")
+          lead=ABOUT_STATEMENT_SHORT, year="Chicago / Los Angeles / Las Vegas", card=W + "taylor-powers-2026.jpg")
 
 def home():
     items = [ME] + PROJECTS
